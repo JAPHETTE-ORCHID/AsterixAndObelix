@@ -2,8 +2,8 @@
 {
     public interface IDrop
     {
-        void DropRandomItem();
+        IItem DropRandomItem();
 
-        void DropGold();
+        int DropGold();
     }
 }
