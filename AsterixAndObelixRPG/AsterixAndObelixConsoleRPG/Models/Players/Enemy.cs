@@ -52,5 +52,15 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
         {
             return this.Gold;
         }
+
+        IItem IDrop.DropRandomItem()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        int IDrop.DropGold()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

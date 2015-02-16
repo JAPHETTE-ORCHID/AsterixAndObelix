@@ -5,12 +5,15 @@
         private int experience;
         private int gold;
 
+        public Hero(int attack, int defence, int health)
+            : base (attack, defence, health)
+        {
+            
+        }
+
         public int Level
         {
-            get
-            {
-                return experience / 
-            }
+            get { return experience; }
         }
     }
 }
