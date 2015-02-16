@@ -1,10 +1,13 @@
 ﻿using AsterixAndObelixConsoleRPG.Contracts;
 using AsterixAndObelixConsoleRPG.Enumerations;
+using AsterixAndObelixConsoleRPG.Models.Fields;
 
 namespace AsterixAndObelixConsoleRPG.Models.Items
 {
     public class AttackItems : Item, IAttack
     {
+        private int attack;
+
         protected AttackItems(int attack, int price, ItemType itemType)
             : base(price, itemType)
         {
@@ -15,11 +18,12 @@ namespace AsterixAndObelixConsoleRPG.Models.Items
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.attack;
             }
             set
             {
-                throw new System.NotImplementedException();
+                Validator.CheckForNegativeNumber(value);
+                this.attack = value;
             }
         }
 
