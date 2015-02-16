@@ -6,7 +6,8 @@ namespace AsterixAndObelixConsoleRPG
     {
         internal static void Main()
         {
-            Console.WriteLine("dibel");
+            Console.WriteLine("test2");
+            Console.WriteLine("testing");
         }
     }
 }
