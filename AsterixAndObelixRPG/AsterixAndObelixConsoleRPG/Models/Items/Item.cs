@@ -5,6 +5,12 @@
 
     public abstract class Item : IItem
     {
+        protected Item(int price, ItemType itemType)
+        {
+            this.Price = price;
+            this.ItemType = itemType;
+        }
+
         public int Price
         {
             get

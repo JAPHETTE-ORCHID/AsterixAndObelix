@@ -6,7 +6,7 @@
     {
         private Helmet helmet;
         private Chest chest;
-        private Weapon weapon;
+        private Sword _sword;
         private Belt belt;
         private Boots boots;
         private Pants pants;
