@@ -1,10 +1,9 @@
-﻿using AsterixAndObelixConsoleRPG.Models.Items;
-
-namespace AsterixAndObelixConsoleRPG.Models.Players
+﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     using System;
     using System.Collections.Generic;
 
+    using AsterixAndObelixConsoleRPG.Models.Items;
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
 
