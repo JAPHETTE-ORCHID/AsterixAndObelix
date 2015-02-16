@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace AsterixAndObelixConsoleRPG.Models.Players
 {
@@ -6,8 +6,9 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
     {
         public Obelix(string name, int attack, int defence, int health)
             : base (name, attack, defence, health)
-        {
-            
+        {   
         }
+
+        
     }
 }
