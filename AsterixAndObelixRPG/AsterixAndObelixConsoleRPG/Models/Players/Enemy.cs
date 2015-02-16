@@ -3,7 +3,7 @@
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
 
-    public class Enemy : PlayerObject, IDrop
+    internal class Enemy : PlayerObject, IDrop
     {
         private EnemyType enemyType;
 
