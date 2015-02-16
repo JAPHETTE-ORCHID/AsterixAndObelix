@@ -10,7 +10,7 @@ namespace AsterixAndObelixConsoleRPG.Core
             while (true)
             {
                 Thread.Sleep(1000);
-                Console.WriteLine("asd");
+                Console.WriteLine("asd2");
             }
         }
     }
