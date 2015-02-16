@@ -61,6 +61,7 @@
     <Compile Include="Models\Items\DefenseItems.cs" />
     <Compile Include="Enumerations\ItemType.cs" />
     <Compile Include="Models\Items\Item.cs" />
+    <Compile Include="Models\Items\test.cs" />
     <Compile Include="Models\Players\Enemy.cs" />
     <Compile Include="Enumerations\EnemyType.cs" />
     <Compile Include="Models\Players\Hero.cs" />
