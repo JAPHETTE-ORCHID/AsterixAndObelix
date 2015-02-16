@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Threading;
 using AsterixAndObelixConsoleRPG.Models.Players;
+using AsterixAndObelixConsoleRPG.Enumerations;
 
 namespace AsterixAndObelixConsoleRPG.Core
 {
     public class Engine
     {
+        private Hero mainHero;
+
         protected Engine()
         {
             
@@ -36,7 +39,17 @@ namespace AsterixAndObelixConsoleRPG.Core
 
         public void AddHero(string type, string name)
         {
-            
+            string obelix = HeroType.Asterix.ToString().ToLower();
+            string asterix = HeroType.Obelix.ToString().ToLower();
+
+            if (type.ToLower().Equals(obelix))
+            {
+                this.mainHero = new Obelix(name, 100, 100, 100);
+            }
+            else if (type.ToLower().Equals(asterix))
+            {
+                // TODO: add hero asterix
+            }
         }
     }
 }
