@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsterixAndObelixConsoleRPG.Models.Items
 {
-    class test
+    class TestItem
     {
     }
 }
