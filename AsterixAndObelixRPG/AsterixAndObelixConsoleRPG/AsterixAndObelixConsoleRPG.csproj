@@ -44,6 +44,7 @@
     <Compile Include="Contracts\IDefence.cs" />
     <Compile Include="Contracts\IUpdatable.cs" />
     <Compile Include="Core\Game.cs" />
+    <Compile Include="Enumerations\AllItems.cs" />
     <Compile Include="Enumerations\HeroType.cs" />
     <Compile Include="Models\Fields\Constants.cs" />
     <Compile Include="Models\Fields\Inventory.cs" />
