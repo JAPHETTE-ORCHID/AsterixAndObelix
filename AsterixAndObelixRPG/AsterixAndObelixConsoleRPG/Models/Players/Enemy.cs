@@ -35,31 +35,134 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
                     switch (itemNumber)
                     {
                         case 1:
-                            itemForDrop = new Belt(100, ItemType.Common, 100);
+                            itemForDrop = new Belt(10, ItemType.Common, 10);
                             break;
                         case 2:
-                            itemForDrop = new Boots(100, ItemType.Common, 100);
+                            itemForDrop = new Boots(10, ItemType.Common, 10);
                             break;
                         case 3:
-                            itemForDrop = new Chest(100, ItemType.Common, 100);
+                            itemForDrop = new Chest(10, ItemType.Common, 10);
                             break;
                         case 4:
-                            itemForDrop = new Helmet(100, ItemType.Common, 100);
+                            itemForDrop = new Helmet(10, ItemType.Common, 10);
                             break;
                         case 5:
-                            itemForDrop = new Pants(100, ItemType.Common, 100);
+                            itemForDrop = new Pants(10, ItemType.Common, 10);
                             break;
                         case 6:
-                            itemForDrop = new Sword(100, ItemType.Common, 100);
+                            itemForDrop = new Sword(10, ItemType.Common, 10);
+                            break;
+                        default:
+                            itemForDrop = null;
+                            break;                        
+                    }
+                    break;
+                case EnemyType.Manipularius:
+                    switch (itemNumber)
+                    {
+                        case 1:
+                            itemForDrop = new Belt(50, ItemType.Uncommon, 50);
+                            break;
+                        case 2:
+                            itemForDrop = new Boots(50, ItemType.Uncommon, 50);
+                            break;
+                        case 3:
+                            itemForDrop = new Chest(50, ItemType.Uncommon, 50);
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet(50, ItemType.Uncommon, 50);
+                            break;
+                        case 5:
+                            itemForDrop = new Pants(50, ItemType.Uncommon, 50);
+                            break;
+                        case 6:
+                            itemForDrop = new Sword(50, ItemType.Uncommon, 50);
                             break;
                         default:
                             itemForDrop = null;
                             break;
-                            
+                    }
+                    break;
+                case EnemyType.Centurion:
+                    switch (itemNumber)
+                    {
+                        case 1:
+                            itemForDrop = new Belt(100, ItemType.Rare, 100);
+                            break;
+                        case 2:
+                            itemForDrop = new Boots(100, ItemType.Rare, 100);
+                            break;
+                        case 3:
+                            itemForDrop = new Chest(100, ItemType.Rare, 100);
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet(100, ItemType.Rare, 100);
+                            break;
+                        case 5:
+                            itemForDrop = new Pants(100, ItemType.Rare, 100);
+                            break;
+                        case 6:
+                            itemForDrop = new Sword(100, ItemType.Rare, 100);
+                            break;
+                        default:
+                            itemForDrop = null;
+                            break;
+                    }
+                    break;
+                case EnemyType.Tribune:
+                    switch (itemNumber)
+                    {
+                        case 1:
+                            itemForDrop = new Belt(150, ItemType.Magic, 150);
+                            break;
+                        case 2:
+                            itemForDrop = new Boots(150, ItemType.Magic, 150);
+                            break;
+                        case 3:
+                            itemForDrop = new Chest(150, ItemType.Magic, 150);
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet(150, ItemType.Magic, 150);
+                            break;
+                        case 5:
+                            itemForDrop = new Pants(150, ItemType.Magic, 150);
+                            break;
+                        case 6:
+                            itemForDrop = new Sword(150, ItemType.Magic, 150);
+                            break;
+                        default:
+                            itemForDrop = null;
+                            break;
+                    }
+                    break;
+                case EnemyType.Caesar:
+                    switch (itemNumber)
+                    {
+                        case 1:
+                            itemForDrop = new Belt(200, ItemType.Legendary, 200);
+                            break;
+                        case 2:
+                            itemForDrop = new Boots(200, ItemType.Legendary, 200);
+                            break;
+                        case 3:
+                            itemForDrop = new Chest(200, ItemType.Legendary, 200);
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet(200, ItemType.Legendary, 200);
+                            break;
+                        case 5:
+                            itemForDrop = new Pants(200, ItemType.Legendary, 200);
+                            break;
+                        case 6:
+                            itemForDrop = new Sword(200, ItemType.Legendary, 200);
+                            break;
+                        default:
+                            itemForDrop = null;
+                            break;
                     }
                     break;
                 default:
-                    itemForDrop = new Sword(100, ItemType.Common, 100);
+                    itemForDrop = null;
                     break;
             }
             return itemForDrop;
@@ -68,16 +171,6 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
         public int DropGold()
         {
             return this.Gold;
-        }
-
-        IItem IDrop.DropRandomItem()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        int IDrop.DropGold()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
