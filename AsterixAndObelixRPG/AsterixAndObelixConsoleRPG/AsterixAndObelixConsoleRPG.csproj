@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IDefence.cs" />
+    <Compile Include="Contracts\IInventory.cs" />
     <Compile Include="Contracts\IUpdatable.cs" />
     <Compile Include="Core\Game.cs" />
     <Compile Include="Enumerations\AllItems.cs" />

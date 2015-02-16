@@ -40,8 +40,9 @@
             {
                 if (value == null)
                 {
-                    throw new ArgumentException("Text field cannot be null.")
-                };
+                    throw new ArgumentException("Text field cannot be null.");
+                }
+
                 this.itemType = value;
             }
         }
