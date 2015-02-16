@@ -1,10 +1,14 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items
 {
+    using System;
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
+    using AsterixAndObelixConsoleRPG.Models.Fields;
 
     public abstract class Item : IItem
     {
+        private int price;
+        private ItemType itemType;
         protected Item(int price, ItemType itemType)
         {
             this.Price = price;
@@ -15,12 +19,13 @@
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.price;
             }
 
             set
             {
-                throw new System.NotImplementedException();
+                Validator.CheckForNegativeNumber(value);
+                this.price = value;
             }
         }
 
@@ -28,12 +33,16 @@
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.itemType;
             }
 
             set
             {
-                throw new System.NotImplementedException();
+                if (value == null)
+                {
+                    throw new ArgumentException("Text field cannot be null.")
+                };
+                this.itemType = value;
             }
         }
     }
