@@ -1,11 +1,13 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Contracts
 {
-    public interface IAttack
+    internal interface IAttack
     {
         int Attack
         {
             get;
             set;
         }
+
+        void MakeAttack();
     }
 }

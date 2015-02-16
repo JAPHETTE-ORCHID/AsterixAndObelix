@@ -1,19 +1,32 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     using AsterixAndObelixConsoleRPG.Contracts;
+    using AsterixAndObelixConsoleRPG.Models.Fields;
 
-    public abstract class PlayerObject : IAttack, IDefence, IUnit
+    public abstract class PlayerObject : IAttack, IDefence, IUnit, IUpdatable
     {
+        private int attack;
+        private int defence;
+        private int health;
+
+        public PlayerObject(int attack, int defence, int health)
+        {
+            this.Attack = attack;
+            this.Defence = defence;
+            this.Health = health;
+        }
+
         public int Attack
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.attack;
             }
 
             set
             {
-                throw new System.NotImplementedException();
+                Validator.CheckForNegativeNumber(value);
+                this.attack = value;
             }
         }
 
@@ -21,12 +34,13 @@
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.defence;
             }
 
             set
             {
-                throw new System.NotImplementedException();
+                Validator.CheckForNegativeNumber(value);
+                this.defence = value;
             }
         }
 
@@ -34,13 +48,25 @@
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.health;
             }
 
             set
             {
-                throw new System.NotImplementedException();
+                Validator.CheckForNegativeNumber(value);
+                this.defence = value;
             }
+        }
+
+        public void Update()
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+        public void MakeAttack()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

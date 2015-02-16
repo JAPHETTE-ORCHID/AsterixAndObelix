@@ -1,8 +1,16 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
-    public class Hero : PlayerObject
+    public abstract class Hero : PlayerObject
     {
         private int experience;
         private int gold;
+
+        public int Level
+        {
+            get
+            {
+                return experience / 
+            }
+        }
     }
 }

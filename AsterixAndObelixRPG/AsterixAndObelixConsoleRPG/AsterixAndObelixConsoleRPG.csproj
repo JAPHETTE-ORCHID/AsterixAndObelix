@@ -42,12 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IDefence.cs" />
+    <Compile Include="Contracts\IUpdatable.cs" />
     <Compile Include="Core\Game.cs" />
+    <Compile Include="Models\Fields\Constants.cs" />
     <Compile Include="Models\Fields\Inventory.cs" />
     <Compile Include="Models\Fields\Market.cs" />
     <Compile Include="Models\Fields\BattleField.cs" />
     <Compile Include="Models\Fields\MarketField.cs" />
     <Compile Include="Models\Fields\Field.cs" />
+    <Compile Include="Models\Fields\Validator.cs" />
     <Compile Include="Models\Items\Chest.cs" />
     <Compile Include="Models\Items\Helmet.cs" />
     <Compile Include="Models\Items\Belts.cs" />
@@ -61,10 +64,12 @@
     <Compile Include="Models\Items\DefenseItems.cs" />
     <Compile Include="Enumerations\ItemType.cs" />
     <Compile Include="Models\Items\Item.cs" />
+    <Compile Include="Models\Players\Asterix.cs" />
     <Compile Include="Models\Players\Enemy.cs" />
     <Compile Include="Enumerations\EnemyType.cs" />
     <Compile Include="Models\Players\Hero.cs" />
     <Compile Include="MainGame.cs" />
+    <Compile Include="Models\Players\Obelix.cs" />
     <Compile Include="Models\Players\PlayerObject.cs" />
     <Compile Include="Models\Items\Pants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
