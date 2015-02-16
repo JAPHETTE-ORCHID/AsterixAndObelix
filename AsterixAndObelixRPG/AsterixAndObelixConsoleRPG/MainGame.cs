@@ -8,6 +8,7 @@ namespace AsterixAndObelixConsoleRPG
         {
             Console.WriteLine("test2");
             Console.WriteLine("testing");
+            Console.WriteLine("mitkoEhaker");
         }
     }
 }
