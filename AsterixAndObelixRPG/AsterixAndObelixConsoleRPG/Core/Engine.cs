@@ -28,7 +28,9 @@ namespace AsterixAndObelixConsoleRPG.Core
                             string heroType = lineSplit[2];
                             string heroName = lineSplit[3];
                             AddHero(heroType, heroName);
+                            break;
                     }
+                    break;
             }
         }
 

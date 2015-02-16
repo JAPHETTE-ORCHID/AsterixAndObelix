@@ -4,8 +4,8 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     class Obelix : Hero
     {
-        public Obelix(int attack, int defence, int health)
-            : base (attack, defence, health)
+        public Obelix(string name, int attack, int defence, int health)
+            : base (name, attack, defence, health)
         {
             
         }
