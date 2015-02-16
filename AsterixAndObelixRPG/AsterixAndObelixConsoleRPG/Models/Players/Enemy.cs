@@ -27,16 +27,33 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
         public IItem DropRandomItem()
         {
             Random rnd = new Random();
-            int itemNumber = rnd.Next(1, 5);
+            int itemNumber = rnd.Next(1, 6);
             IItem itemForDrop;
             switch (this.EnemyType)
             {
                 case EnemyType.Cadet:
                     switch (itemNumber)
                     {
-                        
-                        default:
+                        case 1:
+                            itemForDrop = new Belt(100, ItemType.Common, 100);
+                            break;
+                        case 2:
+                            itemForDrop = new Boots(100, ItemType.Common, 100);
+                            break;
+                        case 3:
+                            itemForDrop = new Chest(100, ItemType.Common, 100);
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet(100, ItemType.Common, 100);
+                            break;
+                        case 5:
+                            itemForDrop = new Pants(100, ItemType.Common, 100);
+                            break;
+                        case 6:
                             itemForDrop = new Sword(100, ItemType.Common, 100);
+                            break;
+                        default:
+                            itemForDrop = null;
                             break;
                             
                     }
