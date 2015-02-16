@@ -11,5 +11,13 @@
                 throw new ArgumentOutOfRangeException("Field \"Number\" cannot be a negative number.");
             }
         }
+
+        public static void CheckForEmptyOrNull(string str)
+        {
+            if (String.IsNullOrEmpty(str))
+            {
+                throw new ArgumentException("Text field cannot be empty or null.");
+            }
+        }
     }
 }
