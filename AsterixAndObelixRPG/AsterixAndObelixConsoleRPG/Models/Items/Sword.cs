@@ -9,7 +9,6 @@ namespace AsterixAndObelixConsoleRPG.Models.Items
         {
             this.ItemType = itemType;
             this.Price = price;
-
         }
     }
 }

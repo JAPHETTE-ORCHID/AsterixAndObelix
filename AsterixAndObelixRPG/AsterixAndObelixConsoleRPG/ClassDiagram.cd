@@ -25,7 +25,7 @@
   <Class Name="AsterixAndObelixConsoleRPG.Models.Players.Enemy">
     <Position X="7.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Models\Players\Enemy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -53,13 +53,6 @@
       <FileName>Models\Items\DefenseItems.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="AsterixAndObelixConsoleRPG.Models.Items.Sword">
-    <Position X="0.5" Y="12.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Items\Sword.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.Belt">
     <Position X="2.5" Y="12.5" Width="1.5" />
@@ -141,7 +134,7 @@
   <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IDrop">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Contracts\IDrop.cs</FileName>
     </TypeIdentifier>
   </Interface>
