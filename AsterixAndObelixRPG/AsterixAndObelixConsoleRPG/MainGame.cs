@@ -1,4 +1,5 @@
 ﻿using System;
+using AsterixAndObelixConsoleRPG.Core;
 
 namespace AsterixAndObelixConsoleRPG
 {
@@ -6,7 +7,8 @@ namespace AsterixAndObelixConsoleRPG
     {
         internal static void Main()
         {
-            Console.WriteLine("test2smenqm");
+            Engine engine = new Engine();
+            engine.Start();
         }
     }
 }
