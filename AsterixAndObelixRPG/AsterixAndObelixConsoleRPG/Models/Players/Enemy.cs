@@ -6,5 +6,15 @@
     public class Enemy : PlayerObject, IDrop
     {
         private EnemyType enemyType;
+
+        public void DropRandomItem()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DropGold()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
