@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AsterixAndObelixConsoleRPG.Core.Engine">
-    <Position X="10.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAIAAAAAgAAAAAgAAAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAgAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Core\Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Players.PlayerObject">
-    <Position X="5.5" Y="3" Width="1.5" />
+    <Position X="4.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQACAAAAAAAAAAAAAAAAAAAAIQAAACAAAAAAgAAAAo=</HashCode>
       <FileName>Models\Players\PlayerObject.cs</FileName>
@@ -16,15 +16,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Players.Hero">
-    <Position X="3.5" Y="7" Width="1.5" />
+    <Position X="2.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQCAAAAAAAAAAAAAAAQAgAAEAAAHAABAAgAAQAE=</HashCode>
+      <HashCode>AAAAAQCAAAAAAAAEAAAAAAQAAAAEAAADAABAAgAAQAE=</HashCode>
       <FileName>Models\Players\Hero.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Players.Enemy">
-    <Position X="7.5" Y="7" Width="1.5" />
+    <Position X="6.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAACAIAAAAAAAAABAAAAAAE=</HashCode>
       <FileName>Models\Players\Enemy.cs</FileName>
@@ -32,15 +31,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.Item">
-    <Position X="5.5" Y="11" Width="1.5" />
+    <Position X="13.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgA=</HashCode>
+      <HashCode>AAABAAAAAQAAAAAEAAAAAAAAAAAAAAAAAAACAAAAAgA=</HashCode>
       <FileName>Models\Items\Item.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.AttackItems">
-    <Position X="2.5" Y="14.75" Width="1.5" />
+    <Position X="10.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIQAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Items\AttackItems.cs</FileName>
@@ -48,7 +47,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.DefenseItems">
-    <Position X="8.5" Y="14.75" Width="1.5" />
+    <Position X="16.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAI=</HashCode>
       <FileName>Models\Items\DefenseItems.cs</FileName>
@@ -56,129 +55,192 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.Sword">
-    <Position X="0.5" Y="18" Width="1.5" />
+    <Position X="8.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Items\Sword.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.Belt">
-    <Position X="2.5" Y="18" Width="1.5" />
+    <Position X="10.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Items\Belts.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.Boots">
-    <Position X="4.5" Y="18" Width="1.5" />
+    <Position X="12.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Items\Boots.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.Chest">
-    <Position X="6.5" Y="18" Width="1.5" />
+    <Position X="14.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Items\Chest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.Pants">
-    <Position X="8.5" Y="18" Width="1.5" />
+    <Position X="16.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Items\Pants.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.Helmet">
-    <Position X="10.5" Y="18" Width="1.5" />
+    <Position X="18.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Items\Helmet.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.Field">
-    <Position X="5.5" Y="20" Width="1.5" />
+    <Position X="13.75" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Fields\Field.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.BattleField">
-    <Position X="2.5" Y="22.25" Width="1.5" />
+    <Position X="10.75" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Fields\BattleField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.MarketField">
-    <Position X="8.5" Y="22.25" Width="1.5" />
+    <Position X="16.75" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgBAAAAAEgAAACABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Fields\MarketField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.Inventory">
-    <Position X="6.5" Y="25.5" Width="1.5" />
+    <Position X="0.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAEAAgAAAAAgAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Models\Fields\Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.Market">
-    <Position X="10.5" Y="25.5" Width="1.5" />
+    <Position X="18.75" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Fields\Market.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="AsterixAndObelixConsoleRPG.Models.Players.Asterix">
+    <Position X="0.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Players\Asterix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsterixAndObelixConsoleRPG.Models.Players.Obelix">
+    <Position X="4.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Players\Obelix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsterixAndObelixConsoleRPG.Models.Players.PlayerInfo">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Players\PlayerInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.Constants">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Fields\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsterixAndObelixConsoleRPG.Core.Game">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAEAAAAAAAAAAAAAAAAAIAAAAAQAAAI=</HashCode>
+      <FileName>Core\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IAttack">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Contracts\IAttack.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IDrop">
-    <Position X="6.5" Y="0.5" Width="1.5" />
+    <Position X="10.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Contracts\IDrop.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IUnit">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Contracts\IUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IItem">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="12.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Contracts\IItem.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IDefence">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Contracts\IDefence.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IInventory">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IInventory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IUpdatable">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IUpdatable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Enum Name="AsterixAndObelixConsoleRPG.Enumerations.EnemyType">
-    <Position X="10.5" Y="7" Width="1.5" />
+    <Position X="8.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAgAEAAAAAAAAAAAAgAAQAAAAAAAAA=</HashCode>
       <FileName>Enumerations\EnemyType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="AsterixAndObelixConsoleRPG.Enumerations.ItemType">
-    <Position X="10.5" Y="11" Width="1.5" />
+    <Position X="16.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAEQAAAAAAAAAQAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Enumerations\ItemType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="AsterixAndObelixConsoleRPG.Enumerations.HeroType">
+    <Position X="2.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enumerations\HeroType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="AsterixAndObelixConsoleRPG.Enumerations.AllItems">
+    <Position X="18.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAQAABAAAAAgAQAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Enumerations\AllItems.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
