@@ -105,8 +105,13 @@ namespace AsterixAndObelixConsoleRPG.Core
             }
             else if (type.Equals(asterix))
             {
+                PlayerInfo.Hero = new Asterix(name, 100, 100, 100);
                 Console.WriteLine("Asterix added");
                 // TODO: add hero asterix
+            }
+            else
+            {
+                Console.WriteLine("Hero must be asterix or obelix.");
             }
         }
     }
