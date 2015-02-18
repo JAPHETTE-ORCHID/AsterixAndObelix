@@ -8,7 +8,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
     using AsterixAndObelixConsoleRPG.Models.Fields;
     using AsterixAndObelixConsoleRPG.Contracts;
 
-    public abstract class Hero : PlayerObject, IInventory
+    public abstract class Hero : PlayerObject
     {
         private int experience;
         private int gold;
@@ -82,16 +82,6 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
                 Validator.CheckForNullInventory(value);
                 this.Inventory = value;
             }
-        }
-
-        public void AddItem(IItem item)
-        {
-            this.Inventory.AddItem(item);
-        }
-
-        public void RemoveItem(IItem item)
-        {
-            this.Inventory.RemoveItem(item);
         }
 
         public string ShowItems()
