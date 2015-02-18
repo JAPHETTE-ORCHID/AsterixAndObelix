@@ -7,10 +7,11 @@ namespace AsterixAndObelixConsoleRPG.Core
     {
         private Thread thread;
         private Engine engine;
+        public static bool isGameRunning = true; 
 
         private void Run()
         {
-            while (true)
+            while (isGameRunning)
             {
                 try
                 {

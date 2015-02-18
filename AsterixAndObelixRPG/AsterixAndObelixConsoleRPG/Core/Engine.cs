@@ -40,6 +40,9 @@ namespace AsterixAndObelixConsoleRPG.Core
                 case "info":
                     Console.WriteLine(PlayerInfo.Show());
                     break;
+                case "exit":
+                    this.ExitGame();
+                    break;
                 default:
                     Console.WriteLine("Invalid command");
                     break;
@@ -115,12 +118,18 @@ namespace AsterixAndObelixConsoleRPG.Core
             {
                 PlayerInfo.Hero = new Asterix(name, 100, 100, 100);
                 Console.WriteLine("Asterix added");
-                // TODO: add hero asterix
             }
             else
             {
                 Console.WriteLine("Hero must be asterix or obelix.");
             }
+        }
+
+        private void ExitGame()
+        {
+            Console.WriteLine("Good bye!");
+            Thread.Sleep(1000);
+            Game.isGameRunning = false;
         }
     }
 }
