@@ -46,5 +46,12 @@
                 this.itemType = value;
             }
         }
+
+        public override string ToString()
+        {
+            string itemInfo = "Item type: " + this.itemType;
+
+            return itemInfo;
+        }
     }
 }

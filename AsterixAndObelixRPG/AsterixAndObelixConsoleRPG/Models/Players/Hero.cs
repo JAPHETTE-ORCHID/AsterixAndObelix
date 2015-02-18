@@ -106,5 +106,12 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
 
             return result.ToString();
         }
+
+        public override string ToString()
+        {
+            string heroInfo = "Hero name: "+this.name;
+
+            return heroInfo;
+        }
     }
 }
