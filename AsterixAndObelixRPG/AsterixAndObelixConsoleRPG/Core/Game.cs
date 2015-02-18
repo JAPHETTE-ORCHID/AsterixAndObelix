@@ -12,9 +12,14 @@ namespace AsterixAndObelixConsoleRPG.Core
         {
             while (true)
             {
-                engine.CommandHandler(Console.ReadLine());
-                Thread.Sleep(1000);
-                Console.WriteLine("asd2");
+                try
+                {
+                    engine.CommandHandler(Console.ReadLine());
+                }
+                catch (ApplicationException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
 
