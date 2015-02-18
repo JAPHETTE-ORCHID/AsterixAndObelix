@@ -81,7 +81,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
             set
             {
                 Validator.CheckForNullInventory(value);
-                this.Inventory = value;
+                this.inventory = value;
             }
         }
 
@@ -97,7 +97,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
 
         public override string ToString()
         {
-            string heroInfo = "Hero name: "+this.name;
+            string heroInfo = "Hero name: " + this.name;
 
             return heroInfo;
         }

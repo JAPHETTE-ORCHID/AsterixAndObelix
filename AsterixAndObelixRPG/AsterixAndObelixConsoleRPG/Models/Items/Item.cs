@@ -1,6 +1,7 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items
 {
     using System;
+    using System.Text;
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
     using AsterixAndObelixConsoleRPG.Models.Fields;
@@ -49,9 +50,20 @@
 
         public override string ToString()
         {
-            string itemInfo = "Item type: " + this.itemType;
+            StringBuilder result = new StringBuilder();
+            string padding = new string(' ', 2);
 
-            return itemInfo;
+            result.Append(padding)
+                .Append("Item: ")
+                .AppendLine(this.GetType().Name);
+            result.Append(padding)
+                .Append("Item type: ")
+                .AppendLine(this.ItemType.ToString());
+            result.Append(padding)
+                .Append("Item price: ")
+                .AppendLine(this.Price.ToString());
+
+            return result.ToString() ;
         }
     }
 }
