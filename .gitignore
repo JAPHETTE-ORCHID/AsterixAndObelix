@@ -5,6 +5,9 @@
 *.suo
 *.user
 *.sln.docstates
+# Remove conflicts
+*.sln
+*.csproj
 
 # Build results
 [Dd]ebug/
