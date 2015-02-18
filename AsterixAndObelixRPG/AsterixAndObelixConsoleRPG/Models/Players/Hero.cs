@@ -2,6 +2,7 @@ using Constants = AsterixAndObelixConsoleRPG.Models.Fields.Constants;
 
 namespace AsterixAndObelixConsoleRPG.Models.Players
 {
+    using System;
     using System.Text;
     using System.Collections.Generic;
     using AsterixAndObelixConsoleRPG.Models.Fields;
@@ -12,7 +13,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
         private int experience;
         private int gold;
         private string name;
-        private IList<IItem> inventory;
+        private Inventory inventory;
 
         public Hero(string name, int attack, int defence, int health)
             : base(attack, defence, health)
@@ -69,7 +70,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
             }
         }
 
-        public IList<IItem> Inventory
+        public Inventory Inventory
         {
             get
             {
@@ -78,25 +79,19 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
 
             set
             {
-                if (value != null)
-                {
-                    this.inventory = value;
-                }
-                else
-                {
-                    this.inventory = new List<IItem>();
-                }
+                Validator.CheckForNullInventory(value);
+                this.Inventory = value;
             }
         }
 
         public void AddItem(IItem item)
         {
-            this.Inventory.Add(item);
+            this.Inventory.AddItem(item);
         }
 
         public void RemoveItem(IItem item)
         {
-            this.Inventory.Remove(item);
+            this.Inventory.RemoveItem(item);
         }
 
         public string ShowItems()
