@@ -121,7 +121,12 @@ namespace AsterixAndObelixConsoleRPG.Core
             }
             else
             {
-                Console.WriteLine("Hero must be asterix or obelix.");
+                Console.WriteLine("Hero type " + type + " is invalid. Choose between these:");
+                var values = Enum.GetValues(typeof(HeroType));
+                foreach (var hero in values)
+                {
+                    Console.WriteLine("-"+hero);
+                }
             }
         }
 
