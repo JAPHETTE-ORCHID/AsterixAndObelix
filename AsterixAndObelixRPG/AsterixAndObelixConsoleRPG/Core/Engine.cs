@@ -10,18 +10,13 @@ namespace AsterixAndObelixConsoleRPG.Core
 {
     public class Engine
     {
-        private Hero mainHero;
-        private Dictionary<string, IItem> items = new Dictionary<string, IItem>(); 
-
-        protected Engine()
-        {
-            
-        }
+        private Hero hero;
+        private List<IItem> items = new List<IItem>();
 
         public void CommandHandler(string line)
         {
             // add hero Asterix name;
-            // add item Common heroName
+            // add item sword
             string[] lineSplit = line.Split(' ');
             string comand = lineSplit[0];
 
@@ -40,15 +35,15 @@ namespace AsterixAndObelixConsoleRPG.Core
 
                         case "item":
                             string itemType = lineSplit[2];
-                            string addTo = lineSplit[3];
-                            AddItem(itemType, addTo);
+                            AddItem
+                                (itemType);
                             break;
                     }
                     break;
             }
         }
 
-        public void AddItem(string type, string addTo)
+        protected void AddItem(string type)
         {
             string belt = AllItems.Belt.ToString().ToLower();
             string boots = AllItems.Boots.ToString().ToLower();
@@ -88,21 +83,24 @@ namespace AsterixAndObelixConsoleRPG.Core
                 throw new IndexOutOfRangeException("Item not found");
             }
 
-            items.Add(addTo, item);
+            items.Add(item);
+            Console.WriteLine("New item added");
         }
 
-        public void AddHero(string type, string name)
+        protected void AddHero(string type, string name)
         {
-            string obelix = HeroType.Asterix.ToString().ToLower();
-            string asterix = HeroType.Obelix.ToString().ToLower();
+            string obelix = HeroType.Obelix.ToString().ToLower();
+            string asterix = HeroType.Asterix.ToString().ToLower();
             type = type.ToLower();
 
             if (type.Equals(obelix))
             {
-                this.mainHero = new Obelix(name, 100, 100, 100);
+                this.hero = new Obelix(name, 100, 100, 100);
+                Console.WriteLine("Obelix add");
             }
             else if (type.Equals(asterix))
             {
+                Console.WriteLine("Asterix add");
                 // TODO: add hero asterix
             }
         }

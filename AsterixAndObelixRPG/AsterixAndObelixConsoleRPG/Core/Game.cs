@@ -6,11 +6,13 @@ namespace AsterixAndObelixConsoleRPG.Core
     internal class Game
     {
         private Thread thread;
+        private Engine engine;
 
         private void Run()
         {
             while (true)
             {
+                engine.CommandHandler(Console.ReadLine());
                 Thread.Sleep(1000);
                 Console.WriteLine("asd2");
             }
@@ -20,6 +22,7 @@ namespace AsterixAndObelixConsoleRPG.Core
         {
             if (this.thread == null)
             {
+                this.engine = new Engine();
                 this.thread = new Thread(this.Run);
                 thread.Start();
             }
