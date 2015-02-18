@@ -10,7 +10,6 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
     public static class PlayerInfo
     {
         private static Hero hero;
-        private static List<IItem> items = new List<IItem>();
 
         public static Hero Hero
         {
@@ -25,22 +24,9 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
             }
         }
 
-        public static List<IItem> Items
-        {
-            get
-            {
-                return PlayerInfo.items;
-            }
-
-            set
-            {
-                PlayerInfo.items = value;
-            }
-        }
-
         public static string Show()
         {
-            string playerInfo = "Hero: " + PlayerInfo.Hero.ToString() + "; Items: " + String.Join(" ", PlayerInfo.Items);
+            string playerInfo = "Hero: " + PlayerInfo.Hero.Name + "; Items: ";// + String.Join(" ", PlayerInfo.Hero.Inventory);
 
             return playerInfo;
         }
