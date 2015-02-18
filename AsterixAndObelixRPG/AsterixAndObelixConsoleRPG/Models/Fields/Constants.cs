@@ -4,6 +4,7 @@
 
     public static class Constants
     {
-        public const int expPerLevel = 100;
+        public const int ExpPerLevel = 100;
+        public const int PlayerDefaultHealth = 100;
     }
 }

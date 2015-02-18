@@ -54,7 +54,7 @@
             set
             {
                 Validator.CheckForNegativeNumber(value);
-                this.defence = value;
+                this.health = value;
             }
         }
 
