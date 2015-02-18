@@ -19,6 +19,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
             : base(attack, defence, health)
         {
             this.Name = name;
+            this.Inventory = new Inventory();
         }
 
         public string Name

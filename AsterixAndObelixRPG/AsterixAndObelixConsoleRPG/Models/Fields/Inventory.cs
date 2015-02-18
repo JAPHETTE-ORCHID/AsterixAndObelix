@@ -6,7 +6,20 @@
 
     public class Inventory
     {
-        List<IItem> Items { get; set; }
+        private List<IItem> items = new List<IItem>();
+
+        public List<IItem> Items
+        {
+            get
+            {
+                return this.items;
+            }
+
+            set
+            {
+                this.items = value;
+            }
+        }
 
         public void AddItem(IItem item)
         {

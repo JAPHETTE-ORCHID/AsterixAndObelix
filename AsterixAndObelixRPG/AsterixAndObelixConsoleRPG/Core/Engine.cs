@@ -88,7 +88,7 @@ namespace AsterixAndObelixConsoleRPG.Core
                 throw new IndexOutOfRangeException("Item not found");
             }
 
-            PlayerInfo.Hero.Inventory.Add(item);
+            PlayerInfo.Hero.Inventory.AddItem(item);
             Console.WriteLine("New item added");
         }
 
