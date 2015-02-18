@@ -34,22 +34,22 @@
                     switch (itemNumber)
                     {
                         case 1:
-                            itemForDrop = new Belt(10, ItemType.Common, 10);
+                            itemForDrop = new Belt(10, 10, ItemType.Common);
                             break;
                         case 2:
-                            itemForDrop = new Boots(10, ItemType.Common, 10);
+                            itemForDrop = new Boots(10, 10, ItemType.Common);
                             break;
                         case 3:
-                            itemForDrop = new Chest(10, ItemType.Common, 10);
+                            itemForDrop = new Chest(10, 10, ItemType.Common);
                             break;
                         case 4:
-                            itemForDrop = new Helmet(10, ItemType.Common, 10);
+                            itemForDrop = new Helmet(10, 10, ItemType.Common);
                             break;
                         case 5:
-                            itemForDrop = new Pants(10, ItemType.Common, 10);
+                            itemForDrop = new Pants(10, 10, ItemType.Common);
                             break;
                         case 6:
-                            itemForDrop = new Sword(10, ItemType.Common, 10);
+                            itemForDrop = new Sword(10, 10, ItemType.Common);
                             break;
                         default:
                             itemForDrop = null;
@@ -60,22 +60,22 @@
                     switch (itemNumber)
                     {
                         case 1:
-                            itemForDrop = new Belt(50, ItemType.Uncommon, 50);
+                            itemForDrop = new Belt(50, 50, ItemType.Uncommon);
                             break;
                         case 2:
-                            itemForDrop = new Boots(50, ItemType.Uncommon, 50);
+                            itemForDrop = new Boots(50, 50, ItemType.Uncommon);
                             break;
                         case 3:
-                            itemForDrop = new Chest(50, ItemType.Uncommon, 50);
+                            itemForDrop = new Chest(50, 50, ItemType.Uncommon);
                             break;
                         case 4:
-                            itemForDrop = new Helmet(50, ItemType.Uncommon, 50);
+                            itemForDrop = new Helmet(50, 50, ItemType.Uncommon);
                             break;
                         case 5:
-                            itemForDrop = new Pants(50, ItemType.Uncommon, 50);
+                            itemForDrop = new Pants(50, 50, ItemType.Uncommon);
                             break;
                         case 6:
-                            itemForDrop = new Sword(50, ItemType.Uncommon, 50);
+                            itemForDrop = new Sword(50, 50, ItemType.Uncommon);
                             break;
                         default:
                             itemForDrop = null;
@@ -86,22 +86,22 @@
                     switch (itemNumber)
                     {
                         case 1:
-                            itemForDrop = new Belt(100, ItemType.Rare, 100);
+                            itemForDrop = new Belt(100, 100, ItemType.Rare);
                             break;
                         case 2:
-                            itemForDrop = new Boots(100, ItemType.Rare, 100);
+                            itemForDrop = new Boots(100, 100, ItemType.Rare);
                             break;
                         case 3:
-                            itemForDrop = new Chest(100, ItemType.Rare, 100);
+                            itemForDrop = new Chest(100, 100, ItemType.Rare);
                             break;
                         case 4:
-                            itemForDrop = new Helmet(100, ItemType.Rare, 100);
+                            itemForDrop = new Helmet(100, 100, ItemType.Rare);
                             break;
                         case 5:
-                            itemForDrop = new Pants(100, ItemType.Rare, 100);
+                            itemForDrop = new Pants(100, 100, ItemType.Rare);
                             break;
                         case 6:
-                            itemForDrop = new Sword(100, ItemType.Rare, 100);
+                            itemForDrop = new Sword(100, 100, ItemType.Rare);
                             break;
                         default:
                             itemForDrop = null;
@@ -112,22 +112,22 @@
                     switch (itemNumber)
                     {
                         case 1:
-                            itemForDrop = new Belt(150, ItemType.Magic, 150);
+                            itemForDrop = new Belt(150, 150, ItemType.Magic);
                             break;
                         case 2:
-                            itemForDrop = new Boots(150, ItemType.Magic, 150);
+                            itemForDrop = new Boots(150, 150, ItemType.Magic);
                             break;
                         case 3:
-                            itemForDrop = new Chest(150, ItemType.Magic, 150);
+                            itemForDrop = new Chest(150, 150, ItemType.Magic);
                             break;
                         case 4:
-                            itemForDrop = new Helmet(150, ItemType.Magic, 150);
+                            itemForDrop = new Helmet(150, 150, ItemType.Magic);
                             break;
                         case 5:
-                            itemForDrop = new Pants(150, ItemType.Magic, 150);
+                            itemForDrop = new Pants(150, 150, ItemType.Magic);
                             break;
                         case 6:
-                            itemForDrop = new Sword(150, ItemType.Magic, 150);
+                            itemForDrop = new Sword(150, 150, ItemType.Magic);
                             break;
                         default:
                             itemForDrop = null;
@@ -138,22 +138,22 @@
                     switch (itemNumber)
                     {
                         case 1:
-                            itemForDrop = new Belt(200, ItemType.Legendary, 200);
+                            itemForDrop = new Belt(200, 200, ItemType.Legendary);
                             break;
                         case 2:
-                            itemForDrop = new Boots(200, ItemType.Legendary, 200);
+                            itemForDrop = new Boots(200, 200, ItemType.Legendary);
                             break;
                         case 3:
-                            itemForDrop = new Chest(200, ItemType.Legendary, 200);
+                            itemForDrop = new Chest(200, 200, ItemType.Legendary);
                             break;
                         case 4:
-                            itemForDrop = new Helmet(200, ItemType.Legendary, 200);
+                            itemForDrop = new Helmet(200, 200, ItemType.Legendary);
                             break;
                         case 5:
-                            itemForDrop = new Pants(200, ItemType.Legendary, 200);
+                            itemForDrop = new Pants(200, 200, ItemType.Legendary);
                             break;
                         case 6:
-                            itemForDrop = new Sword(200, ItemType.Legendary, 200);
+                            itemForDrop = new Sword(200, 200, ItemType.Legendary);
                             break;
                         default:
                             itemForDrop = null;

@@ -61,27 +61,27 @@ namespace AsterixAndObelixConsoleRPG.Core
 
             if (type.Equals(belt))
             {
-                item = new Belt(100, ItemType.Common, 100);
+                item = new Belt(100, 100, ItemType.Common);
             }
             else if (type.Equals(boots))
             {
-                item = new Boots(100, ItemType.Common, 100);
+                item = new Boots(100, 100, ItemType.Common);
             }
             else if (type.Equals(chest))
             {
-                item = new Chest(100, ItemType.Common, 100);
+                item = new Chest(100, 100, ItemType.Common);
             }
             else if (type.Equals(helmet))
             {
-                item = new Helmet(100, ItemType.Common, 100);
+                item = new Helmet(100, 100, ItemType.Common);
             }
             else if (type.Equals(pants))
             {
-                item = new Pants(100, ItemType.Common, 100);
+                item = new Pants(100, 100, ItemType.Common);
             }
             else if (type.Equals(sword))
             {
-                item = new Sword(100, ItemType.Common, 100);
+                item = new Sword(100, 100, ItemType.Common);
             }
             else
             {

@@ -4,8 +4,8 @@ namespace AsterixAndObelixConsoleRPG.Models.Items
 {
     public class Pants : DefenseItems
     {
-        public Pants(int price, ItemType itemType, int defence) 
-            : base(price, itemType, defence)
+        public Pants(int defence, int price, ItemType itemType) 
+            : base(defence, price, itemType)
         {
             this.Price = price;
             this.ItemType = itemType;
