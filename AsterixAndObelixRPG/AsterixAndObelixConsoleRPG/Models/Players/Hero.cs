@@ -1,3 +1,5 @@
+using Constants = AsterixAndObelixConsoleRPG.Models.Fields.Constants;
+
 namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     using System.Text;
@@ -61,7 +63,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
         {
             get
             {
-                int level = (this.experience / Constants.expPerLevel) + 1;
+                int level = (this.experience / Constants.ExpPerLevel) + 1;
 
                 return level;
             }

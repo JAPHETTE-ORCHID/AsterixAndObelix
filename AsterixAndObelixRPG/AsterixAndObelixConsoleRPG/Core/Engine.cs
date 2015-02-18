@@ -10,9 +10,6 @@ namespace AsterixAndObelixConsoleRPG.Core
 {
     public class Engine
     {
-        private Hero hero;
-        private List<IItem> items = new List<IItem>();
-
         public void CommandHandler(string line)
         {
             string[] lineSplit = line.Split(' ');
@@ -37,6 +34,9 @@ namespace AsterixAndObelixConsoleRPG.Core
                             break;
                     }
                     break;
+                case "info":
+                    Console.WriteLine(PlayerInfo.Show());
+                    break;
                 default:
                     Console.WriteLine("Invalid command");
                     break;
@@ -54,7 +54,7 @@ namespace AsterixAndObelixConsoleRPG.Core
             type = type.ToLower();
             IItem item;
 
-            if (this.hero == null)
+            if (PlayerInfo.Hero == null)
             {
                 throw new ApplicationException("You should add hero first.");
             }
@@ -88,7 +88,7 @@ namespace AsterixAndObelixConsoleRPG.Core
                 throw new IndexOutOfRangeException("Item not found");
             }
 
-            items.Add(item);
+            PlayerInfo.Items.Add(item);
             Console.WriteLine("New item added");
         }
 
@@ -100,7 +100,7 @@ namespace AsterixAndObelixConsoleRPG.Core
 
             if (type.Equals(obelix))
             {
-                this.hero = new Obelix(name, 100, 100, 100);
+                PlayerInfo.Hero = new Obelix(name, 100, 100, 100);
                 Console.WriteLine("Obelix add");
             }
             else if (type.Equals(asterix))

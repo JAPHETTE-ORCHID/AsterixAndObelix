@@ -73,6 +73,7 @@
     <Compile Include="Models\Players\Hero.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Models\Players\Obelix.cs" />
+    <Compile Include="Models\Players\PlayerInfo.cs" />
     <Compile Include="Models\Players\PlayerObject.cs" />
     <Compile Include="Models\Items\Pants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
