@@ -32,6 +32,9 @@ namespace AsterixAndObelixConsoleRPG.Core
                             string itemType = lineSplit[2];
                             AddItem(itemType);
                             break;
+                        default:
+                            Console.WriteLine("Invalid command");
+                            break;
                     }
                     break;
                 case "info":
@@ -45,6 +48,11 @@ namespace AsterixAndObelixConsoleRPG.Core
 
         protected void AddItem(string type)
         {
+            if (PlayerInfo.Hero == null)
+            {
+                throw new ApplicationException("You should add hero first.");
+            }
+
             string belt = AllItems.Belt.ToString().ToLower();
             string boots = AllItems.Boots.ToString().ToLower();
             string chest = AllItems.Chest.ToString().ToLower();
@@ -53,11 +61,6 @@ namespace AsterixAndObelixConsoleRPG.Core
             string sword = AllItems.Sword.ToString().ToLower();
             type = type.ToLower();
             IItem item;
-
-            if (PlayerInfo.Hero == null)
-            {
-                throw new ApplicationException("You should add hero first.");
-            }
 
             if (type.Equals(belt))
             {
@@ -94,6 +97,11 @@ namespace AsterixAndObelixConsoleRPG.Core
 
         protected void AddHero(string type, string name)
         {
+            if (PlayerInfo.Hero != null)
+            {
+                throw new Exception("The hero was already created.");
+            }
+
             string obelix = HeroType.Obelix.ToString().ToLower();
             string asterix = HeroType.Asterix.ToString().ToLower();
             type = type.ToLower();
