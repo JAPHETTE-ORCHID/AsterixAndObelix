@@ -12,27 +12,12 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
     {
         private int experience;
         private int gold;
-        private string name;
         private Inventory inventory;
 
-        public Hero(string name, int attack, int defence, int health)
+        public Hero(int attack, int defence, int health)
             : base(attack, defence, health)
         {
-            this.Name = name;
             this.inventory = new Inventory();
-        }
-
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-            set
-            {
-                Validator.CheckForEmptyOrNull(value);
-                this.name = value;
-            }
         }
 
         public int Experience
@@ -97,9 +82,23 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
 
         public override string ToString()
         {
-            string heroInfo = "Hero name: " + this.name;
+            StringBuilder result = new StringBuilder();
 
-            return heroInfo;
+            result.Append("Hero: ").AppendLine(this.GetType().Name);
+            result.Append("Experience: ").AppendLine(this.Experience.ToString());
+            result.Append("Gold: ").AppendLine(this.Gold.ToString());
+            result.Append("Inventory: ");
+            if (this.Inventory.Items.Count > 0)
+            {
+                result.AppendLine();
+                this.Inventory.Items.ForEach(i => result.AppendLine(i.ToString()));
+            }
+            else
+            {
+                result.AppendLine("No items.");
+            }
+
+            return result.ToString();
         }
     }
 }

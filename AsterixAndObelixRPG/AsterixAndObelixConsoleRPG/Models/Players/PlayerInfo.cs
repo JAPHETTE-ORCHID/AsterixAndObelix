@@ -27,21 +27,9 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
 
         public static string Show()
         {
-            StringBuilder result = new StringBuilder();
+            string stringOfHero = PlayerInfo.Hero.ToString();
 
-            result.Append("Hero: ").AppendLine(PlayerInfo.Hero.GetType().Name);
-            result.Append("Inventory: ");
-            if (PlayerInfo.Hero.Inventory.Items.Count > 0)
-            {
-                result.AppendLine();
-                PlayerInfo.Hero.Inventory.Items.ForEach(i => result.AppendLine(i.ToString()));
-            }
-            else
-            {
-                result.AppendLine("No items.");
-            }
-
-            return result.ToString();
+            return stringOfHero;
         }
     }
 }

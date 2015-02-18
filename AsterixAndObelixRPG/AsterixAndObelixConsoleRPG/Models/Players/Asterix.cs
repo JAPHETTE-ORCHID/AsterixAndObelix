@@ -8,8 +8,12 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     class Asterix : Hero
     {
-        public Asterix(string name, int attack, int defence, int health)
-            : base (name, attack, defence, health)
+        private const int Attack = 150;
+        private const int Defence = 90;
+        private const int Health = 100;
+
+        public Asterix()
+            : base(Attack, Defence, Health)
         {   
         }
     }

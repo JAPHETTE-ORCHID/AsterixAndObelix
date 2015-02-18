@@ -9,7 +9,7 @@
     public abstract class Item : IItem
     {
         private int price;
-        private ItemType itemType;
+
         protected Item(int price, ItemType itemType)
         {
             this.Price = price;
@@ -30,23 +30,7 @@
             }
         }
 
-        public ItemType ItemType
-        {
-            get
-            {
-                return this.itemType;
-            }
-
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentException("Text field cannot be null.");
-                }
-
-                this.itemType = value;
-            }
-        }
+        public ItemType ItemType { get; set; }
 
         public override string ToString()
         {

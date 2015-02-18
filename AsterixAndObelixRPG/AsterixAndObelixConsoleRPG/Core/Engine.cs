@@ -24,8 +24,7 @@ namespace AsterixAndObelixConsoleRPG.Core
                     {
                         case "hero":
                             string heroType = lineSplit[2];
-                            string heroName = lineSplit[3];
-                            AddHero(heroType, heroName);
+                            AddHero(heroType);
                             break;
 
                         case "item":
@@ -98,7 +97,7 @@ namespace AsterixAndObelixConsoleRPG.Core
             Console.WriteLine("New item added");
         }
 
-        protected void AddHero(string type, string name)
+        protected void AddHero(string type)
         {
             if (PlayerInfo.Hero != null)
             {
@@ -111,12 +110,12 @@ namespace AsterixAndObelixConsoleRPG.Core
 
             if (type.Equals(obelix))
             {
-                PlayerInfo.Hero = new Obelix(name, 100, 100, 100);
+                PlayerInfo.Hero = new Obelix(100, 100, 100);
                 Console.WriteLine("Obelix added");
             }
             else if (type.Equals(asterix))
             {
-                PlayerInfo.Hero = new Asterix(name, 100, 100, 100);
+                PlayerInfo.Hero = new Asterix(100, 100, 100);
                 Console.WriteLine("Asterix added");
             }
             else
