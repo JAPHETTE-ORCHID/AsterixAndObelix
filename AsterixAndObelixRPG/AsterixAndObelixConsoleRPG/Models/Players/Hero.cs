@@ -1,4 +1,4 @@
-using Constants = AsterixAndObelixConsoleRPG.Models.Fields.Constants;
+﻿using Constants = AsterixAndObelixConsoleRPG.Models.Fields.Constants;
 
 namespace AsterixAndObelixConsoleRPG.Models.Players
 {
@@ -87,6 +87,9 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
             result.Append("Hero: ").AppendLine(this.GetType().Name);
             result.Append("Experience: ").AppendLine(this.Experience.ToString());
             result.Append("Gold: ").AppendLine(this.Gold.ToString());
+            result.Append("Attack: ").AppendLine(this.Attack.ToString());
+            result.Append("Defence: ").AppendLine(this.Defence.ToString());
+            result.Append("Health: ").AppendLine(this.Health.ToString());
             result.Append("Inventory: ");
             if (this.Inventory.Items.Count > 0)
             {
