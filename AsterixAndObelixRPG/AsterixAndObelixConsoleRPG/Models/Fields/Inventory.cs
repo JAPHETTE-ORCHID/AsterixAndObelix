@@ -1,4 +1,6 @@
-﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿using System.Linq;
+
+namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System;
     using System.Collections.Generic;
@@ -31,6 +33,13 @@
         {
             Validator.CheckForNullItem(item);
             this.Items.Remove(item);
+        }
+
+        public override string ToString()
+        {
+            string inventoryInfo = String.Join(" ", this.Items);
+
+            return inventoryInfo;
         }
     }
 }

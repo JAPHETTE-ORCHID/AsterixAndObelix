@@ -26,7 +26,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
 
         public static string Show()
         {
-            string playerInfo = "Hero: " + PlayerInfo.Hero.Name + "; Items: ";// + String.Join(" ", PlayerInfo.Hero.Inventory);
+            string playerInfo = "Hero: " + PlayerInfo.Hero.Name + "; Items: " + String.Join(" ", PlayerInfo.Hero.Inventory.ToString());
 
             return playerInfo;
         }
