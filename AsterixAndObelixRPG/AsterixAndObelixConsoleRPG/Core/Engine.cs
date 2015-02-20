@@ -7,7 +7,8 @@
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
     using AsterixAndObelixConsoleRPG.Models.Fields;
-    using AsterixAndObelixConsoleRPG.Models.Items;
+    using AsterixAndObelixConsoleRPG.Models.Items.AttackItems;
+    using AsterixAndObelixConsoleRPG.Models.Items.DefenseItems;
     using AsterixAndObelixConsoleRPG.Models.Players;
     
     public class Engine

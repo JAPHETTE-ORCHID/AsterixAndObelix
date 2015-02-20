@@ -1,10 +1,10 @@
-﻿using AsterixAndObelixConsoleRPG.Enumerations;
-
-namespace AsterixAndObelixConsoleRPG.Models.Items
+﻿namespace AsterixAndObelixConsoleRPG.Models.Items.AttackItems
 {
+    using AsterixAndObelixConsoleRPG.Enumerations;
+
     public class Sword : AttackItems
     {
-        public Sword(int price, ItemType itemType, int attack)
+        public Sword(int attack, int price, ItemType itemType)
             : base(attack, price, itemType)
         {
             this.ItemType = itemType;

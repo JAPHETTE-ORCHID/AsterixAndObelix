@@ -1,11 +1,11 @@
-﻿using AsterixAndObelixConsoleRPG.Enumerations;
-
-namespace AsterixAndObelixConsoleRPG.Models.Items
+﻿namespace AsterixAndObelixConsoleRPG.Models.Items.DefenseItems
 {
+    using AsterixAndObelixConsoleRPG.Enumerations;
+
     public class Pants : DefenseItems
     {
-        public Pants(int price, ItemType itemType, int defence) 
-            : base(price, itemType, defence)
+        public Pants(int defence, int price, ItemType itemType)
+            : base(defence, price, itemType)
         {
             this.Price = price;
             this.ItemType = itemType;

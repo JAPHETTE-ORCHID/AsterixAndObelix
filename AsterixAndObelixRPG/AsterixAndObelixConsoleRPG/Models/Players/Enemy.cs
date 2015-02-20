@@ -4,7 +4,8 @@
 
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
-    using AsterixAndObelixConsoleRPG.Models.Items;
+    using AsterixAndObelixConsoleRPG.Models.Items.AttackItems;
+    using AsterixAndObelixConsoleRPG.Models.Items.DefenseItems;
 
     public class Enemy : PlayerObject, IDrop
     {

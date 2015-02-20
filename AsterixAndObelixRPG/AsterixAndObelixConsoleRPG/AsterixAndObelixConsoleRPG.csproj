@@ -53,17 +53,19 @@
     <Compile Include="Models\Fields\MarketField.cs" />
     <Compile Include="Models\Fields\Field.cs" />
     <Compile Include="Models\Fields\Validator.cs" />
-    <Compile Include="Models\Items\Chest.cs" />
-    <Compile Include="Models\Items\Helmet.cs" />
-    <Compile Include="Models\Items\Belts.cs" />
-    <Compile Include="Models\Items\Boots.cs" />
-    <Compile Include="Models\Items\AttackItems.cs" />
+    <Compile Include="Models\Items\AttackItems\AttackItems.cs" />
+    <Compile Include="Models\Items\AttackItems\Belts.cs" />
+    <Compile Include="Models\Items\AttackItems\Boots.cs" />
+    <Compile Include="Models\Items\AttackItems\Sword.cs" />
+    <Compile Include="Models\Items\DefenseItems\Chest.cs" />
+    <Compile Include="Models\Items\DefenseItems\DefenseItems.cs" />
+    <Compile Include="Models\Items\DefenseItems\Helmet.cs" />
+    <Compile Include="Models\Items\DefenseItems\Pants.cs" />
     <Compile Include="Contracts\IAttack.cs" />
     <Compile Include="Contracts\IDrop.cs" />
     <Compile Include="Contracts\IItem.cs" />
     <Compile Include="Contracts\IUnit.cs" />
     <Compile Include="Core\Engine.cs" />
-    <Compile Include="Models\Items\DefenseItems.cs" />
     <Compile Include="Enumerations\ItemType.cs" />
     <Compile Include="Models\Items\Item.cs" />
     <Compile Include="Models\Players\Asterix.cs" />
@@ -73,9 +75,7 @@
     <Compile Include="MainGame.cs" />
     <Compile Include="Models\Players\Obelix.cs" />
     <Compile Include="Models\Players\PlayerObject.cs" />
-    <Compile Include="Models\Items\Pants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Items\Sword.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
