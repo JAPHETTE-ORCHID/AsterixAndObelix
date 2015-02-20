@@ -7,21 +7,18 @@
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
 
-    internal class Enemy : PlayerObject, IDrop
+    public class Enemy : PlayerObject, IDrop
     {
-        public Enemy(int attack, int defence, int health, EnemyType enemyType, int gold, List<IItem> itemsForDrop )
+        public Enemy(int attack, int defence, int health, EnemyType enemyType, int gold)
             : base(attack, defence, health)
         {
             this.EnemyType = enemyType;
             this.Gold = gold;
-            this.ItemsForDrop = itemsForDrop;
         }
 
         public EnemyType EnemyType { get; set; }
 
         public int Gold { get; set; }
-
-        public List<IItem> ItemsForDrop { get; set; }
 
         public IItem DropRandomItem()
         {
@@ -167,9 +164,9 @@
             return itemForDrop;
         }
 
-        public int DropGold()
+        public override string ToString()
         {
-            return this.Gold;
+            return String.Format("{0}:\nGold: {1} Attack: {2} Defence: {3} Health: {4}", this.EnemyType, this.Gold, this.Attack, this.Defence, this.Health);
         }
     }
 }

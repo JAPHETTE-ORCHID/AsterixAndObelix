@@ -8,6 +8,8 @@ using AsterixAndObelixConsoleRPG.Models.Items;
 
 namespace AsterixAndObelixConsoleRPG.Core
 {
+    using Models.Fields;
+
     public class Engine
     {
         public void CommandHandler(string line)
@@ -31,13 +33,18 @@ namespace AsterixAndObelixConsoleRPG.Core
                             string itemType = lineSplit[2];
                             AddItem(itemType);
                             break;
+
+                        case "enemies":                           
+                            GenerateEnemies();
+                            break;
+
                         default:
                             Console.WriteLine("Invalid command");
                             break;
                     }
                     break;
                 case "info":
-                    Console.WriteLine(PlayerInfo.Show());
+                    Console.WriteLine(BattleField.PrintBattleField());
                     break;
                 case "exit":
                     this.ExitGame();
@@ -99,7 +106,7 @@ namespace AsterixAndObelixConsoleRPG.Core
 
         protected void AddHero(string type)
         {
-            if (PlayerInfo.Hero != null)
+            if (BattleField.Hero != null)
             {
                 throw new Exception("The hero was already created.");
             }
@@ -110,12 +117,12 @@ namespace AsterixAndObelixConsoleRPG.Core
 
             if (type.Equals(obelix))
             {
-                PlayerInfo.Hero = new Obelix();
+                BattleField.Hero = new Obelix();
                 Console.WriteLine("Obelix added");
             }
             else if (type.Equals(asterix))
             {
-                PlayerInfo.Hero = new Asterix();
+                BattleField.Hero = new Asterix();
                 Console.WriteLine("Asterix added");
             }
             else
@@ -127,6 +134,19 @@ namespace AsterixAndObelixConsoleRPG.Core
                     Console.WriteLine("-"+hero);
                 }
             }
+        }
+
+        protected void GenerateEnemies()
+        {           
+            BattleField.Enemies = new List<Enemy>()
+            {
+                new Enemy(10, 10, 10, EnemyType.Cadet, 100),
+                new Enemy(20, 20, 20, EnemyType.Manipularius, 200),
+                new Enemy(30, 30, 30, EnemyType.Tribune, 300),
+                new Enemy(40, 40, 40, EnemyType.Centurion, 400),
+                new Enemy(50, 50, 50, EnemyType.Caesar, 500)
+            };
+            Console.WriteLine("Enemies added");
         }
 
         private void ExitGame()
