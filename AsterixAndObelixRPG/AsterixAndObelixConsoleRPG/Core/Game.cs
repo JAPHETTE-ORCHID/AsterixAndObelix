@@ -1,21 +1,39 @@
-﻿using System;
-using System.Threading;
-
-namespace AsterixAndObelixConsoleRPG.Core
+﻿namespace AsterixAndObelixConsoleRPG.Core
 {
+    using System;
+    using System.Threading;
+
     internal class Game
     {
+        public static bool IsGameRunning = true;
         private Thread thread;
         private Engine engine;
-        public static bool isGameRunning = true; 
+
+        public void Start()
+        {
+            if (this.thread == null)
+            {
+                this.engine = new Engine();
+                this.thread = new Thread(this.Run);
+                this.thread.Start();
+            }
+        }
+
+        public void Stop()
+        {
+            if (this.thread != null)
+            {
+                this.thread.Abort();
+            }
+        }
 
         private void Run()
         {
-            while (isGameRunning)
+            while (IsGameRunning)
             {
                 try
                 {
-                    engine.CommandHandler(Console.ReadLine());
+                    this.engine.CommandHandler(Console.ReadLine());
                 }
                 catch (ApplicationException e)
                 {
@@ -25,24 +43,6 @@ namespace AsterixAndObelixConsoleRPG.Core
                 {
                     Console.WriteLine(e.Message);
                 }
-            }
-        }
-
-        public void Start()
-        {
-            if (this.thread == null)
-            {
-                this.engine = new Engine();
-                this.thread = new Thread(this.Run);
-                thread.Start();
-            }
-        }
-
-        public void Stop()
-        {
-            if (this.thread != null)
-            {
-                this.thread.Abort();
             }
         }
     }

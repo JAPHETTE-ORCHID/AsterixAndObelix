@@ -1,6 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Enumerations
 {
-    enum AllItems
+    public enum AllItems
     {
         Belt,
         Boots,

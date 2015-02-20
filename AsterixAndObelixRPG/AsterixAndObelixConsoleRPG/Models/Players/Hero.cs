@@ -1,12 +1,8 @@
-﻿using Constants = AsterixAndObelixConsoleRPG.Models.Fields.Constants;
-
-namespace AsterixAndObelixConsoleRPG.Models.Players
+﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
-    using System;
     using System.Text;
-    using System.Collections.Generic;
+
     using AsterixAndObelixConsoleRPG.Models.Fields;
-    using AsterixAndObelixConsoleRPG.Contracts;
 
     public abstract class Hero : PlayerObject
     {
@@ -26,6 +22,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
             {
                 return this.experience;
             }
+
             set
             {
                 Validator.CheckForNegativeNumber(value);
@@ -39,6 +36,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
             {
                 return this.gold;
             }
+
             set
             {
                 Validator.CheckForNegativeNumber(value);

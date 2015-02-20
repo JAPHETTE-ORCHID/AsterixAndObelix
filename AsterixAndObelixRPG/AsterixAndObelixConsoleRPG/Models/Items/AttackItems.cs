@@ -1,9 +1,9 @@
-﻿using AsterixAndObelixConsoleRPG.Contracts;
-using AsterixAndObelixConsoleRPG.Enumerations;
-using AsterixAndObelixConsoleRPG.Models.Fields;
-
-namespace AsterixAndObelixConsoleRPG.Models.Items
+﻿namespace AsterixAndObelixConsoleRPG.Models.Items
 {
+    using AsterixAndObelixConsoleRPG.Contracts;
+    using AsterixAndObelixConsoleRPG.Enumerations;
+    using AsterixAndObelixConsoleRPG.Models.Fields;
+
     public class AttackItems : Item, IAttack
     {
         private int attack;
@@ -20,13 +20,13 @@ namespace AsterixAndObelixConsoleRPG.Models.Items
             {
                 return this.attack;
             }
+
             set
             {
                 Validator.CheckForNegativeNumber(value);
                 this.attack = value;
             }
         }
-
 
         public void MakeAttack()
         {

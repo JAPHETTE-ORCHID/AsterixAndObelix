@@ -1,7 +1,7 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items
 {
-    using System;
     using System.Text;
+
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
     using AsterixAndObelixConsoleRPG.Models.Fields;
@@ -47,7 +47,7 @@
                 .Append("Item price: ")
                 .AppendLine(this.Price.ToString());
 
-            return result.ToString() ;
+            return result.ToString();
         }
     }
 }

@@ -1,9 +1,8 @@
-﻿using System.Linq;
-
-namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System;
     using System.Collections.Generic;
+
     using AsterixAndObelixConsoleRPG.Contracts;
 
     public class Inventory
@@ -37,7 +36,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
 
         public override string ToString()
         {
-            string inventoryInfo = String.Join(" ", this.Items);
+            string inventoryInfo = string.Join(" ", this.Items);
 
             return inventoryInfo;
         }

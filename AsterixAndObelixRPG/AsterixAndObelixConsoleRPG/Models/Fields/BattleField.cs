@@ -6,21 +6,7 @@
 
     public class BattleField : Field
     {
-        private static Hero hero;
         private static IList<Enemy> enemies;
-
-        public static Hero Hero
-        {
-            get
-            {
-                return BattleField.hero;
-            }
-
-            set
-            {
-                BattleField.hero = value;
-            }
-        }
 
         public static IList<Enemy> Enemies
         {
@@ -28,6 +14,7 @@
             {
                 return BattleField.enemies;
             }
+
             set
             {
                 BattleField.enemies = value;

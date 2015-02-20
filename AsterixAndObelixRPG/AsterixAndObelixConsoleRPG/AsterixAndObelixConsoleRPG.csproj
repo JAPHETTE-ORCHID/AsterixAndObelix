@@ -49,7 +49,6 @@
     <Compile Include="Enumerations\HeroType.cs" />
     <Compile Include="Models\Fields\Constants.cs" />
     <Compile Include="Models\Fields\Inventory.cs" />
-    <Compile Include="Models\Fields\Market.cs" />
     <Compile Include="Models\Fields\BattleField.cs" />
     <Compile Include="Models\Fields\MarketField.cs" />
     <Compile Include="Models\Fields\Field.cs" />
@@ -73,7 +72,6 @@
     <Compile Include="Models\Players\Hero.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Models\Players\Obelix.cs" />
-    <Compile Include="Models\Players\PlayerInfo.cs" />
     <Compile Include="Models\Players\PlayerObject.cs" />
     <Compile Include="Models\Items\Pants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

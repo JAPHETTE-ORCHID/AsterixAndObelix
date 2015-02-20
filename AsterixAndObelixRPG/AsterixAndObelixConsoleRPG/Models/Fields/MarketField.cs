@@ -2,13 +2,10 @@
 {
     using AsterixAndObelixConsoleRPG.Models.Items;
 
+    /// <summary>
+    /// TODO: The market where hero can buy items
+    /// </summary>
     public class MarketField : Field
-    {
-        private Helmet helmet;
-        private Chest chest;
-        private Sword _sword;
-        private Belt belt;
-        private Boots boots;
-        private Pants pants;
+    {      
     }
 }

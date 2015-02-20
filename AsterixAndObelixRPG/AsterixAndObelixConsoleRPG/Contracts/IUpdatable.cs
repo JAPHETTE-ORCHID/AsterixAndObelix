@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AsterixAndObelixConsoleRPG.Contracts
+﻿namespace AsterixAndObelixConsoleRPG.Contracts
 {
     internal interface IUpdatable
     {

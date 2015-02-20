@@ -1,13 +1,15 @@
-﻿using AsterixAndObelixConsoleRPG.Contracts;
-using AsterixAndObelixConsoleRPG.Enumerations;
-using AsterixAndObelixConsoleRPG.Models.Fields;
-namespace AsterixAndObelixConsoleRPG.Models.Items
+﻿namespace AsterixAndObelixConsoleRPG.Models.Items
 {
+    using AsterixAndObelixConsoleRPG.Contracts;
+    using AsterixAndObelixConsoleRPG.Enumerations;
+    using AsterixAndObelixConsoleRPG.Models.Fields;
+
     public class DefenseItems : Item, IDefence
     {
         private int defence;
+
         public DefenseItems(int defence, int price, ItemType itemType) 
-            : base (price, itemType)
+            : base(price, itemType)
         {
             this.Price = price;
             this.ItemType = itemType;
@@ -20,6 +22,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Items
             {
                 return this.defence;
             }
+
             set
             {
                 Validator.CheckForNegativeNumber(value);

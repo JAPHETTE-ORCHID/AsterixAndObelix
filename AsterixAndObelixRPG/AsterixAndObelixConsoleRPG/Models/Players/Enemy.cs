@@ -1,11 +1,10 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     using System;
-    using System.Collections.Generic;
 
-    using AsterixAndObelixConsoleRPG.Models.Items;
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
+    using AsterixAndObelixConsoleRPG.Models.Items;
 
     public class Enemy : PlayerObject, IDrop
     {
@@ -52,6 +51,7 @@
                             itemForDrop = null;
                             break;                        
                     }
+
                     break;
                 case EnemyType.Manipularius:
                     switch (itemNumber)
@@ -78,6 +78,7 @@
                             itemForDrop = null;
                             break;
                     }
+
                     break;
                 case EnemyType.Centurion:
                     switch (itemNumber)
@@ -104,6 +105,7 @@
                             itemForDrop = null;
                             break;
                     }
+
                     break;
                 case EnemyType.Tribune:
                     switch (itemNumber)
@@ -130,6 +132,7 @@
                             itemForDrop = null;
                             break;
                     }
+
                     break;
                 case EnemyType.Caesar:
                     switch (itemNumber)
@@ -156,17 +159,19 @@
                             itemForDrop = null;
                             break;
                     }
+
                     break;
                 default:
                     itemForDrop = null;
                     break;
             }
+
             return itemForDrop;
         }
 
         public override string ToString()
         {
-            return String.Format("{0}:\nGold: {1} Attack: {2} Defence: {3} Health: {4}", this.EnemyType, this.Gold, this.Attack, this.Defence, this.Health);
+            return string.Format("{0}:\nGold: {1} Attack: {2} Defence: {3} Health: {4}", this.EnemyType, this.Gold, this.Attack, this.Defence, this.Health);
         }
     }
 }

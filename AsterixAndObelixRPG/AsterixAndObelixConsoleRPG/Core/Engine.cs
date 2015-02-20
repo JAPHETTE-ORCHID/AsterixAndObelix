@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using AsterixAndObelixConsoleRPG.Contracts;
-using AsterixAndObelixConsoleRPG.Models.Players;
-using AsterixAndObelixConsoleRPG.Enumerations;
-using AsterixAndObelixConsoleRPG.Models.Items;
-
-namespace AsterixAndObelixConsoleRPG.Core
+﻿namespace AsterixAndObelixConsoleRPG.Core
 {
-    using Models.Fields;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
 
+    using AsterixAndObelixConsoleRPG.Contracts;
+    using AsterixAndObelixConsoleRPG.Enumerations;
+    using AsterixAndObelixConsoleRPG.Models.Fields;
+    using AsterixAndObelixConsoleRPG.Models.Items;
+    using AsterixAndObelixConsoleRPG.Models.Players;
+    
     public class Engine
     {
         public void CommandHandler(string line)
@@ -26,22 +26,23 @@ namespace AsterixAndObelixConsoleRPG.Core
                     {
                         case "hero":
                             string heroType = lineSplit[2];
-                            AddHero(heroType);
+                            this.AddHero(heroType);
                             break;
 
                         case "item":
                             string itemType = lineSplit[2];
-                            AddItem(itemType);
+                            this.AddItem(itemType);
                             break;
 
                         case "enemies":                           
-                            GenerateEnemies();
+                            this.GenerateEnemies();
                             break;
 
                         default:
                             Console.WriteLine("Invalid command");
                             break;
                     }
+
                     break;
                 case "info":
                     Console.WriteLine(BattleField.PrintBattleField());
@@ -57,7 +58,7 @@ namespace AsterixAndObelixConsoleRPG.Core
 
         protected void AddItem(string type)
         {
-            if (PlayerInfo.Hero == null)
+            if (BattleField.Hero == null)
             {
                 throw new ApplicationException("You should add hero first.");
             }
@@ -100,7 +101,7 @@ namespace AsterixAndObelixConsoleRPG.Core
                 throw new IndexOutOfRangeException("Item not found");
             }
 
-            PlayerInfo.Hero.Inventory.AddItem(item);
+            BattleField.Hero.Inventory.AddItem(item);
             Console.WriteLine("New item added");
         }
 
@@ -131,7 +132,7 @@ namespace AsterixAndObelixConsoleRPG.Core
                 var values = Enum.GetValues(typeof(HeroType));
                 foreach (var hero in values)
                 {
-                    Console.WriteLine("-"+hero);
+                    Console.WriteLine("-" + hero);
                 }
             }
         }
@@ -153,7 +154,7 @@ namespace AsterixAndObelixConsoleRPG.Core
         {
             Console.WriteLine("Good bye!");
             Thread.Sleep(1000);
-            Game.isGameRunning = false;
+            Game.IsGameRunning = false;
         }
     }
 }

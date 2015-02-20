@@ -1,7 +1,8 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
-    using AsterixAndObelixConsoleRPG.Contracts;
     using System;
+
+    using AsterixAndObelixConsoleRPG.Contracts;
 
     public static class Validator
     {
@@ -15,7 +16,7 @@
 
         public static void CheckForEmptyOrNull(string str)
         {
-            if (String.IsNullOrEmpty(str))
+            if (string.IsNullOrEmpty(str))
             {
                 throw new ArgumentException("Text field cannot be empty or null.");
             }

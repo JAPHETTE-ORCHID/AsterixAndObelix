@@ -1,6 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Enumerations
 {
-    enum HeroType
+    public enum HeroType
     {
         Asterix,
         Obelix
