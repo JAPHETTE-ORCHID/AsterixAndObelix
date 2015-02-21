@@ -6,6 +6,7 @@
     using AsterixAndObelixConsoleRPG.Enumerations;
     using AsterixAndObelixConsoleRPG.Models.Items.AttackItems;
     using AsterixAndObelixConsoleRPG.Models.Items.DefenseItems;
+    using Fields;
 
     public class Enemy : PlayerObject, IDrop
     {
@@ -13,6 +14,7 @@
             : base(0, 0, 0)
         {           
         }
+
         public Enemy(int attack, int defence, int health, EnemyType enemyType, int gold)
             : base(attack, defence, health)
         {
@@ -172,6 +174,17 @@
             }
 
             return itemForDrop;
+        }
+
+        public override int MakeAttack()
+        {
+            int damage = this.Attack - BattleField.Hero.Defence;
+            if (damage < 0)
+            {
+                damage = 1;
+            }
+
+            return damage;
         }
 
         public override string ToString()

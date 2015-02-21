@@ -8,6 +8,6 @@
             set;
         }
 
-        void MakeAttack();
+        int MakeAttack();
     }
 }

@@ -7,6 +7,7 @@
     public class BattleField : Field
     {
         private static IList<Enemy> enemies;
+        private static Enemy targetEnemy;
 
         public static IList<Enemy> Enemies
         {
@@ -19,7 +20,20 @@
             {
                 BattleField.enemies = value;
             }
-        } 
+        }
+
+        public static Enemy TargetEnemy
+        {
+            get
+            {
+                return BattleField.targetEnemy;
+            }
+
+            set
+            {
+                BattleField.targetEnemy = value;
+            }
+        }
 
         public static string PrintBattleField()
         {

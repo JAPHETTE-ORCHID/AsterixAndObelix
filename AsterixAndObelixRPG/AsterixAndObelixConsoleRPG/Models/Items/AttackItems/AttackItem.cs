@@ -4,7 +4,7 @@
     using AsterixAndObelixConsoleRPG.Enumerations;
     using AsterixAndObelixConsoleRPG.Models.Fields;
 
-    public abstract class AttackItem : Item, IAttack
+    public abstract class AttackItem : Item
     {
         private int attack;
 
@@ -26,11 +26,6 @@
                 Validator.CheckForNegativeNumber(value);
                 this.attack = value;
             }
-        }
-
-        public void MakeAttack()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

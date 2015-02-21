@@ -78,6 +78,18 @@
             return result.ToString();
         }
 
+        // TODO: we have to add items attack
+        public override int MakeAttack()
+        {
+            int damage = this.Attack - BattleField.TargetEnemy.Defence;
+            if (damage < 0)
+            {
+                damage = 1;
+            }
+
+            return damage;
+        }
+
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();

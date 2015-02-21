@@ -169,11 +169,11 @@
         {           
             BattleField.Enemies = new List<Enemy>()
             {
-                new Enemy(10, 10, 10, EnemyType.Cadet, 100),
-                new Enemy(20, 20, 20, EnemyType.Manipularius, 200),
-                new Enemy(30, 30, 30, EnemyType.Tribune, 300),
-                new Enemy(40, 40, 40, EnemyType.Centurion, 400),
-                new Enemy(50, 50, 50, EnemyType.Caesar, 500)
+                new Enemy(100, 100, 100, EnemyType.Cadet, 100),
+                new Enemy(200, 200, 200, EnemyType.Manipularius, 200),
+                new Enemy(300, 300, 300, EnemyType.Tribune, 300),
+                new Enemy(400, 400, 400, EnemyType.Centurion, 400),
+                new Enemy(500, 500, 500, EnemyType.Caesar, 500)
             };
             Console.WriteLine("Enemies added");
         }
@@ -182,16 +182,17 @@
         {              
             string typeForCast = type.Substring(0, 1).ToUpper() + type.Substring(1);
             EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
-            Enemy selectedEnemy = new Enemy();
             foreach (var enemy in BattleField.Enemies)
             {
                 if (enemy.EnemyType == enemyType)
                 {
-                    selectedEnemy = enemy;
+                    BattleField.TargetEnemy = enemy;
                 }
             }
-
-            Console.WriteLine(BattleField.Hero.GetType().Name + " attack " + selectedEnemy.EnemyType);
+            
+            Console.WriteLine(BattleField.Hero.GetType().Name + " attack " + BattleField.TargetEnemy.EnemyType);
+            Console.WriteLine("Hero Damage: " + BattleField.Hero.MakeAttack());
+            Console.WriteLine("Enemy Damage: " + BattleField.TargetEnemy.MakeAttack());
         }
 
         private void ExitGame()

@@ -63,9 +63,6 @@
             throw new System.NotImplementedException();
         }
 
-        public void MakeAttack()
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract int MakeAttack();
     }
 }
