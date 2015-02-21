@@ -2,12 +2,15 @@
 {
     using AsterixAndObelixConsoleRPG.Enumerations;
 
-    public class Belt : AttackItems
+    public class Belt : AttackItem
     {
-        public Belt(int attack, int price, ItemType itemType)
-            : base(attack, price, itemType)
+        private const int DefaultAttack = 100;
+        private const decimal DefaultPrice = 100m;
+        private const ItemType DefaultType = ItemType.Common;
+
+        public Belt(ItemType itemType = DefaultType)
+            : base(DefaultAttack, DefaultPrice, itemType)
         {
-            this.Attack = attack;
         }
     }
 }

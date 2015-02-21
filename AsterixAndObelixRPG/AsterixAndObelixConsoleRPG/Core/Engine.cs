@@ -75,27 +75,27 @@
 
             if (type.Equals(belt))
             {
-                item = new Belt(100, 100, ItemType.Common);
+                item = new Belt(ItemType.Common);
             }
             else if (type.Equals(boots))
             {
-                item = new Boots(100, 100, ItemType.Common);
+                item = new Boots(ItemType.Common);
             }
             else if (type.Equals(chest))
             {
-                item = new Chest(100, 100, ItemType.Common);
+                item = new Chest(ItemType.Common);
             }
             else if (type.Equals(helmet))
             {
-                item = new Helmet(100, 100, ItemType.Common);
+                item = new Helmet(ItemType.Common);
             }
             else if (type.Equals(pants))
             {
-                item = new Pants(100, 100, ItemType.Common);
+                item = new Pants(ItemType.Common);
             }
             else if (type.Equals(sword))
             {
-                item = new Sword(100, 100, ItemType.Common);
+                item = new Sword(ItemType.Common);
             }
             else
             {

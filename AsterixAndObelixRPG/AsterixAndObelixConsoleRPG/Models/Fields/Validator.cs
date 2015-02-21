@@ -6,7 +6,7 @@
 
     public static class Validator
     {
-        public static void CheckForNegativeNumber(int num)
+        public static void CheckForNegativeNumber(decimal num)
         {
             if (num < 0)
             {

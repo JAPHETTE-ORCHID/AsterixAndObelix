@@ -8,15 +8,15 @@
 
     public abstract class Item : IItem
     {
-        private int price;
+        private decimal price;
 
-        protected Item(int price, ItemType itemType)
+        protected Item(decimal price, ItemType itemType)
         {
             this.Price = price;
             this.ItemType = itemType;
         }
 
-        public int Price
+        public decimal Price
         {
             get
             {

@@ -2,13 +2,15 @@
 {
     using AsterixAndObelixConsoleRPG.Enumerations;
 
-    public class Helmet : DefenseItems
+    public class Helmet : DefenseItem
     {
-        public Helmet(int defence, int price, ItemType itemType)
-            : base(defence, price, itemType)
+        private const int DefaultDefence = 100;
+        private const decimal DefaultPrice = 100m;
+        private const ItemType DefaultType = ItemType.Common;
+
+        public Helmet(ItemType itemType = DefaultType)
+            : base(DefaultDefence, DefaultPrice, itemType)
         {
-            this.Price = price;
-            this.ItemType = itemType;
         }
     }
 }

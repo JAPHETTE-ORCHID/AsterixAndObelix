@@ -4,7 +4,7 @@
 
     public interface IItem
     {
-        int Price
+        decimal Price
         {
             get;
             set;
