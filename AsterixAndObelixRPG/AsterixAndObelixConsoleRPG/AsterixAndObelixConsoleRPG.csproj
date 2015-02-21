@@ -53,12 +53,12 @@
     <Compile Include="Models\Fields\MarketField.cs" />
     <Compile Include="Models\Fields\Field.cs" />
     <Compile Include="Models\Fields\Validator.cs" />
-    <Compile Include="Models\Items\AttackItems\AttackItems.cs" />
+    <Compile Include="Models\Items\AttackItems\AttackItem.cs" />
     <Compile Include="Models\Items\AttackItems\Belts.cs" />
     <Compile Include="Models\Items\AttackItems\Boots.cs" />
     <Compile Include="Models\Items\AttackItems\Sword.cs" />
     <Compile Include="Models\Items\DefenseItems\Chest.cs" />
-    <Compile Include="Models\Items\DefenseItems\DefenseItems.cs" />
+    <Compile Include="Models\Items\DefenseItems\DefenseItem.cs" />
     <Compile Include="Models\Items\DefenseItems\Helmet.cs" />
     <Compile Include="Models\Items\DefenseItems\Pants.cs" />
     <Compile Include="Contracts\IAttack.cs" />
