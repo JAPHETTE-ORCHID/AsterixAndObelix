@@ -45,6 +45,32 @@
                     }
 
                     break;
+                case "attack":
+                    string target = lineSplit[1].ToLower();
+
+                    switch (target)
+                    {
+                        case "cadet":                          
+                            this.AttackEnemies(lineSplit[1]);
+                            break;
+                        case "manipularius":             
+                            this.AttackEnemies(lineSplit[1]);
+                            break;
+                        case "tribune":                           
+                            this.AttackEnemies(lineSplit[1]);
+                            break;
+                        case "centurion":                            
+                            this.AttackEnemies(lineSplit[1]);
+                            break;
+                        case "caesar":                            
+                            this.AttackEnemies(lineSplit[1]);
+                            break;
+                        default:
+                            Console.WriteLine("Cannot view enemy");
+                            break;
+                    }
+
+                    break;
                 case "info":
                     Console.WriteLine(BattleField.PrintBattleField());
                     break;
@@ -149,6 +175,12 @@
                 new Enemy(50, 50, 50, EnemyType.Caesar, 500)
             };
             Console.WriteLine("Enemies added");
+        }
+
+        protected void AttackEnemies(string enemyType)
+        {
+
+            Console.WriteLine(BattleField.Hero + " attack " + enemyType);
         }
 
         private void ExitGame()
