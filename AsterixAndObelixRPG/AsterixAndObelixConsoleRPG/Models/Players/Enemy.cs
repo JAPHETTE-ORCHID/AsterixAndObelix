@@ -9,6 +9,10 @@
 
     public class Enemy : PlayerObject, IDrop
     {
+        public Enemy() 
+            : base(0, 0, 0)
+        {           
+        }
         public Enemy(int attack, int defence, int health, EnemyType enemyType, int gold)
             : base(attack, defence, health)
         {

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading;
 
     using AsterixAndObelixConsoleRPG.Contracts;
@@ -46,27 +47,27 @@
 
                     break;
                 case "attack":
-                    string target = lineSplit[1].ToLower();
+                    string target = lineSplit[1];
 
                     switch (target)
                     {
                         case "cadet":                          
-                            this.AttackEnemies(lineSplit[1]);
+                            this.AttackEnemy(lineSplit[1]);
                             break;
                         case "manipularius":             
-                            this.AttackEnemies(lineSplit[1]);
+                            this.AttackEnemy(lineSplit[1]);
                             break;
                         case "tribune":                           
-                            this.AttackEnemies(lineSplit[1]);
+                            this.AttackEnemy(lineSplit[1]);
                             break;
                         case "centurion":                            
-                            this.AttackEnemies(lineSplit[1]);
+                            this.AttackEnemy(lineSplit[1]);
                             break;
                         case "caesar":                            
-                            this.AttackEnemies(lineSplit[1]);
+                            this.AttackEnemy(lineSplit[1]);
                             break;
                         default:
-                            Console.WriteLine("Cannot view enemy");
+                            Console.Error.WriteLine("Cannot see enemy.");
                             break;
                     }
 
@@ -177,10 +178,20 @@
             Console.WriteLine("Enemies added");
         }
 
-        protected void AttackEnemies(string enemyType)
-        {
+        protected void AttackEnemy(string type)
+        {              
+            string typeForCast = type.Substring(0, 1).ToUpper() + type.Substring(1);
+            EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
+            Enemy selectedEnemy = new Enemy();
+            foreach (var enemy in BattleField.Enemies)
+            {
+                if (enemy.EnemyType == enemyType)
+                {
+                    selectedEnemy = enemy;
+                }
+            }
 
-            Console.WriteLine(BattleField.Hero + " attack " + enemyType);
+            Console.WriteLine(BattleField.Hero.GetType().Name + " attack " + selectedEnemy.EnemyType);
         }
 
         private void ExitGame()
