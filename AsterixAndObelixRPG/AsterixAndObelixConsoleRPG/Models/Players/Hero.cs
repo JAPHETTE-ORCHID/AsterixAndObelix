@@ -82,7 +82,7 @@
         public override int MakeAttack()
         {
             int damage = this.Attack - BattleField.TargetEnemy.Defence;
-            if (damage < 0)
+            if (damage <= 0)
             {
                 damage = 1;
             }

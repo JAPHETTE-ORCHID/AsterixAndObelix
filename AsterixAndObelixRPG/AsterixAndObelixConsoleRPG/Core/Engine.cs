@@ -169,11 +169,11 @@
         {           
             BattleField.Enemies = new List<Enemy>()
             {
-                new Enemy(100, 100, 100, EnemyType.Cadet, 100),
-                new Enemy(200, 200, 200, EnemyType.Manipularius, 200),
-                new Enemy(300, 300, 300, EnemyType.Tribune, 300),
-                new Enemy(400, 400, 400, EnemyType.Centurion, 400),
-                new Enemy(500, 500, 500, EnemyType.Caesar, 500)
+                new Enemy(50, 50, 50, EnemyType.Cadet, 50),
+                new Enemy(60, 60, 60, EnemyType.Manipularius, 60),
+                new Enemy(75, 75, 70, EnemyType.Tribune, 75),
+                new Enemy(90, 90, 90, EnemyType.Centurion, 90),
+                new Enemy(100, 100, 100, EnemyType.Caesar, 100)
             };
             Console.WriteLine("Enemies added");
         }
@@ -190,9 +190,54 @@
                 }
             }
             
-            Console.WriteLine(BattleField.Hero.GetType().Name + " attack " + BattleField.TargetEnemy.EnemyType);
-            Console.WriteLine("Hero Damage: " + BattleField.Hero.MakeAttack());
-            Console.WriteLine("Enemy Damage: " + BattleField.TargetEnemy.MakeAttack());
+            int enemyHealth = BattleField.TargetEnemy.Health;
+            int heroHealth = BattleField.Hero.Health;
+            bool isAlive = true;
+            while (isAlive)
+            {               
+                enemyHealth -= BattleField.Hero.MakeAttack();               
+                heroHealth -= BattleField.TargetEnemy.MakeAttack();
+                if (enemyHealth <= 0)
+                {
+                    BattleField.Hero.Gold += BattleField.TargetEnemy.Gold;
+                    BattleField.Hero.Experience += 100;
+                    IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
+                    IItem weakItem = null;
+                    bool hasInventoryItem = false;
+                    foreach (var item in BattleField.Hero.Inventory.Items)
+                    {
+                        if (item.GetType().Name == droppedItem.GetType().Name)
+                        {
+                            hasInventoryItem = true;
+                            int numDroppedItemType = (int)droppedItem.ItemType;
+                            int numCurrentItemType = (int)item.ItemType;
+                            if (numDroppedItemType > numCurrentItemType)
+                            {
+                                weakItem = item;
+                            }                                         
+                        }                        
+                    }
+
+                    if (weakItem != null)
+                    {
+                        BattleField.Hero.Inventory.RemoveItem(weakItem);
+                        hasInventoryItem = false;
+                    }
+
+                    if (!hasInventoryItem)
+                    {
+                        BattleField.Hero.Inventory.AddItem(droppedItem);
+                    }
+                                              
+                    Console.WriteLine(BattleField.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
+                    isAlive = false;
+                }
+                else
+                {
+                    Console.WriteLine(BattleField.Hero.GetType().Name + " die");
+                    isAlive = false;
+                }
+            }
         }
 
         private void ExitGame()

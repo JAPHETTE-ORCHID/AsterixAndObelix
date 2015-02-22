@@ -29,7 +29,7 @@
         public IItem DropRandomItem()
         {
             Random rnd = new Random();
-            int itemNumber = rnd.Next(1, 6);
+            int itemNumber = rnd.Next(1, 7);
             IItem itemForDrop;
             switch (this.EnemyType)
             {
