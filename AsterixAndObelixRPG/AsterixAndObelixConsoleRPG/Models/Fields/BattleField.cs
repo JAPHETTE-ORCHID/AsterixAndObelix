@@ -1,4 +1,7 @@
-﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿using System;
+using System.Linq;
+
+namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System.Collections.Generic;
     using System.Text;
@@ -40,7 +43,7 @@
             StringBuilder printBattleField = new StringBuilder();
             printBattleField.AppendLine();
             printBattleField.AppendLine(BattleField.Hero.ToString());
-            printBattleField.AppendLine();
+            printBattleField.AppendLine("Enemies: ");
             foreach (var enemy in BattleField.Enemies)
             {
                 printBattleField.AppendLine(enemy.ToString());

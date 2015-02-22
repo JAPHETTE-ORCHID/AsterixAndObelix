@@ -1,4 +1,6 @@
-﻿namespace AsterixAndObelixConsoleRPG
+﻿using System;
+
+namespace AsterixAndObelixConsoleRPG
 {
     using AsterixAndObelixConsoleRPG.Core;
 
@@ -6,8 +8,9 @@
     {
         internal static void Main()
         {
-            Game game = new Game();
+<<<<<<< .mine            Console.WriteLine("asd");
+=======            Game game = new Game();
             game.Start();
-        }
+>>>>>>> .theirs        }
     }
 }

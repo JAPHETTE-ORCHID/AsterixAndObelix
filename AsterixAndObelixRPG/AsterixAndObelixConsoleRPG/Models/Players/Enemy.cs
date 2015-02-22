@@ -189,7 +189,25 @@
 
         public override string ToString()
         {
-            return string.Format("{0}:\nGold: {1} Attack: {2} Defence: {3} Health: {4}", this.EnemyType, this.Gold, this.Attack, this.Defence, this.Health);
+            string outputEnemyType = ""+this.EnemyType;
+            string outputGold = "Gold: " + this.Gold;
+            string outputAttack = "Attack: " + this.Attack;
+            string outputDefence = "Defence: " + this.Defence;
+            string outputHealth = "Health: " + this.Health;
+
+            string enemyTypePadding = new string(' ', 13 - outputEnemyType.Length);
+            string goldPadding = new string(' ', 13 - outputGold.Length);
+            string attackPadding = new string(' ', 13 - outputAttack.Length);
+            string defencePadding = new string(' ', 13 - outputDefence.Length);
+            string healthPadding = new string(' ', 13 - outputHealth.Length);
+
+            return string.Format(
+                "{0} {1} {2} {3} {4}",
+                outputEnemyType + enemyTypePadding,
+                outputGold + goldPadding,
+                outputAttack + attackPadding,
+                outputDefence + defencePadding,
+                outputHealth) + healthPadding;
         }
     }
 }

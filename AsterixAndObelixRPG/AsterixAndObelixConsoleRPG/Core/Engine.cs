@@ -36,10 +36,6 @@
                             this.AddItem(itemType);
                             break;
 
-                        case "enemies":                           
-                            this.GenerateEnemies();
-                            break;
-
                         default:
                             Console.WriteLine("Invalid command");
                             break;
@@ -71,6 +67,10 @@
                             break;
                     }
 
+                    break;
+                case "battlefield":
+                    this.GenerateEnemies();
+                    Console.WriteLine(BattleField.PrintBattleField());
                     break;
                 case "info":
                     Console.WriteLine(BattleField.PrintBattleField());
