@@ -1,9 +1,8 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
-    using System;
     using System.Collections.Generic;
 
-    using AsterixAndObelixConsoleRPG.Contracts;
+    using Contracts;
 
     public class Inventory
     {

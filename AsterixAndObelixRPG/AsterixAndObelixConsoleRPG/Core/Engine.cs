@@ -2,15 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading;
 
-    using AsterixAndObelixConsoleRPG.Contracts;
-    using AsterixAndObelixConsoleRPG.Enumerations;
-    using AsterixAndObelixConsoleRPG.Models.Fields;
-    using AsterixAndObelixConsoleRPG.Models.Items.AttackItems;
-    using AsterixAndObelixConsoleRPG.Models.Items.DefenseItems;
-    using AsterixAndObelixConsoleRPG.Models.Players;
+    using Contracts;
+    using Enumerations;
+    using Models.Fields;
+    using Models.Items.AttackItems;
+    using Models.Items.DefenseItems;
+    using Models.Players;
     
     public class Engine
     {
@@ -108,17 +107,17 @@
             if (type.Equals(belt))
             {
                 item = new Belt(ItemType.Common);
-                Field.Hero.Attack += ((AttackItem) item).Attack;
+                Field.Hero.Attack += ((AttackItem)item).Attack;
             }
             else if (type.Equals(boots))
             {
                 item = new Boots(ItemType.Common);
-                Field.Hero.Attack += ((AttackItem) item).Attack;
+                Field.Hero.Attack += ((AttackItem)item).Attack;
             }
             else if (type.Equals(chest))
             {
                 item = new Chest(ItemType.Common);
-                Field.Hero.Defence += ((DefenseItem) item).Defence;
+                Field.Hero.Defence += ((DefenseItem)item).Defence;
             }
             else if (type.Equals(helmet))
             {
@@ -140,13 +139,13 @@
                 throw new IndexOutOfRangeException("Item not found");
             }
 
-            BattleField.Hero.Inventory.AddItem(item);
+            Field.Hero.Inventory.AddItem(item);
             Console.WriteLine("New item added");
         }
 
         protected void AddHero(string type)
         {
-            if (BattleField.Hero != null)
+            if (Field.Hero != null)
             {
                 throw new Exception("The hero was already created.");
             }
@@ -157,12 +156,12 @@
 
             if (type.Equals(obelix))
             {
-                BattleField.Hero = new Obelix();
+                Field.Hero = new Obelix();
                 Console.WriteLine("Obelix added");
             }
             else if (type.Equals(asterix))
             {
-                BattleField.Hero = new Asterix();
+                Field.Hero = new Asterix();
                 Console.WriteLine("Asterix added");
             }
             else
@@ -201,20 +200,20 @@
             }
             
             int enemyHealth = BattleField.TargetEnemy.Health;
-            int heroHealth = BattleField.Hero.Health;
+            int heroHealth = Field.Hero.Health;
             bool isAlive = true;
             while (isAlive)
-            {               
-                enemyHealth -= BattleField.Hero.MakeAttack();               
+            {
+                enemyHealth -= Field.Hero.MakeAttack();               
                 heroHealth -= BattleField.TargetEnemy.MakeAttack();
                 if (enemyHealth <= 0)
                 {
-                    BattleField.Hero.Gold += BattleField.TargetEnemy.Gold;
-                    BattleField.Hero.Experience += 100;
+                    Field.Hero.Gold += BattleField.TargetEnemy.Gold;
+                    Field.Hero.Experience += 100;
                     IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
                     IItem weakItem = null;
                     bool hasInventoryItem = false;
-                    foreach (var item in BattleField.Hero.Inventory.Items)
+                    foreach (var item in Field.Hero.Inventory.Items)
                     {
                         if (item.GetType().Name == droppedItem.GetType().Name)
                         {
@@ -230,21 +229,21 @@
 
                     if (weakItem != null)
                     {
-                        BattleField.Hero.Inventory.RemoveItem(weakItem);
+                        Field.Hero.Inventory.RemoveItem(weakItem);
                         hasInventoryItem = false;
                     }
 
                     if (!hasInventoryItem)
                     {
-                        BattleField.Hero.Inventory.AddItem(droppedItem);
+                        Field.Hero.Inventory.AddItem(droppedItem);
                     }
-                                              
-                    Console.WriteLine(BattleField.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
+
+                    Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
                     isAlive = false;
                 }
                 else
                 {
-                    Console.WriteLine(BattleField.Hero.GetType().Name + " die");
+                    Console.WriteLine(Field.Hero.GetType().Name + " die");
                     isAlive = false;
                 }
             }

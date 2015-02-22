@@ -2,7 +2,7 @@
 {
     using System;
 
-    using AsterixAndObelixConsoleRPG.Contracts;
+    using Contracts;
 
     public static class Validator
     {

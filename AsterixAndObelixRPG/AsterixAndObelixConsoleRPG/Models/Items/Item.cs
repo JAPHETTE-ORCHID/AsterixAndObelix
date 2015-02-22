@@ -2,10 +2,10 @@
 {
     using System.Text;
 
-    using AsterixAndObelixConsoleRPG.Contracts;
-    using AsterixAndObelixConsoleRPG.Enumerations;
-    using AsterixAndObelixConsoleRPG.Models.Fields;
-    using AsterixAndObelixConsoleRPG.Models.Calculator;
+    using Calculator;
+    using Contracts;
+    using Enumerations; 
+    using Fields;
 
     public abstract class Item : IItem
     {

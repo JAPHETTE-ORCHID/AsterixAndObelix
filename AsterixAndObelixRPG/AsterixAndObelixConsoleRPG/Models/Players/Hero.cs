@@ -2,7 +2,7 @@
 {
     using System.Text;
 
-    using AsterixAndObelixConsoleRPG.Models.Fields;
+    using Fields;
 
     public abstract class Hero : PlayerObject
     {

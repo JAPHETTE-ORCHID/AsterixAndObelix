@@ -47,6 +47,8 @@
     <Compile Include="Core\Game.cs" />
     <Compile Include="Enumerations\AllItems.cs" />
     <Compile Include="Enumerations\HeroType.cs" />
+    <Compile Include="Enumerations\Operation.cs" />
+    <Compile Include="Models\Calculator\ItemTypeCalculator.cs" />
     <Compile Include="Models\Fields\Constants.cs" />
     <Compile Include="Models\Fields\Inventory.cs" />
     <Compile Include="Models\Fields\BattleField.cs" />
@@ -54,7 +56,7 @@
     <Compile Include="Models\Fields\Field.cs" />
     <Compile Include="Models\Fields\Validator.cs" />
     <Compile Include="Models\Items\AttackItems\AttackItem.cs" />
-    <Compile Include="Models\Items\AttackItems\Belts.cs" />
+    <Compile Include="Models\Items\AttackItems\Belt.cs" />
     <Compile Include="Models\Items\AttackItems\Boots.cs" />
     <Compile Include="Models\Items\AttackItems\Sword.cs" />
     <Compile Include="Models\Items\DefenseItems\Chest.cs" />

@@ -1,7 +1,7 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
-    using AsterixAndObelixConsoleRPG.Contracts;
-    using AsterixAndObelixConsoleRPG.Models.Fields;
+    using Contracts;
+    using Fields;
 
     public abstract class PlayerObject : IAttack, IDefence, IUnit, IUpdatable
     {

@@ -3,7 +3,7 @@
   <Class Name="AsterixAndObelixConsoleRPG.Core.Engine">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAIAMAAAAAAAAAAAgAAAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAIAMAAAAAAAAAAAgAAAAAAAQACAAAAAAAA=</HashCode>
       <FileName>Core\Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -18,14 +18,14 @@
   <Class Name="AsterixAndObelixConsoleRPG.Models.Players.Hero">
     <Position X="2.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQCAAAAAAAAEAAAAAAAAAAAAAAADAABAAgAAQAE=</HashCode>
+      <HashCode>AAAAAQCAAAAAAAAEAAAAAAAAAAQAAAADAABAAgAAQAE=</HashCode>
       <FileName>Models\Players\Hero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Players.Enemy">
     <Position X="6.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAABAAAAAAE=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAQAAAAAQAAAAAAAABAAAAAAE=</HashCode>
       <FileName>Models\Players\Enemy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -48,14 +48,14 @@
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.BattleField">
     <Position X="10.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAEAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAABAEAEAABAAAAAAAAAAA=</HashCode>
       <FileName>Models\Fields\BattleField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.MarketField">
     <Position X="16.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAAAACAAQBAAA=</HashCode>
       <FileName>Models\Fields\MarketField.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -97,15 +97,14 @@
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.AttackItems.AttackItem">
     <Position X="10.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIQAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAIAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Items\AttackItems\AttackItem.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.DefenseItems.DefenseItem">
     <Position X="16.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAgAAAAI=</HashCode>
       <FileName>Models\Items\DefenseItems\DefenseItem.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -115,13 +114,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAACAAAAA=</HashCode>
       <FileName>Models\Items\AttackItems\Sword.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="AsterixAndObelixConsoleRPG.Models.Items.AttackItems.Belt">
-    <Position X="10.5" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAACAAAAA=</HashCode>
-      <FileName>Models\Items\AttackItems\Belts.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.AttackItems.Boots">
@@ -150,6 +142,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAABCAAAAA=</HashCode>
       <FileName>Models\Items\DefenseItems\Pants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsterixAndObelixConsoleRPG.Models.Items.AttackItems.Belt">
+    <Position X="10.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAACAAAAA=</HashCode>
+      <FileName>Models\Items\AttackItems\Belt.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IAttack">

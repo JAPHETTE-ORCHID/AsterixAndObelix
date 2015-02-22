@@ -1,9 +1,8 @@
-﻿using AsterixAndObelixConsoleRPG.Enumerations;
-using System;
-
-namespace AsterixAndObelixConsoleRPG.Models.Calculator
+﻿namespace AsterixAndObelixConsoleRPG.Models.Calculator
 {
-    static class ItemTypeCalculator
+    using Enumerations;
+
+    internal static class ItemTypeCalculator
     {
         private const decimal UncommonMultiply = 1.1m;
         private const decimal RareMultiply = 1.2m;

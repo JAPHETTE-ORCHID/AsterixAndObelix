@@ -1,10 +1,11 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items.DefenseItems
 {
-    using AsterixAndObelixConsoleRPG.Contracts;
-    using AsterixAndObelixConsoleRPG.Enumerations;
-    using AsterixAndObelixConsoleRPG.Models.Calculator;
-    using AsterixAndObelixConsoleRPG.Models.Fields;
     using System.Text;
+
+    using Calculator;
+    using Contracts;
+    using Enumerations;    
+    using Fields;
 
     public abstract class DefenseItem : Item, IDefence
     {

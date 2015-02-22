@@ -1,10 +1,10 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items.AttackItems
 {
-    using AsterixAndObelixConsoleRPG.Contracts;
-    using AsterixAndObelixConsoleRPG.Enumerations;
-    using AsterixAndObelixConsoleRPG.Models.Calculator;
-    using AsterixAndObelixConsoleRPG.Models.Fields;
     using System.Text;
+
+    using Calculator;
+    using Enumerations;
+    using Fields;
 
     public abstract class AttackItem : Item
     {

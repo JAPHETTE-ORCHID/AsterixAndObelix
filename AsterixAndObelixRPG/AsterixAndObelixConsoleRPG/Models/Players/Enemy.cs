@@ -2,11 +2,11 @@
 {
     using System;
 
-    using AsterixAndObelixConsoleRPG.Contracts;
-    using AsterixAndObelixConsoleRPG.Enumerations;
-    using AsterixAndObelixConsoleRPG.Models.Items.AttackItems;
-    using AsterixAndObelixConsoleRPG.Models.Items.DefenseItems;
+    using Contracts;
+    using Enumerations;
     using Fields;
+    using Items.AttackItems;
+    using Items.DefenseItems;   
 
     public class Enemy : PlayerObject, IDrop
     {
@@ -191,7 +191,7 @@
         {
             const int maxCellSize = 13;
 
-            string outputEnemyType = ""+this.EnemyType;
+            string outputEnemyType = "" + this.EnemyType;
             string outputGold = "Gold: " + this.Gold;
             string outputAttack = "Attack: " + this.Attack;
             string outputDefence = "Defence: " + this.Defence;

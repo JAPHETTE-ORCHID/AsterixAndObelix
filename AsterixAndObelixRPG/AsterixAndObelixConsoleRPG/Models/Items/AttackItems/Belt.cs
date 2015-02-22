@@ -1,6 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items.AttackItems
 {
-    using AsterixAndObelixConsoleRPG.Enumerations;
+    using Enumerations;
 
     public class Belt : AttackItem
     {

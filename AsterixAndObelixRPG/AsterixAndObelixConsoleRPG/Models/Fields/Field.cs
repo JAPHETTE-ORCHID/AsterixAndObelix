@@ -1,6 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
-    using AsterixAndObelixConsoleRPG.Models.Players;
+    using Players;
 
     public abstract class Field
     {
@@ -10,12 +10,12 @@
         {
             get
             {
-                return BattleField.hero;
+                return Field.hero;
             }
 
             set
             {
-                BattleField.hero = value;
+                Field.hero = value;
             }
         }
     }

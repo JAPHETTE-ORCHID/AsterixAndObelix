@@ -1,11 +1,9 @@
-﻿using System;
-using System.Linq;
-
-namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System.Collections.Generic;
     using System.Text;
-    using AsterixAndObelixConsoleRPG.Models.Players;
+
+    using Players;
 
     public class BattleField : Field
     {

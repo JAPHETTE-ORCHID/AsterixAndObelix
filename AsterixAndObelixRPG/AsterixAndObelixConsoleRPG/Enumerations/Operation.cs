@@ -1,6 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Enumerations
 {
-    enum Operation
+    public enum Operation
     {
         ChoosingItemType,
         ChoosingItem

@@ -1,6 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items.DefenseItems
 {
-    using AsterixAndObelixConsoleRPG.Enumerations;
+    using Enumerations;
 
     public class Helmet : DefenseItem
     {

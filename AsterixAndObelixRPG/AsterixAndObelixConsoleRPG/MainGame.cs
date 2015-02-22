@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace AsterixAndObelixConsoleRPG
+﻿namespace AsterixAndObelixConsoleRPG
 {
-    using AsterixAndObelixConsoleRPG.Core;
+    using Core;
 
     internal class MainGame
     {

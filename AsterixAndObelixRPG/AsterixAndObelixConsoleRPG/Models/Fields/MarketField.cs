@@ -1,21 +1,15 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
-    using AsterixAndObelixConsoleRPG.Contracts;
-    using AsterixAndObelixConsoleRPG.Enumerations;
-    using AsterixAndObelixConsoleRPG.Models.Calculator;
-    using AsterixAndObelixConsoleRPG.Models.Items;
-    using AsterixAndObelixConsoleRPG.Models.Items.AttackItems;
-    using AsterixAndObelixConsoleRPG.Models.Items.DefenseItems;
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
     using System.Text;
 
-    /// <summary>
-    /// TODO: The market where hero can buy items
-    /// </summary>
+    using Enumerations;
+    using Items;
+    using Items.AttackItems;
+    using Items.DefenseItems;
+    
     public class MarketField : Field
     {
         private Operation operation;
@@ -25,14 +19,14 @@
 
         public MarketField()
         {
-            itemTypes = Enum.GetValues(typeof(ItemType));
+            this.itemTypes = Enum.GetValues(typeof(ItemType));
         }
 
         public void PrintAllItemTypes()
         {
-            for (int i = 0; i < itemTypes.Count; i++)
+            for (int i = 0; i < this.itemTypes.Count; i++)
             {
-                Console.WriteLine("{0}. {1}", (i + 1), itemTypes[i]);
+                Console.WriteLine("{0}. {1}", (i + 1), this.itemTypes[i]);
             }
 
             this.operation = Operation.ChoosingItemType;
@@ -45,14 +39,14 @@
             {
                 command = int.Parse(Console.ReadLine());
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Enter a number.");
             }
 
-            if (operation == Operation.ChoosingItemType)
+            if (this.operation == Operation.ChoosingItemType)
             {
-                if (command < 1 || command > itemTypes.Count)
+                if (command < 1 || command > this.itemTypes.Count)
                 {
                     throw new Exception("Invalid item type.");
                 }
@@ -60,15 +54,16 @@
                 int index = command - 1;
                 this.itemType = (ItemType)index;
 
-                loadAllItems();
-                PrintAllItems();
+                this.LoadAllItems();
+                this.PrintAllItems();
             }
-            else if (operation == Operation.ChoosingItem)
+            else if (this.operation == Operation.ChoosingItem)
             {
-                if (command < 1 || command > items.Count)
+                if (command < 1 || command > this.items.Count)
                 {
                     throw new Exception("Invalid item id.");
                 }
+
                 int index = command - 1;
 
                 if (BattleField.Hero == null)
@@ -89,7 +84,7 @@
                 return;
             }
 
-            Console.WriteLine("{0} items: ", this.itemType.ToString());
+            Console.WriteLine("{0} items: ", this.itemType);
             int itemCount = 0;
             const int cellWidth = 10;
             char paddingChar = '-';
@@ -126,17 +121,16 @@
             this.ReadCommand();
         }
 
-        public void loadAllItems()
+        public void LoadAllItems()
         {
-            items = new List<Item>()
+            this.items = new List<Item>()
             {
                 new Belt(this.itemType),
                 new Boots(this.itemType),
                 new Sword(this.itemType),
                 new Chest(this.itemType),
                 new Helmet(this.itemType),
-                new Pants(this.itemType)
-                
+                new Pants(this.itemType)             
             };
         }
     }
