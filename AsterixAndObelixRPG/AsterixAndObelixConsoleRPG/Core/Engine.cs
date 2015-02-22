@@ -103,26 +103,32 @@
             if (type.Equals(belt))
             {
                 item = new Belt(ItemType.Common);
+                Field.Hero.Attack += ((AttackItem) item).Attack;
             }
             else if (type.Equals(boots))
             {
                 item = new Boots(ItemType.Common);
+                Field.Hero.Attack += ((AttackItem) item).Attack;
             }
             else if (type.Equals(chest))
             {
                 item = new Chest(ItemType.Common);
+                Field.Hero.Defence += ((DefenseItem) item).Defence;
             }
             else if (type.Equals(helmet))
             {
                 item = new Helmet(ItemType.Common);
+                Field.Hero.Defence += ((DefenseItem)item).Defence;
             }
             else if (type.Equals(pants))
             {
                 item = new Pants(ItemType.Common);
+                Field.Hero.Defence += ((DefenseItem)item).Defence;
             }
             else if (type.Equals(sword))
             {
                 item = new Sword(ItemType.Common);
+                Field.Hero.Attack += ((AttackItem)item).Attack;
             }
             else
             {
@@ -175,7 +181,6 @@
                 new Enemy(90, 90, 90, EnemyType.Centurion, 90),
                 new Enemy(100, 100, 100, EnemyType.Caesar, 100)
             };
-            Console.WriteLine("Enemies added");
         }
 
         protected void AttackEnemy(string type)

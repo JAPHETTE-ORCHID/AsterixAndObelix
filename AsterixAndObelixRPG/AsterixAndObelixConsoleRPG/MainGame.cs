@@ -8,9 +8,8 @@ namespace AsterixAndObelixConsoleRPG
     {
         internal static void Main()
         {
-<<<<<<< .mine            Console.WriteLine("asd");
-=======            Game game = new Game();
+            Game game = new Game();
             game.Start();
->>>>>>> .theirs        }
+        }
     }
 }
