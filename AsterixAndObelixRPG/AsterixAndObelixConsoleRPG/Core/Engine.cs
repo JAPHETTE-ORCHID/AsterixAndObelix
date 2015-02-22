@@ -75,6 +75,11 @@
                 case "info":
                     Console.WriteLine(BattleField.PrintBattleField());
                     break;
+                case "marketfield":
+                    MarketField market = new MarketField();
+                    market.PrintAllItemTypes();
+                    market.ReadCommand();
+                    break;
                 case "exit":
                     this.ExitGame();
                     break;

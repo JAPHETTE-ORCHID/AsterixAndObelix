@@ -2,7 +2,9 @@
 {
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
+    using AsterixAndObelixConsoleRPG.Models.Calculator;
     using AsterixAndObelixConsoleRPG.Models.Fields;
+    using System.Text;
 
     public abstract class AttackItem : Item
     {
@@ -18,7 +20,8 @@
         {
             get
             {
-                return this.attack;
+                int attack = (int)ItemTypeCalculator.CalculateByItemType(this.ItemType, this.attack);
+                return attack;
             }
 
             set
@@ -26,6 +29,16 @@
                 Validator.CheckForNegativeNumber(value);
                 this.attack = value;
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            result.Append(base.ToString());
+            result.Append("  Attack: ").AppendLine(this.Attack.ToString());
+
+            return result.ToString();
         }
     }
 }

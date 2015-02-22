@@ -5,6 +5,7 @@
     using AsterixAndObelixConsoleRPG.Contracts;
     using AsterixAndObelixConsoleRPG.Enumerations;
     using AsterixAndObelixConsoleRPG.Models.Fields;
+    using AsterixAndObelixConsoleRPG.Models.Calculator;
 
     public abstract class Item : IItem
     {
@@ -20,7 +21,8 @@
         {
             get
             {
-                return this.price;
+                decimal price = ItemTypeCalculator.CalculateByItemType(this.ItemType, this.price);
+                return price;
             }
 
             set
