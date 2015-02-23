@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading;
 
     using Contracts;
@@ -10,6 +11,7 @@
     using Models.Items.AttackItems;
     using Models.Items.DefenseItems;
     using Models.Players;
+    using AsterixAndObelixConsoleRPG.Models.Items;
     
     public class Engine
     {
@@ -42,7 +44,7 @@
 
                     break;
                 case "attack":
-                    string target = lineSplit[1];
+                    string target = lineSplit[1].ToLower();
 
                     switch (target)
                     {
@@ -90,7 +92,7 @@
 
         protected void AddItem(string type)
         {
-            if (BattleField.Hero == null)
+            if (Field.Hero == null)
             {
                 throw new ApplicationException("You should add hero first.");
             }
@@ -191,17 +193,11 @@
         {              
             string typeForCast = type.Substring(0, 1).ToUpper() + type.Substring(1);
             EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
-            foreach (var enemy in BattleField.Enemies)
-            {
-                if (enemy.EnemyType == enemyType)
-                {
-                    BattleField.TargetEnemy = enemy;
-                }
-            }
-            
+            BattleField.TargetEnemy = BattleField.Enemies.Single(enemy => enemy.EnemyType == enemyType);
             int enemyHealth = BattleField.TargetEnemy.Health;
             int heroHealth = Field.Hero.Health;
             bool isAlive = true;
+
             while (isAlive)
             {
                 enemyHealth -= Field.Hero.MakeAttack();               
@@ -211,32 +207,7 @@
                     Field.Hero.Gold += BattleField.TargetEnemy.Gold;
                     Field.Hero.Experience += 100;
                     IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
-                    IItem weakItem = null;
-                    bool hasInventoryItem = false;
-                    foreach (var item in Field.Hero.Inventory.Items)
-                    {
-                        if (item.GetType().Name == droppedItem.GetType().Name)
-                        {
-                            hasInventoryItem = true;
-                            int numDroppedItemType = (int)droppedItem.ItemType;
-                            int numCurrentItemType = (int)item.ItemType;
-                            if (numDroppedItemType > numCurrentItemType)
-                            {
-                                weakItem = item;
-                            }                                         
-                        }                        
-                    }
-
-                    if (weakItem != null)
-                    {
-                        Field.Hero.Inventory.RemoveItem(weakItem);
-                        hasInventoryItem = false;
-                    }
-
-                    if (!hasInventoryItem)
-                    {
-                        Field.Hero.Inventory.AddItem(droppedItem);
-                    }
+                    Item.GetBetterItem(droppedItem);
 
                     Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
                     isAlive = false;

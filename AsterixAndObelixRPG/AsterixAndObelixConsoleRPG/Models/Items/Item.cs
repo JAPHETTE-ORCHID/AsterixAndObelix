@@ -1,5 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items
 {
+    using System.Linq;
     using System.Text;
 
     using Calculator;
@@ -33,6 +34,39 @@
         }
 
         public ItemType ItemType { get; set; }
+
+        public static bool IsItemBetter(IItem input)
+        {
+            return Field.Hero.Inventory.Items.Where(item => item.GetType().Name == input.GetType().Name).Any(item => (int) input.ItemType > (int) item.ItemType);
+        }
+
+        public static void GetBetterItem(IItem newItem)
+        {
+            IItem weakItem = null;
+            bool hasInventoryItem = false;
+            foreach (var item in Field.Hero.Inventory.Items)
+            {
+                if (item.GetType().Name == newItem.GetType().Name)
+                {
+                    hasInventoryItem = true;
+                    if ((int)newItem.ItemType > (int)item.ItemType)
+                    {
+                        weakItem = item;
+                    }
+                }
+            }
+
+            if (weakItem != null)
+            {
+                Field.Hero.Inventory.RemoveItem(weakItem);
+                hasInventoryItem = false;
+            }
+
+            if (!hasInventoryItem)
+            {
+                Field.Hero.Inventory.AddItem(newItem);
+            }
+        }
 
         public override string ToString()
         {
