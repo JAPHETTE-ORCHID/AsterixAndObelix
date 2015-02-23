@@ -24,13 +24,14 @@
         public void AddItem(IItem item)
         {
             Validator.CheckForNullItem(item);
-            BattleField.Hero.addPowerFromItem(item);
+            BattleField.Hero.AddPowerFromItem(item);
             this.Items.Add(item);
         }
 
         public void RemoveItem(IItem item)
         {
             Validator.CheckForNullItem(item);
+            BattleField.Hero.RemovePowerFromItem(item);
             this.Items.Remove(item);
         }
 

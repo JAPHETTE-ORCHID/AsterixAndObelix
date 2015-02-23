@@ -81,15 +81,27 @@ using AsterixAndObelixConsoleRPG.Contracts;
             return result.ToString();
         }
 
-        public void addPowerFromItem(IItem item)
+        public void AddPowerFromItem(IItem item)
         {
             if (item is DefenseItem)
             {
                 this.Defence += ((DefenseItem)item).Defence;
             }
-            else if(item is AttackItem)
+            else if (item is AttackItem)
             {
                 this.Attack += ((AttackItem)item).Attack;
+            }
+        }
+
+        public void RemovePowerFromItem(IItem item)
+        {
+            if (item is DefenseItem)
+            {
+                this.Defence -= ((DefenseItem)item).Defence;
+            }
+            else if (item is AttackItem)
+            {
+                this.Attack -= ((AttackItem)item).Attack;
             }
         }
 
