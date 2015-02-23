@@ -3,6 +3,9 @@
     using System.Text;
 
     using Fields;
+using AsterixAndObelixConsoleRPG.Contracts;
+    using AsterixAndObelixConsoleRPG.Models.Items.DefenseItems;
+    using AsterixAndObelixConsoleRPG.Models.Items.AttackItems;
 
     public abstract class Hero : PlayerObject
     {
@@ -76,6 +79,18 @@
                   .Append(string.Join(", ", this.Inventory));
 
             return result.ToString();
+        }
+
+        public void addPowerFromItem(IItem item)
+        {
+            if (item is DefenseItem)
+            {
+                this.Defence += ((DefenseItem)item).Defence;
+            }
+            else if(item is AttackItem)
+            {
+                this.Attack += ((AttackItem)item).Attack;
+            }
         }
 
         // TODO: we have to add items attack

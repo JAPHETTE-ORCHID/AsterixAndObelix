@@ -24,6 +24,7 @@
         public void AddItem(IItem item)
         {
             Validator.CheckForNullItem(item);
+            BattleField.Hero.addPowerFromItem(item);
             this.Items.Add(item);
         }
 
