@@ -94,8 +94,9 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
             Console.WriteLine(
                 "Buy Id".PadRight(cellWidth) +
                 "Name".PadRight(cellWidth) +
-                "Defence".PadRight(cellWidth) + 
+                "Defence".PadRight(cellWidth) +
                 "Attack".PadRight(cellWidth) +
+                "Health".PadRight(cellWidth) +
                 "Price".PadRight(cellWidth)
                 );
             StringBuilder itemList = new StringBuilder();
@@ -108,15 +109,19 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
                 {
                     itemList.Append("0".PadRight(cellWidth, paddingChar));
                     itemList.Append(((AttackItem)item).Attack.ToString().PadRight(cellWidth, paddingChar));
+                    itemList.Append("0".PadRight(cellWidth, paddingChar));
                 }
                 else if(item is DefenseItem)
                 {
                     itemList.Append(((DefenseItem)item).Defence.ToString().PadRight(cellWidth, paddingChar));
                     itemList.Append("0".PadRight(cellWidth, paddingChar));
+                    itemList.Append("0".PadRight(cellWidth, paddingChar));
                 }
                 else if (item is IHeal)
                 {
-                    
+                    itemList.Append("0".PadRight(cellWidth, paddingChar));
+                    itemList.Append("0".PadRight(cellWidth, paddingChar));
+                    itemList.Append(((IHeal)item).Health.ToString().PadRight(cellWidth, paddingChar));
                 }
 
                 itemList.Append(item.Price.ToString());

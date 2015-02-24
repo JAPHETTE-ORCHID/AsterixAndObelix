@@ -7,27 +7,14 @@ namespace AsterixAndObelixConsoleRPG.Models.Items.HealthItems
 
     class Potion : Item, IHeal
     {
-        private PotionType potionType;
-        private const decimal DefaultPrice = 100m;
+        private const int DefaultPrice = 100;
 
         public Potion(ItemType itemType)
             : base(DefaultPrice, itemType)
         {
-            this.PotionType = potionType;
         }
 
-        public PotionType PotionType
-        {
-            get
-            {
-                return this.potionType;
-            }
-
-            set
-            {
-                this.potionType = value;
-            }
-        }
+        public int Health { get; set; }
 
         public void Heal()
         {
