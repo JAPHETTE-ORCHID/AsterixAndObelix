@@ -2,10 +2,10 @@
 {
     using System.Text;
 
+    using Contracts;
     using Fields;
-using AsterixAndObelixConsoleRPG.Contracts;
-    using AsterixAndObelixConsoleRPG.Models.Items.DefenseItems;
-    using AsterixAndObelixConsoleRPG.Models.Items.AttackItems;
+    using Items.AttackItems;
+    using Items.DefenseItems;
 
     public abstract class Hero : PlayerObject
     {
@@ -110,7 +110,6 @@ using AsterixAndObelixConsoleRPG.Contracts;
             }
         }
 
-        // TODO: we have to add items attack
         public override int MakeAttack()
         {
             int damage = this.Attack - BattleField.TargetEnemy.Defence;
@@ -127,6 +126,7 @@ using AsterixAndObelixConsoleRPG.Contracts;
             StringBuilder result = new StringBuilder();
 
             result.Append("Hero: ").AppendLine(this.GetType().Name);
+            result.Append("Level: ").AppendLine(this.Level.ToString());
             result.Append("Experience: ").AppendLine(this.Experience.ToString());
             result.Append("Gold: ").AppendLine(this.Gold.ToString());
             result.Append("Attack: ").AppendLine(this.Attack.ToString());

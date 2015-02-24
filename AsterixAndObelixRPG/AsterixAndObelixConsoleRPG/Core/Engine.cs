@@ -11,8 +11,7 @@
     using Models.Items.AttackItems;
     using Models.Items.DefenseItems;
     using Models.Players;
-    using AsterixAndObelixConsoleRPG.Models.Items;
-    
+  
     public class Engine
     {
         public void CommandHandler(string line)
@@ -240,6 +239,7 @@
                         BattleField.TargetEnemy.Attack + 
                         BattleField.TargetEnemy.Defence +
                         BattleField.TargetEnemy.Health;
+                    Field.Hero.Level += (int)(0.05 * Math.Sqrt(Field.Hero.Experience));
                     IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
                     BattleField.Hero.Inventory.AddItem(droppedItem);
 
