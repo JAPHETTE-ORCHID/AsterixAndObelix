@@ -1,7 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items.AttackItems
 {
     using System.Text;
-
     using Calculator;
     using Enumerations;
     using Fields;

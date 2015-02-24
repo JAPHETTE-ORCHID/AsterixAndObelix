@@ -1,4 +1,6 @@
-﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿using AsterixAndObelixConsoleRPG.Enumerations;
+
+namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System.Collections.Generic;
     using System.Text;
@@ -9,6 +11,14 @@
     {
         private static IList<Enemy> enemies;
         private static Enemy targetEnemy;
+        public static Dictionary<EnemyType, int> attackedEnemies = new Dictionary<EnemyType, int>()
+        {
+            { EnemyType.Cadet, 0 },
+            { EnemyType.Manipularius, 0 },
+            { EnemyType.Centurion, 0 },
+            { EnemyType.Tribune, 0 },
+            { EnemyType.Caesar, 0 },
+        };
 
         public static IList<Enemy> Enemies
         {

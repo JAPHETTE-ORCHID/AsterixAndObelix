@@ -12,11 +12,13 @@ using AsterixAndObelixConsoleRPG.Contracts;
         private int experience;
         private int gold;
         private Inventory inventory;
+        private int level;
 
         public Hero(int attack, int defence, int health)
             : base(attack, defence, health)
         {
             this.inventory = new Inventory();
+            this.Level = 1;
         }
 
         public int Experience
@@ -51,9 +53,12 @@ using AsterixAndObelixConsoleRPG.Contracts;
         {
             get
             {
-                int level = (this.experience / Constants.ExpPerLevel) + 1;
+                return this.level;
+            }
 
-                return level;
+            set
+            {
+                this.level = value;
             }
         }
 
