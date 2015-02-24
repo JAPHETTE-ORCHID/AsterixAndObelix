@@ -40,32 +40,14 @@
             return Field.Hero.Inventory.Items.Where(item => item.GetType().Name == input.GetType().Name).Any(item => (int) input.ItemType > (int) item.ItemType);
         }
 
-        public static void GetBetterItem(IItem newItem)
+        public static IItem GetBetterItem(IItem item1, IItem item2)
         {
-            IItem weakItem = null;
-            bool hasInventoryItem = false;
-            foreach (var item in Field.Hero.Inventory.Items)
+            if (item1.Price > item2.Price)
             {
-                if (item.GetType().Name == newItem.GetType().Name)
-                {
-                    hasInventoryItem = true;
-                    if ((int)newItem.ItemType > (int)item.ItemType)
-                    {
-                        weakItem = item;
-                    }
-                }
+                return item1;
             }
 
-            if (weakItem != null)
-            {
-                Field.Hero.Inventory.RemoveItem(weakItem);
-                hasInventoryItem = false;
-            }
-
-            if (!hasInventoryItem)
-            {
-                Field.Hero.Inventory.AddItem(newItem);
-            }
+            return item2;
         }
 
         public override string ToString()

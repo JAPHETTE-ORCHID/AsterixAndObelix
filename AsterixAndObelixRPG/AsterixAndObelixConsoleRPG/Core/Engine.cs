@@ -241,7 +241,7 @@
                         BattleField.TargetEnemy.Defence +
                         BattleField.TargetEnemy.Health;
                     IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
-                    Item.GetBetterItem(droppedItem);
+                    BattleField.Hero.Inventory.AddItem(droppedItem);
 
                     Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
                     isAlive = false;
