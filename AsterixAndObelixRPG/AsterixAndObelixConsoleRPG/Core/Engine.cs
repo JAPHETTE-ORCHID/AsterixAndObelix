@@ -69,14 +69,14 @@
                     }
 
                     break;
-                case "battlefield":
+                case "battle":
                     this.GenerateEnemies();
                     Console.WriteLine(BattleField.PrintBattleField());
                     break;
                 case "info":
                     Console.WriteLine(BattleField.PrintBattleField());
                     break;
-                case "marketfield":
+                case "market":
                     MarketField market = new MarketField();
                     market.PrintAllItemTypes();
                     market.ReadCommand();

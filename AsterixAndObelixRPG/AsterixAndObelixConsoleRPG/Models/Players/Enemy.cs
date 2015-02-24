@@ -190,26 +190,30 @@
         public override string ToString()
         {
             const int maxCellSize = 13;
+            var enemiestLeft = 3 - BattleField.attackedEnemies[this.EnemyType];
 
             string outputEnemyType = "" + this.EnemyType;
             string outputGold = "Gold: " + this.Gold;
             string outputAttack = "Attack: " + this.Attack;
             string outputDefence = "Defence: " + this.Defence;
             string outputHealth = "Health: " + this.Health;
+            string outputEnemiesLeft = "Left: " + enemiestLeft;
 
             string enemyTypePadding = new string(' ', maxCellSize - outputEnemyType.Length);
             string goldPadding = new string(' ', maxCellSize - outputGold.Length);
             string attackPadding = new string(' ', maxCellSize - outputAttack.Length);
             string defencePadding = new string(' ', maxCellSize - outputDefence.Length);
             string healthPadding = new string(' ', maxCellSize - outputHealth.Length);
+            string enemiesLeftPadding = new string(' ', maxCellSize - outputEnemiesLeft.Length);
 
             return string.Format(
-                "{0} {1} {2} {3} {4}",
+                "{0} {1} {2} {3} {4} {5}",
                 outputEnemyType + enemyTypePadding,
                 outputGold + goldPadding,
                 outputAttack + attackPadding,
                 outputDefence + defencePadding,
-                outputHealth) + healthPadding;
+                outputHealth + healthPadding,
+                outputEnemiesLeft);
         }
     }
 }
