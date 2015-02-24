@@ -85,5 +85,20 @@
 
             return result.ToString();
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            if (((Item)obj).ItemType != this.ItemType)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

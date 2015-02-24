@@ -40,5 +40,14 @@
 
             return result.ToString();
         }
+
+        public override int GetHashCode()
+        {
+            int hash = base.GetHashCode();
+
+            hash = hash * 23 + this.Attack.GetHashCode();
+
+            return hash;
+        }
     }
 }

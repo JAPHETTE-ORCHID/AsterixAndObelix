@@ -1,15 +1,15 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System;
+    using System.Linq;
     using System.Collections;
     using System.Collections.Generic;
     using System.Text;
-
     using Enumerations;
     using Items;
     using Items.AttackItems;
     using Items.DefenseItems;
-    
+
     public class MarketField : Field
     {
         private Operation operation;
@@ -132,6 +132,20 @@
                 new Helmet(this.itemType),
                 new Pants(this.itemType)             
             };
+
+            for (int heroItemIndex = 0; heroItemIndex < BattleField.Hero.Inventory.Items.Count; heroItemIndex++)
+            {
+                for (int itemIndex = 0; itemIndex < this.items.Count; itemIndex++)
+                {
+                    var heroItem = BattleField.Hero.Inventory.Items[heroItemIndex];
+                    var item = this.items[itemIndex];
+                    if (heroItem.Equals(item))
+                    {
+                        this.items.RemoveAt(itemIndex);
+                    }
+                }
+            }
+
         }
     }
 }
