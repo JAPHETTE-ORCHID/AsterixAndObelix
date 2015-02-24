@@ -42,12 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IDefence.cs" />
+    <Compile Include="Contracts\IHeal.cs" />
     <Compile Include="Contracts\IInventory.cs" />
     <Compile Include="Contracts\IUpdatable.cs" />
     <Compile Include="Core\Game.cs" />
     <Compile Include="Enumerations\AllItems.cs" />
     <Compile Include="Enumerations\HeroType.cs" />
     <Compile Include="Enumerations\Operation.cs" />
+    <Compile Include="Enumerations\PotionType.cs" />
     <Compile Include="Models\Calculator\ItemTypeCalculator.cs" />
     <Compile Include="Models\Fields\Constants.cs" />
     <Compile Include="Models\Fields\Inventory.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Contracts\IUnit.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Enumerations\ItemType.cs" />
+    <Compile Include="Models\Items\HealthItems\Potion.cs" />
     <Compile Include="Models\Items\Item.cs" />
     <Compile Include="Models\Players\Asterix.cs" />
     <Compile Include="Models\Players\Enemy.cs" />

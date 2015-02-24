@@ -1,4 +1,7 @@
-﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿using AsterixAndObelixConsoleRPG.Contracts;
+using AsterixAndObelixConsoleRPG.Models.Items.HealthItems;
+
+namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System;
     using System.Linq;
@@ -106,10 +109,14 @@
                     itemList.Append("0".PadRight(cellWidth, paddingChar));
                     itemList.Append(((AttackItem)item).Attack.ToString().PadRight(cellWidth, paddingChar));
                 }
-                else
+                else if(item is DefenseItem)
                 {
                     itemList.Append(((DefenseItem)item).Defence.ToString().PadRight(cellWidth, paddingChar));
                     itemList.Append("0".PadRight(cellWidth, paddingChar));
+                }
+                else if (item is IHeal)
+                {
+                    
                 }
 
                 itemList.Append(item.Price.ToString());
@@ -130,7 +137,8 @@
                 new Sword(this.itemType),
                 new Chest(this.itemType),
                 new Helmet(this.itemType),
-                new Pants(this.itemType)             
+                new Pants(this.itemType),
+                new Potion(this.itemType)
             };
 
             for (int heroItemIndex = 0; heroItemIndex < BattleField.Hero.Inventory.Items.Count; heroItemIndex++)
