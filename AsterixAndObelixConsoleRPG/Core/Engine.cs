@@ -83,6 +83,9 @@
                     Field.Hero.Attack += 100000;
                     Field.Hero.Health += 100000;
                     break;
+                case "clear":
+                    Console.Clear();
+                    break;
                 case "exit":
                     this.ExitGame();
                     break;

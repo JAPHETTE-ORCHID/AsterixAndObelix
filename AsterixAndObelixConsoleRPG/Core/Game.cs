@@ -29,10 +29,16 @@
 
         private void Run()
         {
+            int tick = 0;
             while (IsGameRunning)
             {
                 try
                 {
+                    if (tick == 0)
+                    {
+                        Console.WriteLine("Message");
+                        tick++;
+                    }
                     this.engine.CommandHandler(Console.ReadLine());
                 }
                 catch (ApplicationException e)
