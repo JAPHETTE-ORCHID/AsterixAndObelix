@@ -6,35 +6,11 @@
 
     public abstract class Field
     {
-        private static Hero hero;
-
-        public static Hero Hero
-        {
-            get
-            {
-                return Field.hero;
-            }
-
-            set
-            {
-                Field.hero = value;
-            }
-        }
+        public static Hero Hero { get; set; }
 
         public static string PrintHero()
-        {
-            StringBuilder printBattleField = new StringBuilder();
-            printBattleField.AppendLine();
-            if (BattleField.Hero == null)
-            {
-                printBattleField.AppendLine("No hero.");
-            }
-            else
-            {
-                printBattleField.AppendLine(BattleField.Hero.ToString());
-            }
-
-            return printBattleField.ToString();
+        {         
+            return Hero == null ? "No hero." : Hero.ToString();
         }
     }
 }

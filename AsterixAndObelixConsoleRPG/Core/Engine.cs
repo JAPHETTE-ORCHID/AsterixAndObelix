@@ -92,8 +92,6 @@
                     market.ReadCommand();
                     break;
                 case "iamnakov":
-                    Field.Hero.Defence += 100000;
-                    Field.Hero.Attack += 100000;
                     Field.Hero.Health += 100000;
                     break;
                 case "clear":
@@ -114,6 +112,7 @@
             {
                 throw new InputException("Hero allready exists. Proceed with battle.");
             }
+
             string obelix = HeroType.Obelix.ToString().ToLower();
             string asterix = HeroType.Asterix.ToString().ToLower();
             type = type.ToLower();
@@ -172,7 +171,7 @@
 
             if (isAllEnemiesAreKilled)
             {
-                BattleField.Enemies.Add(new Enemy(1000, 1000, 1000, EnemyType.Caesar, 1000));
+                BattleField.Enemies.Add(new Enemy(3500, 3500, 1000, EnemyType.Caesar, 1000));
             }
         }
 
@@ -184,7 +183,7 @@
             EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
             if (BattleField.AttackedEnemies[enemyType] >= 3)
             {
-                throw new Exception("This enemies are dead.");
+                throw new InvalidEnemyException("This enemies are dead.");
             }
 
             BattleField.TargetEnemy = BattleField.Enemies.Single(enemy => enemy.EnemyType == enemyType);

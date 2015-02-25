@@ -109,7 +109,7 @@
             int damage = this.Attack - BattleField.TargetEnemy.Defence;
             if (damage <= 0)
             {
-                damage = 1;
+                damage = 10;
             }
 
             return damage;

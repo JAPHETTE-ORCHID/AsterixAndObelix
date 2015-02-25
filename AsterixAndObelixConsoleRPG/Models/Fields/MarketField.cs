@@ -27,7 +27,7 @@
 
         public void PrintAllItemTypes()
         {
-            Validator.CheckIfHeroExist(Hero);
+            Validator.CheckIfHeroExist(Field.Hero);
             for (int i = 0; i < this.itemTypes.Count; i++)
             {
                 Console.WriteLine("{0}. {1}", i + 1, this.itemTypes[i]);

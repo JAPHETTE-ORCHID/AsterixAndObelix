@@ -65,15 +65,10 @@
             string padding = new string(' ', 2);
 
             result.Append(padding)
-                .Append("Item: ")
-                .AppendLine(this.GetType().Name);
+                .Append(this.ItemType);
             result.Append(padding)
-                .Append("Item type: ")
-                .AppendLine(this.ItemType.ToString());
-            result.Append(padding)
-                .Append("Item price: ")
-                .AppendLine(this.Price.ToString());
-
+                .Append(this.GetType().Name);
+            
             return result.ToString();
         }
 

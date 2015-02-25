@@ -51,9 +51,9 @@
         {
             StringBuilder printBattleField = new StringBuilder();
 
-            string printHero = Field.PrintHero();
+            string printHero = PrintHero();
             printBattleField.Append(printHero);
-
+            printBattleField.AppendLine();
             printBattleField.AppendLine("Enemies: ");
 
             if (BattleField.Enemies != null && BattleField.Enemies.Count > 0)

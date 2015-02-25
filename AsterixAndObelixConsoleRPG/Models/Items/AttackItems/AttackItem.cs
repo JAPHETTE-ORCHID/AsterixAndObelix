@@ -1,9 +1,7 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items.AttackItems
 {
     using System.Text;
-    using Calculator;
     using Enumerations;
-    using Fields;
 
     public abstract class AttackItem : Item
     {
@@ -19,7 +17,7 @@
             StringBuilder result = new StringBuilder();
 
             result.Append(base.ToString());
-            result.Append("  Attack: ").AppendLine(this.Attack.ToString());
+            result.Append("  Attack: ").Append(this.Attack.ToString());
 
             return result.ToString();
         }

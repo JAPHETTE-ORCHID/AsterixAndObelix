@@ -2,10 +2,8 @@
 {
     using System.Text;
 
-    using Calculator;
     using Contracts;
     using Enumerations;    
-    using Fields;
 
     public abstract class DefenseItem : Item, IDefence
     {
@@ -21,7 +19,7 @@
             StringBuilder result = new StringBuilder();
 
             result.Append(base.ToString());
-            result.Append("  Defence: ").AppendLine(this.Defence.ToString());
+            result.Append("  Defence: ").Append(this.Defence.ToString());
 
             return result.ToString();
         }

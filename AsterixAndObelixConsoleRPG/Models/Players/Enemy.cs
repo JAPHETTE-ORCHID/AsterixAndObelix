@@ -176,7 +176,7 @@
 
                     break;
                 case EnemyType.Caesar:
-                    itemForDrop = new Pants(ItemType.Legendary);
+                    itemForDrop = new Sword(ItemType.Legendary);
                     break;
                 default:
                     itemForDrop = null;
