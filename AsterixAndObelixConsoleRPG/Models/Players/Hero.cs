@@ -6,6 +6,7 @@
     using Fields;
     using Items.AttackItems;
     using Items.DefenseItems;
+    using Items.UniqueItem;
 
     public abstract class Hero : PlayerObject
     {
@@ -83,6 +84,11 @@
             else if (item is AttackItem)
             {
                 this.Attack += ((AttackItem)item).Attack;
+            }
+            else if (item is DefenceAttack)
+            {
+                this.Attack += ((DefenceAttack)item).Attack;
+                this.Defence += ((DefenceAttack)item).Defence;
             }
         }
 
