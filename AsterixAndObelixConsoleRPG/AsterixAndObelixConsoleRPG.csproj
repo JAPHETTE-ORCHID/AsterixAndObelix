@@ -63,7 +63,7 @@
     <Compile Include="Contracts\IUnit.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Enumerations\ItemType.cs" />
-    <Compile Include="Models\Items\AttackItems\AttackItems.cs" />
+    <Compile Include="Models\Items\AttackItems\AttackItem.cs" />
     <Compile Include="Models\Items\AttackItems\Sword.cs" />
     <Compile Include="Models\Items\DefenseItems\DefenseItem.cs" />
     <Compile Include="Models\Items\DefenseItems\Helmet.cs" />
