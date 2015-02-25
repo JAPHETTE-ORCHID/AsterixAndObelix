@@ -46,6 +46,7 @@
     <Compile Include="Contracts\IInventory.cs" />
     <Compile Include="Contracts\IUpdatable.cs" />
     <Compile Include="Core\Game.cs" />
+    <Compile Include="CustomException\InvalidEnemyException.cs" />
     <Compile Include="Enumerations\AllItems.cs" />
     <Compile Include="Enumerations\HeroType.cs" />
     <Compile Include="Enumerations\Operation.cs" />

@@ -1,5 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Core
 {
+    using AsterixAndObelixConsoleRPG.CustomException;
     using System;
     using System.Threading;
 
@@ -35,13 +36,17 @@
                 {
                     this.engine.CommandHandler(Console.ReadLine());
                 }
-                catch (ApplicationException e)
+                catch (InvalidEnemyException iee)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.Error.WriteLine(iee.Message);
+                }
+                catch (ApplicationException ae)
+                {
+                    Console.Error.WriteLine(ae + ae.Message);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.Error.WriteLine(e.Message);
                 }
             }
         }
