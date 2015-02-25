@@ -49,15 +49,9 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
         public static string PrintBattleField()
         {
             StringBuilder printBattleField = new StringBuilder();
-            printBattleField.AppendLine();
-            if (BattleField.Hero == null)
-            {
-                printBattleField.AppendLine("No hero.");
-            }
-            else
-            {
-                printBattleField.AppendLine(BattleField.Hero.ToString());
-            }
+
+            string printHero = Field.PrintHero();
+            printBattleField.Append(printHero);
 
             printBattleField.AppendLine("Enemies: ");
 

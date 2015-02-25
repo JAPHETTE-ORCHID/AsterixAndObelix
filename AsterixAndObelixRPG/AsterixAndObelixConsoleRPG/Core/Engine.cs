@@ -73,7 +73,7 @@
                     Console.WriteLine(BattleField.PrintBattleField());
                     break;
                 case "info":
-                    Console.WriteLine(BattleField.PrintBattleField());
+                    Console.WriteLine(Field.PrintHero());
                     break;
                 case "market":
                     MarketField market = new MarketField();

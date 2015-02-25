@@ -1,4 +1,6 @@
-﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿using System.Text;
+
+namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using Players;
 
@@ -17,6 +19,22 @@
             {
                 Field.hero = value;
             }
+        }
+
+        public static string PrintHero()
+        {
+            StringBuilder printBattleField = new StringBuilder();
+            printBattleField.AppendLine();
+            if (BattleField.Hero == null)
+            {
+                printBattleField.AppendLine("No hero.");
+            }
+            else
+            {
+                printBattleField.AppendLine(BattleField.Hero.ToString());
+            }
+
+            return printBattleField.ToString();
         }
     }
 }
