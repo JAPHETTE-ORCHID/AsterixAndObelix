@@ -189,29 +189,29 @@
             BattleField.Enemies = new List<Enemy>() {};
             bool isAllEnemiesAreKilled = true;
 
-            /*if (BattleField.attackedEnemies[EnemyType.Cadet] < 3)
+            if (BattleField.attackedEnemies[EnemyType.Cadet] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(50, 50, 50, EnemyType.Cadet, 50));
+                BattleField.Enemies.Add(new Enemy(120, 120, 50, EnemyType.Cadet, 150));
                 isAllEnemiesAreKilled = false;
             }
             if (BattleField.attackedEnemies[EnemyType.Manipularius] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(60, 60, 60, EnemyType.Manipularius, 60));
+                BattleField.Enemies.Add(new Enemy(430, 400, 60, EnemyType.Manipularius, 350));
                 isAllEnemiesAreKilled = false;
             }
             if (BattleField.attackedEnemies[EnemyType.Tribune] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(75, 75, 70, EnemyType.Tribune, 75));
+                BattleField.Enemies.Add(new Enemy(800, 750, 75, EnemyType.Tribune, 650));
                 isAllEnemiesAreKilled = false;
             }
             if (BattleField.attackedEnemies[EnemyType.Centurion] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(90, 90, 90, EnemyType.Centurion, 90));
+                BattleField.Enemies.Add(new Enemy(1400, 1300, 85, EnemyType.Centurion, 1000));
                 isAllEnemiesAreKilled = false;
-            }*/
+            }
             if (BattleField.attackedEnemies[EnemyType.Ordinatus] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(100, 100, 100, EnemyType.Ordinatus, 100));
+                BattleField.Enemies.Add(new Enemy(2050, 2050, 100, EnemyType.Ordinatus, 1500));
                 isAllEnemiesAreKilled = false;
             }
 
