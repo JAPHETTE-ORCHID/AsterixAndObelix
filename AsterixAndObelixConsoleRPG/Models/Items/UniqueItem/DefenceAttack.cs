@@ -1,7 +1,7 @@
-﻿using AsterixAndObelixConsoleRPG.Contracts;
-using AsterixAndObelixConsoleRPG.Enumerations;
-namespace AsterixAndObelixConsoleRPG.Models.Items.UniqueItem
+﻿namespace AsterixAndObelixConsoleRPG.Models.Items.UniqueItem
 {
+    using Enumerations;
+
     public abstract class DefenceAttack : Item
     {
         protected DefenceAttack(ItemType itemType)

@@ -6,7 +6,6 @@
 
     public class Belt : DefenceAttack
     { 
-
         private const int CommonAttack = 75;
         private const int UncommonAttack = 100;
         private const int RareAttack = 135;

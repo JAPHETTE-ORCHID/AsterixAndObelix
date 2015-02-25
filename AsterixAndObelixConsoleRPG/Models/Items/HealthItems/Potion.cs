@@ -1,11 +1,10 @@
-﻿using AsterixAndObelixConsoleRPG.Contracts;
-using AsterixAndObelixConsoleRPG.Models.Fields;
-
-namespace AsterixAndObelixConsoleRPG.Models.Items.HealthItems
+﻿namespace AsterixAndObelixConsoleRPG.Models.Items.HealthItems
 {
-    using AsterixAndObelixConsoleRPG.Enumerations;
+    using Contracts;
+    using Enumerations;
+    using Fields;
 
-    class Potion : Item, IHeal
+    internal class Potion : Item, IHeal
     {
         private const int DefaultPrice = 100;
 

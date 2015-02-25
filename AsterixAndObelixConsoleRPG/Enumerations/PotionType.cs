@@ -1,6 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Enumerations
 {
-    enum PotionType
+    public enum PotionType
     {
         HalfHealth,
         FullHealth

@@ -1,18 +1,17 @@
-﻿using AsterixAndObelixConsoleRPG.Contracts;
-using AsterixAndObelixConsoleRPG.Models.Items.HealthItems;
-
-namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System;
-    using System.Linq;
     using System.Collections;
     using System.Collections.Generic;
     using System.Text;
+
+    using Contracts;    
     using Enumerations;
     using Items;
     using Items.AttackItems;
     using Items.DefenseItems;
-    using AsterixAndObelixConsoleRPG.Models.Items.UniqueItem;
+    using Items.HealthItems;
+    using Items.UniqueItem;
 
     public class MarketField : Field
     {
@@ -30,7 +29,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
         {
             for (int i = 0; i < this.itemTypes.Count; i++)
             {
-                Console.WriteLine("{0}. {1}", (i + 1), this.itemTypes[i]);
+                Console.WriteLine("{0}. {1}", i + 1, this.itemTypes[i]);
             }
 
             this.operation = Operation.ChoosingItemType;
@@ -95,45 +94,45 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
 
             Console.WriteLine("{0} items: ", this.itemType);
             int itemCount = 0;
-            const int cellWidth = 10;
+            const int CellWidth = 10;
             char paddingChar = '-';
             Console.WriteLine(
-                "Buy Id".PadRight(cellWidth) +
-                "Name".PadRight(cellWidth) +
-                "Defence".PadRight(cellWidth) +
-                "Attack".PadRight(cellWidth) +
-                "Health".PadRight(cellWidth) +
-                "Price".PadRight(cellWidth)
-                );
+                "Buy Id".PadRight(CellWidth) +
+                "Name".PadRight(CellWidth) +
+                "Defence".PadRight(CellWidth) +
+                "Attack".PadRight(CellWidth) +
+                "Health".PadRight(CellWidth) +
+                "Price".PadRight(CellWidth));
+
             StringBuilder itemList = new StringBuilder();
             foreach (var item in this.items)
             {
                 itemCount++;
-                itemList.Append(itemCount.ToString().PadRight(cellWidth, paddingChar));
-                itemList.Append(item.GetType().Name.PadRight(cellWidth, paddingChar));
+                itemList.Append(itemCount.ToString().PadRight(CellWidth, paddingChar));
+                itemList.Append(item.GetType().Name.PadRight(CellWidth, paddingChar));
                 if (item is AttackItem)
                 {
-                    itemList.Append("0".PadRight(cellWidth, paddingChar));
-                    itemList.Append(((AttackItem)item).Attack.ToString().PadRight(cellWidth, paddingChar));
-                    itemList.Append("0".PadRight(cellWidth, paddingChar));
+                    itemList.Append("0".PadRight(CellWidth, paddingChar));
+                    itemList.Append(((AttackItem)item).Attack.ToString().PadRight(CellWidth, paddingChar));
+                    itemList.Append("0".PadRight(CellWidth, paddingChar));
                 }
-                else if(item is DefenseItem)
+                else if (item is DefenseItem)
                 {
-                    itemList.Append(((DefenseItem)item).Defence.ToString().PadRight(cellWidth, paddingChar));
-                    itemList.Append("0".PadRight(cellWidth, paddingChar));
-                    itemList.Append("0".PadRight(cellWidth, paddingChar));
+                    itemList.Append(((DefenseItem)item).Defence.ToString().PadRight(CellWidth, paddingChar));
+                    itemList.Append("0".PadRight(CellWidth, paddingChar));
+                    itemList.Append("0".PadRight(CellWidth, paddingChar));
                 }
                 else if (item is DefenceAttack)
                 {
-                    itemList.Append(((DefenceAttack)item).Defence.ToString().PadRight(cellWidth, paddingChar));
-                    itemList.Append(((DefenceAttack)item).Attack.ToString().PadRight(cellWidth, paddingChar));
-                    itemList.Append("0".PadRight(cellWidth, paddingChar));
+                    itemList.Append(((DefenceAttack)item).Defence.ToString().PadRight(CellWidth, paddingChar));
+                    itemList.Append(((DefenceAttack)item).Attack.ToString().PadRight(CellWidth, paddingChar));
+                    itemList.Append("0".PadRight(CellWidth, paddingChar));
                 }
                 else if (item is IHeal)
                 {
-                    itemList.Append("0".PadRight(cellWidth, paddingChar));
-                    itemList.Append("0".PadRight(cellWidth, paddingChar));
-                    itemList.Append(((IHeal)item).Health.ToString().PadRight(cellWidth, paddingChar));
+                    itemList.Append("0".PadRight(CellWidth, paddingChar));
+                    itemList.Append("0".PadRight(CellWidth, paddingChar));
+                    itemList.Append(((IHeal)item).Health.ToString().PadRight(CellWidth, paddingChar));
                 }
 
                 itemList.Append(item.Price.ToString());

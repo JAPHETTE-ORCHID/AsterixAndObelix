@@ -10,8 +10,6 @@
 
     public abstract class Item : IItem
     {
-        private int price;
-
         private const int CommonPrice = 100;
         private const int UncommonPrice = 500;
         private const int RarePrice = 900;
@@ -48,7 +46,7 @@
 
         public static bool IsItemBetter(IItem input)
         {
-            return Field.Hero.Inventory.Items.Where(item => item.GetType().Name == input.GetType().Name).Any(item => (int) input.ItemType > (int) item.ItemType);
+            return Field.Hero.Inventory.Items.Where(item => item.GetType().Name == input.GetType().Name).Any(item => (int)input.ItemType > (int)item.ItemType);
         }
 
         public static IItem GetBetterItem(IItem item1, IItem item2)
@@ -78,7 +76,6 @@
 
             return result.ToString();
         }
-
 
         public override bool Equals(object obj)
         {

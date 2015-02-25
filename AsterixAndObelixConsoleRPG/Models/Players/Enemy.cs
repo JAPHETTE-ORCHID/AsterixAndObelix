@@ -10,10 +10,11 @@
 
     public class Enemy : PlayerObject, IDrop
     {
-        private const int expirience = 100;
-        public Enemy() 
+        private const int DropExpirience = 100;
+
+        public Enemy()            
             : base(0, 0, 0)
-        {           
+        {
         }
 
         public Enemy(int attack, int defence, int health, EnemyType enemyType, int gold)
@@ -25,7 +26,7 @@
 
         public int Expirience
         {
-            get { return Enemy.expirience; }
+            get { return Enemy.DropExpirience; }
         }
 
         public EnemyType EnemyType { get; set; }
@@ -198,10 +199,10 @@
 
         public override string ToString()
         {
-            const int maxCellSize = 13;
-            var enemiestLeft = 3 - BattleField.attackedEnemies[this.EnemyType];
+            const int MaxCellSize = 13;
+            var enemiestLeft = 3 - BattleField.AttackedEnemies[this.EnemyType];
 
-            string outputEnemyType = "" + this.EnemyType;
+            string outputEnemyType = this.EnemyType.ToString();
             string outputGold = "Gold: " + this.Gold;
             string outputAttack = "Attack: " + this.Attack;
             string outputDefence = "Defence: " + this.Defence;
@@ -213,11 +214,11 @@
                 outputEnemiesLeft = "Left: " + enemiestLeft;
             }
 
-            string enemyTypePadding = new string(' ', maxCellSize - outputEnemyType.Length);
-            string goldPadding = new string(' ', maxCellSize - outputGold.Length);
-            string attackPadding = new string(' ', maxCellSize - outputAttack.Length);
-            string defencePadding = new string(' ', maxCellSize - outputDefence.Length);
-            string healthPadding = new string(' ', maxCellSize - outputHealth.Length);
+            string enemyTypePadding = new string(' ', MaxCellSize - outputEnemyType.Length);
+            string goldPadding = new string(' ', MaxCellSize - outputGold.Length);
+            string attackPadding = new string(' ', MaxCellSize - outputAttack.Length);
+            string defencePadding = new string(' ', MaxCellSize - outputDefence.Length);
+            string healthPadding = new string(' ', MaxCellSize - outputHealth.Length);
 
             return string.Format(
                 "{0} {1} {2} {3} {4} {5}",

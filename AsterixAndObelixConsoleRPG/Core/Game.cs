@@ -39,6 +39,7 @@
                         Console.WriteLine("Message");
                         tick++;
                     }
+
                     this.engine.CommandHandler(Console.ReadLine());
                 }
                 catch (ApplicationException e)

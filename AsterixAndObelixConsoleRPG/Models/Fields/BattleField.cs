@@ -1,17 +1,16 @@
-﻿using AsterixAndObelixConsoleRPG.Enumerations;
-
-namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System.Collections.Generic;
     using System.Text;
 
+    using Enumerations;
     using Players;
 
     public class BattleField : Field
     {
         private static IList<Enemy> enemies;
         private static Enemy targetEnemy;
-        public static Dictionary<EnemyType, int> attackedEnemies = new Dictionary<EnemyType, int>()
+        public static Dictionary<EnemyType, int> AttackedEnemies = new Dictionary<EnemyType, int>()
         {
             { EnemyType.Cadet, 0 },
             { EnemyType.Manipularius, 0 },

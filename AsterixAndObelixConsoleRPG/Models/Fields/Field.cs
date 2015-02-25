@@ -1,7 +1,7 @@
-﻿using System.Text;
-
-namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
+    using System.Text;
+
     using Players;
 
     public abstract class Field

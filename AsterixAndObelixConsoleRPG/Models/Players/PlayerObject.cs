@@ -3,7 +3,7 @@
     using Contracts;
     using Fields;
 
-    public abstract class PlayerObject : IAttack, IDefence, IUnit, IUpdatable
+    public abstract class PlayerObject : IAttack, IDefence, IUnit
     {
         private int attack;
         private int defence;
@@ -56,11 +56,6 @@
                 Validator.CheckForNegativeNumber(value);
                 this.health = value;
             }
-        }
-
-        public void Update()
-        {
-            throw new System.NotImplementedException();
         }
 
         public abstract int MakeAttack();

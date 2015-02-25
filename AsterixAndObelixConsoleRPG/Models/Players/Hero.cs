@@ -12,9 +12,8 @@
         private int experience;
         private int gold;
         private Inventory inventory;
-        private int level;
 
-        public Hero(int attack, int defence, int health)
+        protected Hero(int attack, int defence, int health)
             : base(attack, defence, health)
         {
             this.inventory = new Inventory();
@@ -49,18 +48,7 @@
             }
         }
 
-        public int Level
-        {
-            get
-            {
-                return this.level;
-            }
-
-            set
-            {
-                this.level = value;
-            }
-        }
+        public int Level { get; set; }
 
         public Inventory Inventory
         {

@@ -30,7 +30,7 @@
         {
             int hash = base.GetHashCode();
 
-            hash = hash * 23 + this.Defence.GetHashCode();
+            hash = (hash * 23) + this.Defence.GetHashCode();
 
             return hash;
         }

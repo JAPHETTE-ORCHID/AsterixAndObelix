@@ -24,14 +24,14 @@
         public void AddItem(IItem item)
         {
             Validator.CheckForNullItem(item);
-            int sameTypeIndex = this.sameTypeIndex(item);
+            int sameTypeIndex = this.SameTypeIndex(item);
             if (sameTypeIndex == -1)
             {
                 BattleField.Hero.AddPowerFromItem(item);
             }
             else
             {
-                ReplaceItem(sameTypeIndex, item);
+                this.ReplaceItem(sameTypeIndex, item);
             }
 
             this.Items.Add(item);
@@ -52,7 +52,7 @@
             BattleField.Hero.AddPowerFromItem(item);
         }
 
-        public int sameTypeIndex(IItem item)
+        public int SameTypeIndex(IItem item)
         {
             foreach (var inventoryItem in this.Items)
             {

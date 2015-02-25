@@ -8,8 +8,6 @@
     using Contracts;
     using Enumerations;
     using Models.Fields;
-    using Models.Items.AttackItems;
-    using Models.Items.DefenseItems;
     using Models.Players;
   
     public class Engine
@@ -129,30 +127,34 @@
 
         protected void GenerateEnemies()
         {
-            BattleField.Enemies = new List<Enemy>() {};
+            BattleField.Enemies = new List<Enemy>();
             bool isAllEnemiesAreKilled = true;
 
-            if (BattleField.attackedEnemies[EnemyType.Cadet] < 3)
+            if (BattleField.AttackedEnemies[EnemyType.Cadet] < 3)
             {
                 BattleField.Enemies.Add(new Enemy(140, 80, 50, EnemyType.Cadet, 150));
                 isAllEnemiesAreKilled = false;
             }
-            if (BattleField.attackedEnemies[EnemyType.Manipularius] < 3)
+
+            if (BattleField.AttackedEnemies[EnemyType.Manipularius] < 3)
             {
                 BattleField.Enemies.Add(new Enemy(430, 400, 60, EnemyType.Manipularius, 350));
                 isAllEnemiesAreKilled = false;
             }
-            if (BattleField.attackedEnemies[EnemyType.Tribune] < 3)
+
+            if (BattleField.AttackedEnemies[EnemyType.Tribune] < 3)
             {
                 BattleField.Enemies.Add(new Enemy(800, 750, 75, EnemyType.Tribune, 650));
                 isAllEnemiesAreKilled = false;
             }
-            if (BattleField.attackedEnemies[EnemyType.Centurion] < 3)
+
+            if (BattleField.AttackedEnemies[EnemyType.Centurion] < 3)
             {
                 BattleField.Enemies.Add(new Enemy(1400, 1300, 85, EnemyType.Centurion, 1000));
                 isAllEnemiesAreKilled = false;
             }
-            if (BattleField.attackedEnemies[EnemyType.Ordinatus] < 3)
+
+            if (BattleField.AttackedEnemies[EnemyType.Ordinatus] < 3)
             {
                 BattleField.Enemies.Add(new Enemy(2050, 2050, 100, EnemyType.Ordinatus, 1500));
                 isAllEnemiesAreKilled = false;
@@ -168,15 +170,15 @@
         {              
             string typeForCast = type.Substring(0, 1).ToUpper() + type.Substring(1);
             EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
-            if (BattleField.attackedEnemies[enemyType] >= 3)
+            if (BattleField.AttackedEnemies[enemyType] >= 3)
             {
                 throw new Exception("Invalid enemy");
             }
-            BattleField.TargetEnemy = BattleField.Enemies.Single(enemy => enemy.EnemyType == enemyType);
 
-            if (BattleField.attackedEnemies.ContainsKey(enemyType))
+            BattleField.TargetEnemy = BattleField.Enemies.Single(enemy => enemy.EnemyType == enemyType);
+            if (BattleField.AttackedEnemies.ContainsKey(enemyType))
             {
-                BattleField.attackedEnemies[enemyType]++;
+                BattleField.AttackedEnemies[enemyType]++;
             }
 
             int enemyHealth = BattleField.TargetEnemy.Health;
@@ -189,7 +191,7 @@
                 heroHealth -= BattleField.TargetEnemy.MakeAttack();
                 Field.Hero.Health -= BattleField.TargetEnemy.MakeAttack();
 
-                if(heroHealth <= 0)
+                if (heroHealth <= 0)
                 {
                     Console.WriteLine(Field.Hero.GetType().Name + " die");
                     isAlive = false;
@@ -205,6 +207,7 @@
                         {
                             Field.Hero.Level++;
                         }
+
                         IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
                         Field.Hero.Inventory.AddItem(droppedItem);
                     }
