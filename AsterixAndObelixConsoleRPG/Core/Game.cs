@@ -3,6 +3,8 @@
     using System;
     using System.Threading;
 
+    using CustomException;
+
     internal class Game
     {
         public static bool IsGameRunning = true;
@@ -41,6 +43,10 @@
                     }
 
                     this.engine.CommandHandler(Console.ReadLine());
+                }
+                catch (InvalidEnemyException iee)
+                {
+                    Console.Error.WriteLine(iee.Message);
                 }
                 catch (ApplicationException e)
                 {

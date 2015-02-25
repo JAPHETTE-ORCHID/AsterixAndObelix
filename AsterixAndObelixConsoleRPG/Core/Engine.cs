@@ -6,6 +6,7 @@
     using System.Threading;
 
     using Contracts;
+    using CustomException;
     using Enumerations;
     using Models.Fields;
     using Models.Players;
@@ -59,7 +60,7 @@
                             this.AttackEnemy(lineSplit[1]);
                             break;
                         default:
-                            Console.Error.WriteLine("Cannot see enemy.");
+                            throw new InvalidEnemyException("Cannot find requested enemy.");
                             break;
                     }
 
@@ -172,7 +173,7 @@
             EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
             if (BattleField.AttackedEnemies[enemyType] >= 3)
             {
-                throw new Exception("Invalid enemy");
+                throw new Exception("This enemies are dead.");
             }
 
             BattleField.TargetEnemy = BattleField.Enemies.Single(enemy => enemy.EnemyType == enemyType);
