@@ -59,7 +59,10 @@
                         case "centurion":                            
                             this.AttackEnemy(lineSplit[1]);
                             break;
-                        case "caesar":                            
+                        case "ordinatus":                            
+                            this.AttackEnemy(lineSplit[1]);
+                            break;
+                        case "caesar":
                             this.AttackEnemy(lineSplit[1]);
                             break;
                         default:
@@ -79,6 +82,11 @@
                     MarketField market = new MarketField();
                     market.PrintAllItemTypes();
                     market.ReadCommand();
+                    break;
+                case "iamnakov":
+                    Field.Hero.Defence += 100000;
+                    Field.Hero.Attack += 100000;
+                    Field.Hero.Health += 100000;
                     break;
                 case "exit":
                     this.ExitGame();
@@ -179,25 +187,37 @@
         protected void GenerateEnemies()
         {
             BattleField.Enemies = new List<Enemy>() {};
-            if (BattleField.attackedEnemies[EnemyType.Cadet] < 3)
+            bool isAllEnemiesAreKilled = true;
+
+            /*if (BattleField.attackedEnemies[EnemyType.Cadet] < 3)
             {
                 BattleField.Enemies.Add(new Enemy(50, 50, 50, EnemyType.Cadet, 50));
+                isAllEnemiesAreKilled = false;
             }
             if (BattleField.attackedEnemies[EnemyType.Manipularius] < 3)
             {
                 BattleField.Enemies.Add(new Enemy(60, 60, 60, EnemyType.Manipularius, 60));
+                isAllEnemiesAreKilled = false;
             }
             if (BattleField.attackedEnemies[EnemyType.Tribune] < 3)
             {
                 BattleField.Enemies.Add(new Enemy(75, 75, 70, EnemyType.Tribune, 75));
+                isAllEnemiesAreKilled = false;
             }
             if (BattleField.attackedEnemies[EnemyType.Centurion] < 3)
             {
                 BattleField.Enemies.Add(new Enemy(90, 90, 90, EnemyType.Centurion, 90));
-            }
-            if (BattleField.attackedEnemies[EnemyType.Caesar] < 3)
+                isAllEnemiesAreKilled = false;
+            }*/
+            if (BattleField.attackedEnemies[EnemyType.Ordinatus] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(100, 100, 100, EnemyType.Caesar, 100));
+                BattleField.Enemies.Add(new Enemy(100, 100, 100, EnemyType.Ordinatus, 100));
+                isAllEnemiesAreKilled = false;
+            }
+
+            if (isAllEnemiesAreKilled)
+            {
+                BattleField.Enemies.Add(new Enemy(1000, 1000, 1000, EnemyType.Caesar, 1000));
             }
         }
 
@@ -234,24 +254,33 @@
                 }
                 else if (enemyHealth <= 0)
                 {
-                    Field.Hero.Gold += BattleField.TargetEnemy.Gold;
-                    Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
-                    if (Field.Hero.Experience % 300 == 0)
+                    if (BattleField.TargetEnemy.EnemyType != EnemyType.Caesar)
                     {
-                        Field.Hero.Level++;
+                        Field.Hero.Gold += BattleField.TargetEnemy.Gold;
+                        Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
+                        if (Field.Hero.Experience % 300 == 0)
+                        {
+                            Field.Hero.Level++;
+                        }
+                        IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
+                        Field.Hero.Inventory.AddItem(droppedItem);
                     }
-                    IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
-                    Field.Hero.Inventory.AddItem(droppedItem);
 
                     Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
                     isAlive = false;
+
+                    if (BattleField.TargetEnemy.EnemyType == EnemyType.Caesar)
+                    {
+                        Console.WriteLine("You Win The Game.");
+                        this.ExitGame();
+                    }
                 }
             }
         }
 
         private void ExitGame()
         {
-            Console.WriteLine("Good bye!");
+            Console.WriteLine("Game Over!");
             Thread.Sleep(1000);
             Game.IsGameRunning = false;
         }

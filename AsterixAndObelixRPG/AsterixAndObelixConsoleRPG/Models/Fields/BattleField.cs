@@ -17,7 +17,8 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
             { EnemyType.Manipularius, 0 },
             { EnemyType.Centurion, 0 },
             { EnemyType.Tribune, 0 },
-            { EnemyType.Caesar, 0 },
+            { EnemyType.Ordinatus, 0 },
+            { EnemyType.Caesar, 0 }
         };
 
         public static IList<Enemy> Enemies
