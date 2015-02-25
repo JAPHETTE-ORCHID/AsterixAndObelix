@@ -9,28 +9,12 @@
 
     public abstract class DefenseItem : Item, IDefence
     {
-        private int defence;
-
         protected DefenseItem(ItemType itemType)
             : base(itemType)
         {
-            this.Defence = defence;
         }
 
-        public int Defence 
-        {
-            get
-            {
-                int defence = (int)ItemTypeCalculator.CalculateByItemType(this.ItemType, this.defence);
-                return defence;
-            }
-
-            set
-            {
-                Validator.CheckForNegativeNumber(value);
-                this.defence = value;
-            }
-        }
+        public abstract int Defence { get; }
 
         public override string ToString()
         {

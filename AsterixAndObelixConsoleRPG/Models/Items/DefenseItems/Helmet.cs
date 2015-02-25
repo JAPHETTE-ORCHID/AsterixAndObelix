@@ -17,7 +17,7 @@
         {
         }
 
-        public int Defence
+        public override int Defence
         {
             get
             {

@@ -12,6 +12,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
     using Items;
     using Items.AttackItems;
     using Items.DefenseItems;
+    using AsterixAndObelixConsoleRPG.Models.Items.UniqueItem;
 
     public class MarketField : Field
     {
@@ -120,6 +121,12 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
                 {
                     itemList.Append(((DefenseItem)item).Defence.ToString().PadRight(cellWidth, paddingChar));
                     itemList.Append("0".PadRight(cellWidth, paddingChar));
+                    itemList.Append("0".PadRight(cellWidth, paddingChar));
+                }
+                else if (item is DefenceAttack)
+                {
+                    itemList.Append(((DefenceAttack)item).Defence.ToString().PadRight(cellWidth, paddingChar));
+                    itemList.Append(((DefenceAttack)item).Attack.ToString().PadRight(cellWidth, paddingChar));
                     itemList.Append("0".PadRight(cellWidth, paddingChar));
                 }
                 else if (item is IHeal)
