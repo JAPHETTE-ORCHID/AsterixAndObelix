@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF481753-2F2B-4828-8006-D2D32CD71DA2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AsterixAndObelixConsoleRPG</RootNamespace>
+    <AssemblyName>AsterixAndObelixConsoleRPG</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IDefence.cs" />
+    <Compile Include="Contracts\IHeal.cs" />
+    <Compile Include="Contracts\IInventory.cs" />
+    <Compile Include="Contracts\IUpdatable.cs" />
+    <Compile Include="Core\Game.cs" />
+    <Compile Include="Enumerations\AllItems.cs" />
+    <Compile Include="Enumerations\HeroType.cs" />
+    <Compile Include="Enumerations\Operation.cs" />
+    <Compile Include="Enumerations\PotionType.cs" />
+    <Compile Include="Models\Calculator\ItemTypeCalculator.cs" />
+    <Compile Include="Models\Fields\Constants.cs" />
+    <Compile Include="Models\Fields\Inventory.cs" />
+    <Compile Include="Models\Fields\BattleField.cs" />
+    <Compile Include="Models\Fields\MarketField.cs" />
+    <Compile Include="Models\Fields\Field.cs" />
+    <Compile Include="Models\Fields\Validator.cs" />
+    <Compile Include="Models\Items\AttackItems\AttackItems.cs" />
+    <Compile Include="Models\Items\UniqueItem\Belt.cs" />
+    <Compile Include="Models\Items\UniqueItem\Boots.cs" />
+    <Compile Include="Models\Items\AttackItems\Sword.cs" />
+    <Compile Include="Models\Items\UniqueItem\Chest.cs" />
+    <Compile Include="Models\Items\DefenseItems\DefenseItem.cs" />
+    <Compile Include="Models\Items\DefenseItems\Helmet.cs" />
+    <Compile Include="Models\Items\UniqueItem\DefenceAttack.cs" />
+    <Compile Include="Models\Items\UniqueItem\Pants.cs" />
+    <Compile Include="Contracts\IAttack.cs" />
+    <Compile Include="Contracts\IDrop.cs" />
+    <Compile Include="Contracts\IItem.cs" />
+    <Compile Include="Contracts\IUnit.cs" />
+    <Compile Include="Core\Engine.cs" />
+    <Compile Include="Enumerations\ItemType.cs" />
+    <Compile Include="Models\Items\HealthItems\Potion.cs" />
+    <Compile Include="Models\Items\Item.cs" />
+    <Compile Include="Models\Players\Asterix.cs" />
+    <Compile Include="Models\Players\Enemy.cs" />
+    <Compile Include="Enumerations\EnemyType.cs" />
+    <Compile Include="Models\Players\Hero.cs" />
+    <Compile Include="MainGame.cs" />
+    <Compile Include="Models\Players\Obelix.cs" />
+    <Compile Include="Models\Players\PlayerObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

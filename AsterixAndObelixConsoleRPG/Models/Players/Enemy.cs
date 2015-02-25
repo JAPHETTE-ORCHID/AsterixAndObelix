@@ -1,0 +1,225 @@
+﻿namespace AsterixAndObelixConsoleRPG.Models.Players
+{
+    using System;
+
+    using Contracts;
+    using Enumerations;
+    using Fields;
+    using Items.AttackItems;
+    using Items.DefenseItems;   
+
+    public class Enemy : PlayerObject, IDrop
+    {
+        private const int expirience = 100;
+        public Enemy() 
+            : base(0, 0, 0)
+        {           
+        }
+
+        public Enemy(int attack, int defence, int health, EnemyType enemyType, int gold)
+            : base(attack, defence, health)
+        {
+            this.EnemyType = enemyType;
+            this.Gold = gold;
+        }
+
+        public int Expirience
+        {
+            get { return Enemy.expirience; }
+        }
+
+        public EnemyType EnemyType { get; set; }
+
+        public int Gold { get; set; }
+
+        public IItem DropRandomItem()
+        {
+            Random rnd = new Random();
+            int itemNumber = rnd.Next(1, 7);
+            IItem itemForDrop;
+            switch (this.EnemyType)
+            {
+                case EnemyType.Cadet:
+                    switch (itemNumber)
+                    {
+                        case 1:
+                            itemForDrop = new Belt();
+                            break;
+                        case 2:
+                            itemForDrop = new Boots();
+                            break;
+                        case 3:
+                            itemForDrop = new Chest();
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet();
+                            break;
+                        case 5:
+                            itemForDrop = new Pants();
+                            break;
+                        case 6:
+                            itemForDrop = new Sword();
+                            break;
+                        default:
+                            itemForDrop = null;
+                            break;                        
+                    }
+
+                    break;
+                case EnemyType.Manipularius:
+                    switch (itemNumber)
+                    {
+                        case 1:
+                            itemForDrop = new Belt(ItemType.Uncommon);
+                            break;
+                        case 2:
+                            itemForDrop = new Boots(ItemType.Uncommon);
+                            break;
+                        case 3:
+                            itemForDrop = new Chest(ItemType.Uncommon);
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet(ItemType.Uncommon);
+                            break;
+                        case 5:
+                            itemForDrop = new Pants(ItemType.Uncommon);
+                            break;
+                        case 6:
+                            itemForDrop = new Sword(ItemType.Uncommon);
+                            break;
+                        default:
+                            itemForDrop = null;
+                            break;
+                    }
+
+                    break;
+                case EnemyType.Centurion:
+                    switch (itemNumber)
+                    {
+                        case 1:
+                            itemForDrop = new Belt(ItemType.Rare);
+                            break;
+                        case 2:
+                            itemForDrop = new Boots(ItemType.Rare);
+                            break;
+                        case 3:
+                            itemForDrop = new Chest(ItemType.Rare);
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet(ItemType.Rare);
+                            break;
+                        case 5:
+                            itemForDrop = new Pants(ItemType.Rare);
+                            break;
+                        case 6:
+                            itemForDrop = new Sword(ItemType.Rare);
+                            break;
+                        default:
+                            itemForDrop = null;
+                            break;
+                    }
+
+                    break;
+                case EnemyType.Tribune:
+                    switch (itemNumber)
+                    {
+                        case 1:
+                            itemForDrop = new Belt(ItemType.Magic);
+                            break;
+                        case 2:
+                            itemForDrop = new Boots(ItemType.Magic);
+                            break;
+                        case 3:
+                            itemForDrop = new Chest(ItemType.Magic);
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet(ItemType.Magic);
+                            break;
+                        case 5:
+                            itemForDrop = new Pants(ItemType.Magic);
+                            break;
+                        case 6:
+                            itemForDrop = new Sword(ItemType.Magic);
+                            break;
+                        default:
+                            itemForDrop = null;
+                            break;
+                    }
+
+                    break;
+                case EnemyType.Caesar:
+                    switch (itemNumber)
+                    {
+                        case 1:
+                            itemForDrop = new Belt(ItemType.Legendary);
+                            break;
+                        case 2:
+                            itemForDrop = new Boots(ItemType.Legendary);
+                            break;
+                        case 3:
+                            itemForDrop = new Chest(ItemType.Legendary);
+                            break;
+                        case 4:
+                            itemForDrop = new Helmet(ItemType.Legendary);
+                            break;
+                        case 5:
+                            itemForDrop = new Pants(ItemType.Legendary);
+                            break;
+                        case 6:
+                            itemForDrop = new Sword(ItemType.Legendary);
+                            break;
+                        default:
+                            itemForDrop = null;
+                            break;
+                    }
+
+                    break;
+                default:
+                    itemForDrop = null;
+                    break;
+            }
+
+            return itemForDrop;
+        }
+
+        public override int MakeAttack()
+        {
+            int damage = this.Attack - Field.Hero.Defence;
+            if (damage < 0)
+            {
+                damage = 10;
+            }
+
+            return damage;
+        }
+
+        public override string ToString()
+        {
+            const int maxCellSize = 13;
+            var enemiestLeft = 3 - BattleField.attackedEnemies[this.EnemyType];
+
+            string outputEnemyType = "" + this.EnemyType;
+            string outputGold = "Gold: " + this.Gold;
+            string outputAttack = "Attack: " + this.Attack;
+            string outputDefence = "Defence: " + this.Defence;
+            string outputHealth = "Health: " + this.Health;
+            string outputEnemiesLeft = "Left: " + enemiestLeft;
+
+            string enemyTypePadding = new string(' ', maxCellSize - outputEnemyType.Length);
+            string goldPadding = new string(' ', maxCellSize - outputGold.Length);
+            string attackPadding = new string(' ', maxCellSize - outputAttack.Length);
+            string defencePadding = new string(' ', maxCellSize - outputDefence.Length);
+            string healthPadding = new string(' ', maxCellSize - outputHealth.Length);
+            string enemiesLeftPadding = new string(' ', maxCellSize - outputEnemiesLeft.Length);
+
+            return string.Format(
+                "{0} {1} {2} {3} {4} {5}",
+                outputEnemyType + enemyTypePadding,
+                outputGold + goldPadding,
+                outputAttack + attackPadding,
+                outputDefence + defencePadding,
+                outputHealth + healthPadding,
+                outputEnemiesLeft);
+        }
+    }
+}
