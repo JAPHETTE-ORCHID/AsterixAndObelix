@@ -147,7 +147,7 @@
                     }
 
                     break;
-                case EnemyType.Caesar:
+                case EnemyType.Ordinatus:
                     switch (itemNumber)
                     {
                         case 1:
@@ -173,6 +173,9 @@
                             break;
                     }
 
+                    break;
+                case EnemyType.Caesar:
+                    itemForDrop = new Pants(ItemType.Legendary);
                     break;
                 default:
                     itemForDrop = null;
@@ -203,14 +206,18 @@
             string outputAttack = "Attack: " + this.Attack;
             string outputDefence = "Defence: " + this.Defence;
             string outputHealth = "Health: " + this.Health;
-            string outputEnemiesLeft = "Left: " + enemiestLeft;
+            string outputEnemiesLeft = string.Empty;
+
+            if (this.EnemyType != EnemyType.Caesar)
+            {
+                outputEnemiesLeft = "Left: " + enemiestLeft;
+            }
 
             string enemyTypePadding = new string(' ', maxCellSize - outputEnemyType.Length);
             string goldPadding = new string(' ', maxCellSize - outputGold.Length);
             string attackPadding = new string(' ', maxCellSize - outputAttack.Length);
             string defencePadding = new string(' ', maxCellSize - outputDefence.Length);
             string healthPadding = new string(' ', maxCellSize - outputHealth.Length);
-            string enemiesLeftPadding = new string(' ', maxCellSize - outputEnemiesLeft.Length);
 
             return string.Format(
                 "{0} {1} {2} {3} {4} {5}",

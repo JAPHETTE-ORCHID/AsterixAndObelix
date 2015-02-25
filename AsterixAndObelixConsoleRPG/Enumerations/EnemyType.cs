@@ -6,6 +6,7 @@
         Manipularius,
         Centurion,
         Tribune,
+        Ordinatus,
         Caesar,
     }
 }
