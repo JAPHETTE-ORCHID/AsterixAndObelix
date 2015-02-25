@@ -224,7 +224,7 @@
             {
                 enemyHealth -= Field.Hero.MakeAttack();               
                 heroHealth -= BattleField.TargetEnemy.MakeAttack();
-                BattleField.Hero.Health -= BattleField.TargetEnemy.MakeAttack();
+                Field.Hero.Health -= BattleField.TargetEnemy.MakeAttack();
 
                 if(heroHealth <= 0)
                 {
@@ -235,13 +235,13 @@
                 else if (enemyHealth <= 0)
                 {
                     Field.Hero.Gold += BattleField.TargetEnemy.Gold;
-                    Field.Hero.Experience +=
-                        BattleField.TargetEnemy.Attack + 
-                        BattleField.TargetEnemy.Defence +
-                        BattleField.TargetEnemy.Health;
-                    Field.Hero.Level += (int)(0.05 * Math.Sqrt(Field.Hero.Experience));
+                    Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
+                    if (Field.Hero.Experience % 300 == 0)
+                    {
+                        Field.Hero.Level++;
+                    }
                     IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
-                    BattleField.Hero.Inventory.AddItem(droppedItem);
+                    Field.Hero.Inventory.AddItem(droppedItem);
 
                     Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
                     isAlive = false;

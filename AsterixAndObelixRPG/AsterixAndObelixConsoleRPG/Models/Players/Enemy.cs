@@ -10,6 +10,7 @@
 
     public class Enemy : PlayerObject, IDrop
     {
+        private const int expirience = 100;
         public Enemy() 
             : base(0, 0, 0)
         {           
@@ -20,6 +21,11 @@
         {
             this.EnemyType = enemyType;
             this.Gold = gold;
+        }
+
+        public int Expirience
+        {
+            get { return Enemy.expirience; }
         }
 
         public EnemyType EnemyType { get; set; }
@@ -178,10 +184,10 @@
 
         public override int MakeAttack()
         {
-            int damage = this.Attack - BattleField.Hero.Defence;
+            int damage = this.Attack - Field.Hero.Defence;
             if (damage < 0)
             {
-                damage = 1;
+                damage = 10;
             }
 
             return damage;
