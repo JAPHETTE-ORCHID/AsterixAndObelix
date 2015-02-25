@@ -31,11 +31,6 @@
                             this.AddHero(heroType);
                             break;
 
-                        case "item":
-                            string itemType = lineSplit[2];
-                            this.AddItem(itemType);
-                            break;
-
                         default:
                             Console.WriteLine("Invalid command");
                             break;
@@ -95,61 +90,6 @@
                     Console.WriteLine("Invalid command");
                     break;
             }
-        }
-
-        protected void AddItem(string type)
-        {
-            if (Field.Hero == null)
-            {
-                throw new ApplicationException("You should add hero first.");
-            }
-
-            string belt = AllItems.Belt.ToString().ToLower();
-            string boots = AllItems.Boots.ToString().ToLower();
-            string chest = AllItems.Chest.ToString().ToLower();
-            string helmet = AllItems.Helmet.ToString().ToLower();
-            string pants = AllItems.Pants.ToString().ToLower();
-            string sword = AllItems.Sword.ToString().ToLower();
-            type = type.ToLower();
-            IItem item;
-
-            if (type.Equals(belt))
-            {
-                item = new Belt(ItemType.Common);
-                Field.Hero.Attack += ((AttackItem)item).Attack;
-            }
-            else if (type.Equals(boots))
-            {
-                item = new Boots(ItemType.Common);
-                Field.Hero.Attack += ((AttackItem)item).Attack;
-            }
-            else if (type.Equals(chest))
-            {
-                item = new Chest(ItemType.Common);
-                Field.Hero.Defence += ((DefenseItem)item).Defence;
-            }
-            else if (type.Equals(helmet))
-            {
-                item = new Helmet(ItemType.Common);
-                Field.Hero.Defence += ((DefenseItem)item).Defence;
-            }
-            else if (type.Equals(pants))
-            {
-                item = new Pants(ItemType.Common);
-                Field.Hero.Defence += ((DefenseItem)item).Defence;
-            }
-            else if (type.Equals(sword))
-            {
-                item = new Sword(ItemType.Common);
-                Field.Hero.Attack += ((AttackItem)item).Attack;
-            }
-            else
-            {
-                throw new IndexOutOfRangeException("Item not found");
-            }
-
-            Field.Hero.Inventory.AddItem(item);
-            Console.WriteLine("New item added");
         }
 
         protected void AddHero(string type)
