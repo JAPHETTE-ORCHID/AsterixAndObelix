@@ -59,20 +59,6 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
                 printBattleField.AppendLine(BattleField.Hero.ToString());
             }
 
-            printBattleField.AppendLine("Enemies: ");
-
-            if (BattleField.Enemies != null && BattleField.Enemies.Count > 0)
-            {
-                foreach (var enemy in BattleField.Enemies)
-                {
-                    printBattleField.AppendLine(enemy.ToString());
-                }
-            }
-            else
-            {
-                printBattleField.AppendLine("No enimies.");
-            }
-
             return printBattleField.ToString();
         }
     }
