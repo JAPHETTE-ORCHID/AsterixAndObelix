@@ -131,7 +131,7 @@
 
             if (BattleField.attackedEnemies[EnemyType.Cadet] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(100, 100, 50, EnemyType.Cadet, 150));
+                BattleField.Enemies.Add(new Enemy(140, 80, 50, EnemyType.Cadet, 150));
                 isAllEnemiesAreKilled = false;
             }
             if (BattleField.attackedEnemies[EnemyType.Manipularius] < 3)
