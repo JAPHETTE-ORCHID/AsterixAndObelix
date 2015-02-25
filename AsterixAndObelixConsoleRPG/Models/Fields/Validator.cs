@@ -1,8 +1,10 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System;
-
+    using System.Collections.Generic;
     using Contracts;
+    using CustomExceptions;
+    using Players;
 
     public static class Validator
     {
@@ -35,6 +37,22 @@
             if (inventory == null)
             {
                 throw new ArgumentNullException("Inventory cannot be null.");
+            }
+        }
+
+        public static void CheckIfHeroExist(Hero hero)
+        {
+            if (Field.Hero == null)
+            {
+                throw new InputException("You must add hero first.");
+            }
+        }
+
+        public static void CheckIfEnemiesExist(IList<Enemy> enemies)
+        {
+            if (enemies == null)
+            {
+                throw new InputException("You must call the battle first.");
             }
         }
     }

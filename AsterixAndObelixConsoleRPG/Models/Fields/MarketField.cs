@@ -5,7 +5,8 @@
     using System.Collections.Generic;
     using System.Text;
 
-    using Contracts;    
+    using Contracts;
+    using CustomExceptions;
     using Enumerations;
     using Items;
     using Items.AttackItems;
@@ -27,6 +28,7 @@
 
         public void PrintAllItemTypes()
         {
+            Validator.CheckIfHeroExist(Hero);
             for (int i = 0; i < this.itemTypes.Count; i++)
             {
                 Console.WriteLine("{0}. {1}", i + 1, this.itemTypes[i]);

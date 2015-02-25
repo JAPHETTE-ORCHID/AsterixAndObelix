@@ -8,8 +8,6 @@
 
     public class BattleField : Field
     {
-        private static IList<Enemy> enemies;
-        private static Enemy targetEnemy;
         public static Dictionary<EnemyType, int> AttackedEnemies = new Dictionary<EnemyType, int>()
         {
             { EnemyType.Cadet, 0 },
@@ -20,6 +18,9 @@
             { EnemyType.Caesar, 0 }
         };
 
+        private static IList<Enemy> enemies;
+        private static Enemy targetEnemy;
+        
         public static IList<Enemy> Enemies
         {
             get

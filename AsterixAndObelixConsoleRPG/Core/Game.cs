@@ -3,7 +3,7 @@
     using System;
     using System.Threading;
 
-    using CustomException;
+    using CustomExceptions;
 
     internal class Game
     {
@@ -43,6 +43,10 @@
                     }
 
                     this.engine.CommandHandler(Console.ReadLine());
+                }
+                catch (InputException ie)
+                {
+                    Console.Error.WriteLine(ie.Message);
                 }
                 catch (InvalidEnemyException iee)
                 {

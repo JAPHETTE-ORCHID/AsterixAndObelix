@@ -28,13 +28,6 @@
       <FileName>Models\Fields\Field.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.Inventory" Collapsed="true">
-    <Position X="18.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAGAAEAAgAAAAAgAAABAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Fields\Inventory.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.MarketField" Collapsed="true">
     <Position X="2.75" Y="9.75" Width="1.5" />
     <TypeIdentifier>
@@ -185,6 +178,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>CustomException\InvalidEnemyException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.Inventory" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAGAAEAAgAAAAAgAAABAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Fields\Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IAttack" Collapsed="true">

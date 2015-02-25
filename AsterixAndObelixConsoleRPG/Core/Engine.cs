@@ -6,7 +6,7 @@
     using System.Threading;
 
     using Contracts;
-    using CustomException;
+    using CustomExceptions;
     using Enumerations;
     using Models.Fields;
     using Models.Players;
@@ -21,22 +21,40 @@
             switch (comand)
             {
                 case "add":
-                    string type = lineSplit[1];
+                    if (lineSplit.Length < 2 || lineSplit[1] == string.Empty)
+                    {
+                        throw new InputException("You must add hero.");
+                    }
+
+                    string type = lineSplit[1].ToLower();
 
                     switch (type)
                     {
                         case "hero":
+                            if (lineSplit.Length < 3 || lineSplit[2] == string.Empty)
+                            {
+                                throw new InputException("You have to choise between asterix and obelix.");
+                            }
+
                             string heroType = lineSplit[2];
                             this.AddHero(heroType);
                             break;
-
                         default:
-                            Console.WriteLine("Invalid command");
+                            throw new InputException("Critical error when adding hero.");
                             break;
                     }
 
                     break;
+                case "battle":
+                    this.GenerateEnemies();
+                    Console.WriteLine(BattleField.PrintBattleField());
+                    break;
                 case "attack":
+                    if (lineSplit.Length < 2 || lineSplit[1] == string.Empty)
+                    {
+                        throw new InputException("Cannot attack the air.");
+                    }
+
                     string target = lineSplit[1].ToLower();
 
                     switch (target)
@@ -64,11 +82,7 @@
                             break;
                     }
 
-                    break;
-                case "battle":
-                    this.GenerateEnemies();
-                    Console.WriteLine(BattleField.PrintBattleField());
-                    break;
+                    break;                
                 case "info":
                     Console.WriteLine(Field.PrintHero());
                     break;
@@ -89,7 +103,7 @@
                     this.ExitGame();
                     break;
                 default:
-                    Console.WriteLine("Invalid command");
+                    throw new InputException("Invalid command.");
                     break;
             }
         }
@@ -98,9 +112,8 @@
         {
             if (Field.Hero != null)
             {
-                throw new Exception("The hero was already created.");
+                throw new InputException("Hero allready exists. Proceed with battle.");
             }
-
             string obelix = HeroType.Obelix.ToString().ToLower();
             string asterix = HeroType.Asterix.ToString().ToLower();
             type = type.ToLower();
@@ -117,17 +130,13 @@
             }
             else
             {
-                Console.WriteLine("Hero type " + type + " is invalid. Choose between these:");
-                var values = Enum.GetValues(typeof(HeroType));
-                foreach (var hero in values)
-                {
-                    Console.WriteLine("-" + hero);
-                }
+                throw new InputException("You have to choise between asterix and obelix.");
             }
         }
 
         protected void GenerateEnemies()
         {
+            Validator.CheckIfHeroExist(Field.Hero);
             BattleField.Enemies = new List<Enemy>();
             bool isAllEnemiesAreKilled = true;
 
@@ -168,7 +177,9 @@
         }
 
         protected void AttackEnemy(string type)
-        {              
+        {
+            Validator.CheckIfHeroExist(Field.Hero);
+            Validator.CheckIfEnemiesExist(BattleField.Enemies);
             string typeForCast = type.Substring(0, 1).ToUpper() + type.Substring(1);
             EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
             if (BattleField.AttackedEnemies[enemyType] >= 3)
