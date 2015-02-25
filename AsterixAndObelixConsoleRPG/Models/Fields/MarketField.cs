@@ -6,7 +6,6 @@
     using System.Text;
 
     using Contracts;
-    using CustomExceptions;
     using Enumerations;
     using Items;
     using Items.AttackItems;
@@ -71,17 +70,13 @@
 
                 int index = command - 1;
 
-                if (BattleField.Hero == null)
-                {
-                    throw new Exception("First you must add a hero.");
-                }
-
-                if (BattleField.Hero.Gold < this.items[index].Price)
+                if (Hero.Gold < this.items[index].Price)
                 {
                     throw new Exception("You don't have enough money.");
                 }
 
-                BattleField.Hero.Inventory.AddItem(this.items[index]);
+                Hero.Gold -= this.items[index].Price;
+                Hero.Inventory.AddItem(this.items[index]);
                 Console.WriteLine("Item was added to your inventory.");
             }
         }
