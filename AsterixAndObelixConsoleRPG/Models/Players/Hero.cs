@@ -1,226 +1,273 @@
-﻿namespace AsterixAndObelixConsoleRPG.Models.Players
-{
-    using System.Text;
-    using Interafaces;
-    using Fields;
-    using Items.AttackItems;
-    using Items.DefenseItems;
-    using Items.UniqueItem;
-    using Enumerations;
-    using System;
-    using System.Linq;
-    using CustomExceptions;
-    using Core;
+﻿﻿namespace AsterixAndObelixConsoleRPG.Models.Players
+ {
+     using System;
+     using System.Linq;
+     using System.Text;
 
-    public delegate void EventHandler();
+     using Core;
+     using CustomExceptions;
+     using Enumerations;
+     using Fields;
+     using Interafaces;
+     using Items.AttackItems;
+     using Items.DefenseItems;
+     using Items.UniqueItem;
 
-    public abstract class Hero : PlayerObject
-    {
-        public static event EventHandler watchOut;
+     public delegate void EventHandler();
 
-        private int experience;
-        private int gold;
-        private Inventory inventory;
+     public abstract class Hero : PlayerObject
+     {
+         private int experience;
+         private int kills;
+         private int gold;
+         private Inventory inventory;
 
-        protected Hero(int attack, int defence, int health)
-            : base(attack, defence, health)
-        {
-            this.inventory = new Inventory();
-            this.Level = 1;
-        }
+         protected Hero(int attack, int defence, int health)
+             : base(attack, defence, health)
+         {
+             this.inventory = new Inventory();
+             this.Level = 1;
+         }
 
-        public int Experience
-        {
-            get
-            {
-                return this.experience;
-            }
+         public static event EventHandler WatchOut;
 
-            set
-            {
-                Validator.CheckForNegativeNumber(value);
-                this.experience = value;
-            }
-        }
+         public int Experience
+         {
+             get
+             {
+                 return this.experience;
+             }
 
-        public int Gold
-        {
-            get
-            {
-                return this.gold;
-            }
+             set
+             {
+                 Validator.CheckForNegativeNumber(value);
+                 this.experience = value;
+             }
+         }
 
-            set
-            {
-                Validator.CheckForNegativeNumber(value);
-                this.gold = value;
-            }
-        }
+         public int Kills { get; private set; }
 
-        public int Level { get; set; }
+         public int Gold
+         {
+             get
+             {
+                 return this.gold;
+             }
 
-        public Inventory Inventory
-        {
-            get
-            {
-                return this.inventory;
-            }
+             set
+             {
+                 Validator.CheckForNegativeNumber(value);
+                 this.gold = value;
+             }
+         }
 
-            set
-            {
-                Validator.CheckForNullInventory(value);
-                this.inventory = value;
-            }
-        }
+         public int Level { get; set; }
 
-        public string ShowItems()
-        {
-            StringBuilder result = new StringBuilder();
+         public Inventory Inventory
+         {
+             get
+             {
+                 return this.inventory;
+             }
 
-            result.Append("Items: ")
-                  .Append(string.Join(", ", this.Inventory));
+             set
+             {
+                 Validator.CheckForNullInventory(value);
+                 this.inventory = value;
+             }
+         }
 
-            return result.ToString();
-        }
+         public static void Warning()
+         {
+             Console.WriteLine("Watch out! You almost die!");
+         }
 
-        public void AddPowerFromItem(IItem item)
-        {
-            if (item is DefenseItem)
-            {
-                this.Defence += ((DefenseItem)item).Defence;
-            }
-            else if (item is AttackItem)
-            {
-                this.Attack += ((AttackItem)item).Attack;
-            }
-            else if (item is DefenceAttack)
-            {
-                this.Attack += ((DefenceAttack)item).Attack;
-                this.Defence += ((DefenceAttack)item).Defence;
-            }
-        }
+         public string ShowItems()
+         {
+             StringBuilder result = new StringBuilder();
 
-        public void RemovePowerFromItem(IItem item)
-        {
-            if (item is DefenseItem)
-            {
-                this.Defence -= ((DefenseItem)item).Defence;
-            }
-            else if (item is AttackItem)
-            {
-                this.Attack -= ((AttackItem)item).Attack;
-            }
-        }
+             result.Append("Items: ")
+                   .Append(string.Join(", ", this.Inventory));
 
-        public static void Warning()
-        {
-            Console.WriteLine("Watch out! You almost die!");
-        }
+             return result.ToString();
+         }
 
-        public void AttackEnemy(string type)
-        {
-            Validator.CheckIfHeroExist(Field.Hero);
-            Validator.CheckIfEnemiesExist(BattleField.Enemies);
-            string typeForCast = type.Substring(0, 1).ToUpper() + type.Substring(1);
-            EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
-            if (BattleField.AttackedEnemies[enemyType] >= 3)
-            {
-                throw new InvalidEnemyException("This enemies are dead.");
-            }
+         public void AddPowerFromItem(IItem item)
+         {
+             if (item is DefenseItem)
+             {
+                 this.Defence += ((DefenseItem)item).Defence;
+             }
+             else if (item is AttackItem)
+             {
+                 this.Attack += ((AttackItem)item).Attack;
+             }
+             else if (item is DefenceAttack)
+             {
+                 this.Attack += ((DefenceAttack)item).Attack;
+                 this.Defence += ((DefenceAttack)item).Defence;
+             }
+         }
 
-            BattleField.TargetEnemy = BattleField.Enemies.Single(enemy => enemy.EnemyType == enemyType);
-            if (BattleField.AttackedEnemies.ContainsKey(enemyType))
-            {
-                BattleField.AttackedEnemies[enemyType]++;
-            }
+         public void RemovePowerFromItem(IItem item)
+         {
+             if (item is DefenseItem)
+             {
+                 this.Defence -= ((DefenseItem)item).Defence;
+             }
+             else if (item is AttackItem)
+             {
+                 this.Attack -= ((AttackItem)item).Attack;
+             }
+             else if (item is DefenceAttack)
+             {
+                 this.Attack -= ((DefenceAttack)item).Attack;
+                 this.Defence -= ((DefenceAttack)item).Defence;
+             }
+         }
 
-            int enemyHealth = BattleField.TargetEnemy.Health;
-            int heroHealth = Field.Hero.Health;
-            bool isAlive = true;
+         public void AttackEnemy(string type)
+         {
+             Validator.CheckIfHeroExist(Field.Hero);
+             Validator.CheckIfEnemiesExist(BattleField.Enemies);
+             string typeForCast = type.Substring(0, 1).ToUpper() + type.Substring(1);
+             EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
+             if (BattleField.AttackedEnemies[enemyType] >= 3)
+             {
+                 throw new InvalidEnemyException("This enemies are dead.");
+             }
 
-            while (isAlive)
-            {
-                enemyHealth -= Field.Hero.GetAttackDemage();
-                heroHealth -= BattleField.TargetEnemy.GetAttackDemage();
-                Field.Hero.Health -= BattleField.TargetEnemy.GetAttackDemage();              
+             BattleField.TargetEnemy = BattleField.Enemies.Single(enemy => enemy.EnemyType == enemyType);
+             if (BattleField.AttackedEnemies.ContainsKey(enemyType))
+             {
+                 BattleField.AttackedEnemies[enemyType]++;
+             }
 
-                if (heroHealth <= 0)
-                {
-                    isAlive = false;
-                    Engine.ExitGame(ExitGameReason.PlayerDie);
-                }
-                else if (enemyHealth <= 0)
-                {
-                    if (BattleField.TargetEnemy.EnemyType != EnemyType.Caesar)
-                    {
-                        Field.Hero.Gold += BattleField.TargetEnemy.Gold;
-                        Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
-                        if (Field.Hero.Experience % 300 == 0)
-                        {
-                            Field.Hero.Level++;
-                        }
+             int enemyHealth = BattleField.TargetEnemy.Health;
+             int heroHealth = Field.Hero.Health;
+             bool isAlive = true;
 
-                        IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
-                        Field.Hero.Inventory.AddItem(droppedItem);
-                    }
-                  
-                    Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
-                    if (Field.Hero.Health < 50)
-                    {
-                        watchOut = Warning;
-                        watchOut.Invoke();
-                    }
-                    isAlive = false;
+             while (isAlive)
+             {
+                 enemyHealth -= this.GetAttackDemage();
+                 heroHealth -= BattleField.TargetEnemy.GetAttackDemage();
+                 this.Health -= BattleField.TargetEnemy.GetAttackDemage();
 
-                    if (BattleField.TargetEnemy.EnemyType == EnemyType.Caesar)
-                    {
-                        Engine.ExitGame(ExitGameReason.PlayerWinTheGame);
-                    }
-                }
-            }
-        }
+                 if (heroHealth <= 0)
+                 {
+                     isAlive = false;
+                     Engine.ExitGame(ExitGameReason.PlayerDie);
+                 }
+                 else if (enemyHealth <= 0)
+                 {
+                     if (BattleField.TargetEnemy.EnemyType != EnemyType.Caesar)
+                     {
+                         Field.Hero.Gold += BattleField.TargetEnemy.Gold;
+                         Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
+                         Field.Hero.Kills++;
+                         if (Field.Hero.Kills == 1 || Field.Hero.Kills == 2)
+                         {
+                             Field.Hero.Experience -= BattleField.TargetEnemy.Expirience / 2;
+                         }
 
-        public override int GetAttackDemage()
-        {
-            int damage = this.Attack - BattleField.TargetEnemy.Defence;
-            if (damage <= 0)
-            {
-                damage = 10;
-            }
+                         if (Field.Hero.Experience % 300 == 0)
+                         {
+                             Field.Hero.Level++;
+                         }
 
-            return damage;
-        }
+                         IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
+                         this.AddItem(droppedItem);
+                     }
 
-        public override string ToString()
-        {
-            StringBuilder result = new StringBuilder();
-            result.AppendLine("-------------------------------------------------------------------------------");
-            result.Append("Hero: ").AppendLine(this.GetType().Name);
-            result.AppendLine("-------------------------------------------------------------------------------");
-            result.Append("Level: ").AppendLine(this.Level.ToString());
-            result.AppendLine("-------------------------------------------------------------------------------");
-            result.Append("Experience: ").AppendLine(this.Experience.ToString());
-            result.AppendLine("-------------------------------------------------------------------------------");
-            result.Append("Gold: ").AppendLine(this.Gold.ToString());
-            result.AppendLine("-------------------------------------------------------------------------------");
-            result.Append("Attack: ").AppendLine(this.Attack.ToString());
-            result.AppendLine("-------------------------------------------------------------------------------");
-            result.Append("Defence: ").AppendLine(this.Defence.ToString());
-            result.AppendLine("-------------------------------------------------------------------------------");
-            result.Append("Health: ").AppendLine(this.Health.ToString());
-            result.AppendLine("-------------------------------------------------------------------------------");
-            result.Append("Inventory: ");
-            if (this.Inventory.Items.Count > 0)
-            {
-                result.AppendLine();
-                this.Inventory.Items.ForEach(i => result.AppendLine(i.ToString()));
-            }
-            else
-            {
-                result.AppendLine("No items.");
-            }
+                     Console.WriteLine(Field.Hero.GetType().Name + " successfully kill " + BattleField.TargetEnemy.EnemyType);
+                     if (Field.Hero.Health < 50)
+                     {
+                         WatchOut = Warning;
+                         WatchOut.Invoke();
+                     }
 
-            return result.ToString();
-        }
-    }
-}
+                     isAlive = false;
+
+                     if (BattleField.TargetEnemy.EnemyType == EnemyType.Caesar)
+                     {
+                         Engine.ExitGame(ExitGameReason.PlayerWinTheGame);
+                     }
+                 }
+             }
+         }
+
+         public override int GetAttackDemage()
+         {
+             int damage = this.Attack - BattleField.TargetEnemy.Defence;
+             if (damage <= 0)
+             {
+                 damage = 10;
+             }
+
+             return damage;
+         }
+
+         public void AddItem(IItem item)
+         {
+             Validator.CheckForNullItem(item);
+             int sameTypeIndex = this.Inventory.SameTypeIndex(item);
+             if (sameTypeIndex == -1)
+             {
+                 this.AddPowerFromItem(item);
+             }
+             else
+             {
+                 this.ReplaceItem(sameTypeIndex, item);
+             }
+
+             this.Inventory.Items.Add(item);
+         }
+
+         public void RemoveItem(IItem item)
+         {
+             Validator.CheckForNullItem(item);
+             this.RemovePowerFromItem(item);
+             this.Inventory.Items.Remove(item);
+         }
+
+         public void ReplaceItem(int position, IItem item)
+         {
+             IItem oldItem = this.Inventory.Items[position];
+             this.RemovePowerFromItem(oldItem);
+             this.Inventory.Items.Remove(oldItem);
+             this.AddPowerFromItem(item);
+         }
+
+         public override string ToString()
+         {
+             StringBuilder result = new StringBuilder();
+             result.AppendLine("-------------------------------------------------------------------------------");
+             result.Append("Hero: ").AppendLine(this.GetType().Name);
+             result.AppendLine("-------------------------------------------------------------------------------");
+             result.Append("Level: ").AppendLine(this.Level.ToString());
+             result.AppendLine("-------------------------------------------------------------------------------");
+             result.Append("Experience: ").AppendLine(this.Experience.ToString());
+             result.AppendLine("-------------------------------------------------------------------------------");
+             result.Append("Gold: ").AppendLine(this.Gold.ToString());
+             result.AppendLine("-------------------------------------------------------------------------------");
+             result.Append("Attack: ").AppendLine(this.Attack.ToString());
+             result.AppendLine("-------------------------------------------------------------------------------");
+             result.Append("Defence: ").AppendLine(this.Defence.ToString());
+             result.AppendLine("-------------------------------------------------------------------------------");
+             result.Append("Health: ").AppendLine(this.Health.ToString());
+             result.AppendLine("-------------------------------------------------------------------------------");
+             result.Append("Inventory: ");
+             if (this.Inventory.Items.Count > 0)
+             {
+                 result.AppendLine();
+                 this.Inventory.Items.ForEach(i => result.AppendLine(i.ToString()));
+             }
+             else
+             {
+                 result.AppendLine("No items.");
+             }
+
+             return result.ToString();
+         }
+     }
+ }
