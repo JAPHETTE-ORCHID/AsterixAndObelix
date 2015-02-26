@@ -62,6 +62,9 @@
             string printHero = PrintHero();
             printBattleField.Append(printHero);
             printBattleField.AppendLine();
+            printBattleField.AppendLine("-------------------------------------------------------------------------------");
+            printBattleField.AppendLine("For attack emeny enter command \"attack\" + \"enemy name\" ");
+            printBattleField.AppendLine("-------------------------------------------------------------------------------");
             printBattleField.AppendLine("Enemies: ");
 
             if (BattleField.Enemies != null && BattleField.Enemies.Count > 0)

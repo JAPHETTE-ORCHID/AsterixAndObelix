@@ -164,8 +164,8 @@
                         IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
                         Field.Hero.Inventory.AddItem(droppedItem);
                     }
-                  
-                    Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
+
+                    Console.WriteLine(Field.Hero.GetType().Name + " successfully kill " + BattleField.TargetEnemy.EnemyType);
                     if (Field.Hero.Health < 50)
                     {
                         WatchOut = Warning;

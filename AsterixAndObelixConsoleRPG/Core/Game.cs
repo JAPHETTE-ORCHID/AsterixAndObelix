@@ -37,7 +37,8 @@
                 {
                     if (tick == 0)
                     {
-                        Console.WriteLine("-------------------Welcome to our game \"Asterix and Obelix\".--------------------");
+                        Console.WriteLine("-------------------Welcome to our game \"Asterix and Obelix\".-------------------");
+                        Console.WriteLine();
                         Console.WriteLine("1.For start playing the game you must create a hero.");
                         Console.WriteLine("-------------------------------------------------------------------------------");
                         Console.WriteLine("2.For creating a hero you must type add hero.");
