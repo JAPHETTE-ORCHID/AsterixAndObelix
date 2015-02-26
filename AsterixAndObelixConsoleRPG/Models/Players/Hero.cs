@@ -12,8 +12,12 @@
     using CustomExceptions;
     using Core;
 
+    public delegate void EventHandler();
+
     public abstract class Hero : PlayerObject
     {
+        public static event EventHandler watchOut;
+
         private int experience;
         private int gold;
         private Inventory inventory;
@@ -108,6 +112,11 @@
             }
         }
 
+        public static void Warning()
+        {
+            Console.WriteLine("Watch out! You almost die!");
+        }
+
         public void AttackEnemy(string type)
         {
             Validator.CheckIfHeroExist(Field.Hero);
@@ -133,7 +142,7 @@
             {
                 enemyHealth -= Field.Hero.GetAttackDemage();
                 heroHealth -= BattleField.TargetEnemy.GetAttackDemage();
-                Field.Hero.Health -= BattleField.TargetEnemy.GetAttackDemage();
+                Field.Hero.Health -= BattleField.TargetEnemy.GetAttackDemage();              
 
                 if (heroHealth <= 0)
                 {
@@ -154,8 +163,13 @@
                         IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
                         Field.Hero.Inventory.AddItem(droppedItem);
                     }
-
+                  
                     Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
+                    if (Field.Hero.Health < 50)
+                    {
+                        watchOut = Warning;
+                        watchOut.Invoke();
+                    }
                     isAlive = false;
 
                     if (BattleField.TargetEnemy.EnemyType == EnemyType.Caesar)
