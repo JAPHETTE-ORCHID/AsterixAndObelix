@@ -1,4 +1,6 @@
-﻿namespace AsterixAndObelixConsoleRPG.Models.Players
+﻿using AsterixAndObelixConsoleRPG.CustomExceptions;
+
+namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     using System;
     using AsterixAndObelixConsoleRPG.Enumerations;
@@ -22,7 +24,7 @@
                 case EnemyType.Caesar:
                     return new Enemy(3500, 3500, 1000, EnemyType.Caesar, 10000);
                 default:
-                    throw new Exception("Invalid enemy type");
+                    throw new InputException("Invalid enemy type");
             }
         }
     }

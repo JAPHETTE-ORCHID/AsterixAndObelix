@@ -1,4 +1,6 @@
-﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿using AsterixAndObelixConsoleRPG.CustomExceptions;
+
+namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System;
     using System.Collections.Generic;    
@@ -57,7 +59,7 @@
             {
                 if (command < 1 || command > this.itemTypes.Count)
                 {
-                    throw new Exception("Invalid item type.");
+                    throw new InputException("Invalid item type.");
                 }
                 
                 int index = command - 1;
@@ -70,14 +72,14 @@
             {
                 if (command < 1 || command > this.items.Count)
                 {
-                    throw new Exception("Invalid item id.");
+                    throw new InputException("Invalid item id.");
                 }
 
                 int index = command - 1;
 
                 if (Hero.Gold < this.items[index].Price)
                 {
-                    throw new Exception("You don't have enough money.");
+                    throw new ArgumentException("You don't have enough money.");
                 }
 
                 Hero.Gold -= this.items[index].Price;
