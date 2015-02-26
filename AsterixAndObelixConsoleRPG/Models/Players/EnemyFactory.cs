@@ -18,7 +18,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
                 case EnemyType.Tribune:
                     return new Enemy(600, 500, 75, EnemyType.Tribune, 2000);
                 case EnemyType.Centurion:
-                    return new Enemy(750, 680, 85, EnemyType.Centurion, 3000);
+                    return new Enemy(730, 680, 85, EnemyType.Centurion, 3000);
                 case EnemyType.Ordinatus:
                     return new Enemy(870, 830, 100, EnemyType.Ordinatus, 4000);
                 case EnemyType.Caesar:

@@ -107,6 +107,7 @@
                     market.ReadCommand();
                     break;
                 case Constants.CheatCommand:
+                    Console.WriteLine("You are now super hero!!!");
                     Field.Hero.Health += 100000;
                     Field.Hero.Defence += 100000;
                     Field.Hero.Attack += 100000;
