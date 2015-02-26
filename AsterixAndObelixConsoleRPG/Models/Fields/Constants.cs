@@ -22,7 +22,5 @@
         public const string CenturionCommand = "centurion";
         public const string OrdinatusCommand = "ordinatus";
         public const string CaesarCommand = "caesar";
-
-        
     }
 }

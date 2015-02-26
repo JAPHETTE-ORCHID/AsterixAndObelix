@@ -1,4 +1,6 @@
-﻿namespace AsterixAndObelixConsoleRPG.Core
+﻿using System.Runtime.InteropServices;
+
+namespace AsterixAndObelixConsoleRPG.Core
 {
     using System;
     using System.Collections.Generic;
@@ -58,22 +60,22 @@
                     switch (target)
                     {
                         case Constants.CadetCommand:                          
-                            BattleField.Hero.AttackEnemy(lineSplit[1]);
+                            Field.Hero.AttackEnemy(lineSplit[1]);
                             break;
                         case Constants.ManipulariusCommand:
-                            BattleField.Hero.AttackEnemy(lineSplit[1]);
+                            Field.Hero.AttackEnemy(lineSplit[1]);
                             break;
                         case Constants.TribuneCommand:
-                            BattleField.Hero.AttackEnemy(lineSplit[1]);
+                            Field.Hero.AttackEnemy(lineSplit[1]);
                             break;
                         case Constants.CenturionCommand:
-                            BattleField.Hero.AttackEnemy(lineSplit[1]);
+                            Field.Hero.AttackEnemy(lineSplit[1]);
                             break;
                         case Constants.OrdinatusCommand:
-                            BattleField.Hero.AttackEnemy(lineSplit[1]);
+                            Field.Hero.AttackEnemy(lineSplit[1]);
                             break;
                         case Constants.CaesarCommand:
-                            BattleField.Hero.AttackEnemy(lineSplit[1]);
+                            Field.Hero.AttackEnemy(lineSplit[1]);
                             break;
                         default:
                             throw new InvalidEnemyException("Cannot find requested enemy.");
@@ -97,14 +99,14 @@
                     Console.Clear();
                     break;
                 case Constants.ExitCommand:
-                    Engine.ExitGame();
+                    ExitGame(ExitGameReason.ExitCommand);
                     break;
                 default:
                     throw new InputException("Invalid command.");
             }
         }
 
-        protected void AddHero(string type)
+        private void AddHero(string type)
         {
             if (Field.Hero != null)
             {
@@ -131,7 +133,7 @@
             }
         }
 
-        protected void GenerateEnemies()
+        private void GenerateEnemies()
         {
             Validator.CheckIfHeroExist(Field.Hero);
             BattleField.Enemies = new List<Enemy>();
@@ -173,10 +175,21 @@
             }
         }
 
-        public static void ExitGame()
+        public static void ExitGame(ExitGameReason reason)
         {
-            Console.WriteLine("Game Over!");
-            Thread.Sleep(1000);
+            switch (reason)
+            {
+                case ExitGameReason.ExitCommand:
+                    Console.WriteLine("Good Bye.");
+                    break;
+                case  ExitGameReason.PlayerDie:
+                    Console.WriteLine("You Die. Game Over!");
+                    break;
+                case ExitGameReason.PlayerWinTheGame:
+                    Console.WriteLine("Congratulations! You Win.");
+                    break;
+            }
+            Thread.Sleep(500);
             Game.IsGameRunning = false;
         }
     }

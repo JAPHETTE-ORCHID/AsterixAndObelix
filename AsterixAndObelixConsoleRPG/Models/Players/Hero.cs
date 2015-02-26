@@ -137,9 +137,8 @@
 
                 if (heroHealth <= 0)
                 {
-                    Console.WriteLine(Field.Hero.GetType().Name + " die");
                     isAlive = false;
-                    Engine.ExitGame();
+                    Engine.ExitGame(ExitGameReason.PlayerDie);
                 }
                 else if (enemyHealth <= 0)
                 {
@@ -161,8 +160,7 @@
 
                     if (BattleField.TargetEnemy.EnemyType == EnemyType.Caesar)
                     {
-                        Console.WriteLine("You Win The Game.");
-                        Engine.ExitGame();
+                        Engine.ExitGame(ExitGameReason.PlayerWinTheGame);
                     }
                 }
             }
