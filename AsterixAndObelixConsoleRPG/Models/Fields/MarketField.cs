@@ -4,6 +4,7 @@
     using System.Collections;
     using System.Collections.Generic;
     using System.Text;
+    using System.Linq;
     
     using Enumerations;
     using Interafaces;
@@ -16,17 +17,18 @@
     public class MarketField : Field
     {
         private Operation operation;
-        private IList itemTypes;
+        private List<ItemType> itemTypes;
         private ItemType itemType;
         private List<Item> items;
 
         public MarketField()
         {
-            this.itemTypes = Enum.GetValues(typeof(ItemType));
+            this.itemTypes = new List<ItemType>();
         }
 
         public void PrintAllItemTypes()
         {
+            LoadAllItemTypes();
             Validator.CheckIfHeroExist(Field.Hero);
             Console.WriteLine("-------------------------------------------------------------------------------");
             Console.WriteLine("Select the number of the type item you want to buy.");
@@ -60,7 +62,7 @@
                 }
                 
                 int index = command - 1;
-                this.itemType = (ItemType)index;
+                this.itemType = this.itemTypes[index];
 
                 this.LoadAllItems();
                 this.PrintAllItems();
@@ -157,7 +159,17 @@
             this.operation = Operation.ChoosingItem;
             this.ReadCommand();
         }
-        
+
+        public void LoadAllItemTypes()
+        {
+            List<ItemType> types = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList(); ;
+
+            for (int i = BattleField.Hero.Level - 1; i < types.Count; i++)
+            {
+                this.itemTypes.Add((ItemType)i);
+            }
+        }
+
         public void LoadAllItems()
         {
             this.items = new List<Item>()
