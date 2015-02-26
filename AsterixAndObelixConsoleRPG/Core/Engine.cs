@@ -92,6 +92,8 @@
                     break;
                 case "iamnakov":
                     Field.Hero.Health += 100000;
+                    Field.Hero.Defence += 100000;
+                    Field.Hero.Attack += 100000;
                     break;
                 case "clear":
                     Console.Clear();
