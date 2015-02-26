@@ -81,14 +81,13 @@
                 if (potion != null)
                 {
                     potion.Heal();
-                    Console.WriteLine("+"+potion.Health+" health.");
+                    Console.WriteLine("+" + potion.Health + " health.");
                 }
                 else
                 {
                     Hero.Inventory.AddItem(this.items[index]);
                     Console.WriteLine("Item was added to your inventory.");
                 }
-                
             }
         }
 

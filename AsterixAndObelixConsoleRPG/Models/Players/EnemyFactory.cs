@@ -1,8 +1,8 @@
-﻿using System;
-using AsterixAndObelixConsoleRPG.Enumerations;
-
-namespace AsterixAndObelixConsoleRPG.Models.Players
+﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
+    using System;
+    using AsterixAndObelixConsoleRPG.Enumerations;
+
     public static class EnemyFactory
     {
         public static Enemy Enemy(EnemyType type)

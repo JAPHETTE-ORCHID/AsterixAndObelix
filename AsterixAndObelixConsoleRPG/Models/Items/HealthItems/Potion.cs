@@ -10,6 +10,7 @@
             : base(itemType)
         {
         }
+
         public int Health { get; set; }
 
         public void Heal()
