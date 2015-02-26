@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IDefence.cs" />
-    <Compile Include="Contracts\IHeal.cs" />
-    <Compile Include="Contracts\IInventory.cs" />
+    <Compile Include="Interfaces\IDefence.cs" />
+    <Compile Include="Interfaces\IHeal.cs" />
+    <Compile Include="Interfaces\IInventory.cs" />
     <Compile Include="Core\Game.cs" />
     <Compile Include="CustomExceptions\InputException.cs" />
     <Compile Include="CustomExceptions\InvalidEnemyException.cs" />
@@ -59,12 +59,13 @@
     <Compile Include="Models\Fields\MarketField.cs" />
     <Compile Include="Models\Fields\Field.cs" />
     <Compile Include="Models\Fields\Validator.cs" />
-    <Compile Include="Contracts\IAttack.cs" />
-    <Compile Include="Contracts\IDrop.cs" />
-    <Compile Include="Contracts\IItem.cs" />
-    <Compile Include="Contracts\IUnit.cs" />
+    <Compile Include="Interfaces\IAttack.cs" />
+    <Compile Include="Interfaces\IDrop.cs" />
+    <Compile Include="Interfaces\IItem.cs" />
+    <Compile Include="Interfaces\IUnit.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Enumerations\ItemType.cs" />
+    <Compile Include="Models\Helper\Helper.cs" />
     <Compile Include="Models\Items\AttackItems\AttackItem.cs" />
     <Compile Include="Models\Items\AttackItems\Sword.cs" />
     <Compile Include="Models\Items\DefenseItems\DefenseItem.cs" />
