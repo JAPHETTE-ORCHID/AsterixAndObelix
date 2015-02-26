@@ -18,6 +18,7 @@
     public abstract class Hero : PlayerObject
     {
         private int experience;
+        private int kills;
         private int gold;
         private Inventory inventory;      
 
@@ -43,6 +44,8 @@
                 this.experience = value;
             }
         }
+
+        public int Kills { get; set; }
 
         public int Gold
         {
@@ -156,10 +159,15 @@
                     {
                         Field.Hero.Gold += BattleField.TargetEnemy.Gold;
                         Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
+                        Field.Hero.Kills++;
+                        if (Field.Hero.Kills == 3)
+                        {
+                            Field.Hero.Experience = 200;                                                      
+                        }
                         if (Field.Hero.Experience % 300 == 0)
                         {
                             Field.Hero.Level++;
-                        }
+                        }                            
 
                         IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
                         Field.Hero.Inventory.AddItem(droppedItem);
