@@ -142,17 +142,20 @@
                  BattleField.AttackedEnemies[enemyType]++;
              }
 
-             int enemyHealth = BattleField.TargetEnemy.Health;
-             int heroHealth = Field.Hero.Health;
-             bool isAlive = true;
+             DoBattle();           
+         }
 
+         private void DoBattle()
+         {
+             int enemyHealth = BattleField.TargetEnemy.Health;
+
+             bool isAlive = true;
              while (isAlive)
              {
                  enemyHealth -= this.GetAttackDemage();
-                 heroHealth -= BattleField.TargetEnemy.GetAttackDemage();
                  this.Health -= BattleField.TargetEnemy.GetAttackDemage();
 
-                 if (heroHealth <= 0)
+                 if (this.Health <= 0)
                  {
                      isAlive = false;
                      Engine.ExitGame(ExitGameReason.PlayerDie);
@@ -161,25 +164,15 @@
                  {
                      if (BattleField.TargetEnemy.EnemyType != EnemyType.Caesar)
                      {
-                         Field.Hero.Gold += BattleField.TargetEnemy.Gold;
-                         Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
-                         Field.Hero.Kills++;
-                         if (Field.Hero.Kills == 1 || Field.Hero.Kills == 2)
-                         {
-                             Field.Hero.Experience -= BattleField.TargetEnemy.Expirience / 2;
-                         }
-
-                         if (Field.Hero.Experience % 300 == 0)
-                         {
-                             Field.Hero.Level++;
-                         }
-
-                         IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
-                         this.AddItem(droppedItem);
+                         UpdateHeroStats();
                      }
 
                      Console.WriteLine(Field.Hero.GetType().Name + " successfully kill " + BattleField.TargetEnemy.EnemyType);
+<<<<<<< .mine
+                     if (this.Health < 50)
+=======
                      if (Field.Hero.Health < 51)
+>>>>>>> .r169
                      {
                          WatchOut = Warning;
                          WatchOut.Invoke();
@@ -193,6 +186,25 @@
                      }
                  }
              }
+         }
+
+         private void UpdateHeroStats()
+         {
+             this.Gold += BattleField.TargetEnemy.Gold;
+             this.Experience += BattleField.TargetEnemy.Expirience;
+             this.Kills++;
+             if (this.Kills == 1 || this.Kills == 2)
+             {
+                 this.Experience -= BattleField.TargetEnemy.Expirience / 2;
+             }
+
+             if (this.Experience % 300 == 0)
+             {
+                 this.Level++;
+             }
+
+             IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
+             this.AddItem(droppedItem);
          }
 
          public override int GetAttackDemage()
