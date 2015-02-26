@@ -1,10 +1,9 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Text;
+    using System.Collections.Generic;    
     using System.Linq;
+    using System.Text;
     
     using Enumerations;
     using Interafaces;
@@ -28,7 +27,7 @@
 
         public void PrintAllItemTypes()
         {
-            LoadAllItemTypes();
+            this.LoadAllItemTypes();
             Validator.CheckIfHeroExist(Field.Hero);
             Console.WriteLine("-------------------------------------------------------------------------------");
             Console.WriteLine("Select the number of the type item you want to buy.");
@@ -162,7 +161,7 @@
 
         public void LoadAllItemTypes()
         {
-            List<ItemType> types = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList(); ;
+            List<ItemType> types = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList();
 
             for (int i = BattleField.Hero.Level - 1; i < types.Count; i++)
             {

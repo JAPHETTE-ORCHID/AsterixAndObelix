@@ -45,7 +45,7 @@
             }
         }
 
-        public int Kills { get; set; }
+        public int Kills { get; private set; }
 
         public int Gold
         {
@@ -160,10 +160,11 @@
                         Field.Hero.Gold += BattleField.TargetEnemy.Gold;
                         Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
                         Field.Hero.Kills++;
-                        if (Field.Hero.Kills == 3)
+                        if (Field.Hero.Kills == 1 || Field.Hero.Kills == 2)
                         {
-                            Field.Hero.Experience = 200;                                                      
+                            Field.Hero.Experience -= BattleField.TargetEnemy.Expirience / 2;             
                         }
+
                         if (Field.Hero.Experience % 300 == 0)
                         {
                             Field.Hero.Level++;
