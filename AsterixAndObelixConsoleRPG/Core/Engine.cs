@@ -4,11 +4,14 @@ namespace AsterixAndObelixConsoleRPG.Core
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading;
-    using CustomExceptions;
+<<<<<<< .mine    using Interafaces;
+=======>>>>>>> .theirs    using CustomExceptions;
     using Enumerations;
     using Models.Fields;
     using Models.Players;
+    using AsterixAndObelixConsoleRPG.Models.Helper;
   
     public class Engine
     {
@@ -95,6 +98,9 @@ namespace AsterixAndObelixConsoleRPG.Core
                     break;
                 case Constants.ClearCommand:
                     Console.Clear();
+                    break;
+                case Constants.HelpCommand:
+                    Helper.DrawAllCommands();
                     break;
                 case Constants.ExitCommand:
                     ExitGame(ExitGameReason.ExitCommand);
