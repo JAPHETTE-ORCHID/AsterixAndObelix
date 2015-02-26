@@ -2,8 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
-    using Interafaces;
+
     using CustomExceptions;
+    using Interafaces;
     using Players;
 
     public static class Validator

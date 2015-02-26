@@ -2,9 +2,9 @@
 {
     using System;
 
-    using Interafaces;
     using Enumerations;
     using Fields;
+    using Interafaces;
     using Items.AttackItems;
     using Items.DefenseItems;   
 

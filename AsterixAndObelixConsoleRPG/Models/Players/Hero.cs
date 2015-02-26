@@ -1,26 +1,25 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
-    using System.Text;
-    using Interafaces;
-    using Fields;
-    using Items.AttackItems;
-    using Items.DefenseItems;
-    using Items.UniqueItem;
-    using Enumerations;
     using System;
     using System.Linq;
-    using CustomExceptions;
+    using System.Text;
+
     using Core;
+    using CustomExceptions;
+    using Enumerations; 
+    using Fields;
+    using Interafaces;
+    using Items.AttackItems;
+    using Items.DefenseItems;
+    using Items.UniqueItem;      
 
     public delegate void EventHandler();
 
     public abstract class Hero : PlayerObject
     {
-        public static event EventHandler watchOut;
-
         private int experience;
         private int gold;
-        private Inventory inventory;
+        private Inventory inventory;      
 
         protected Hero(int attack, int defence, int health)
             : base(attack, defence, health)
@@ -28,6 +27,8 @@
             this.inventory = new Inventory();
             this.Level = 1;
         }
+
+        public static event EventHandler WatchOut;
 
         public int Experience
         {
@@ -73,6 +74,11 @@
             }
         }
 
+        public static void Warning()
+        {
+            Console.WriteLine("Watch out! You almost die!");
+        }
+
         public string ShowItems()
         {
             StringBuilder result = new StringBuilder();
@@ -110,11 +116,6 @@
             {
                 this.Attack -= ((AttackItem)item).Attack;
             }
-        }
-
-        public static void Warning()
-        {
-            Console.WriteLine("Watch out! You almost die!");
         }
 
         public void AttackEnemy(string type)
@@ -167,9 +168,10 @@
                     Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
                     if (Field.Hero.Health < 50)
                     {
-                        watchOut = Warning;
-                        watchOut.Invoke();
+                        WatchOut = Warning;
+                        WatchOut.Invoke();
                     }
+
                     isAlive = false;
 
                     if (BattleField.TargetEnemy.EnemyType == EnemyType.Caesar)

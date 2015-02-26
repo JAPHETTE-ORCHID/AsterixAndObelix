@@ -1,8 +1,8 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items.HealthItems
 {
-    using Interafaces;
     using Enumerations;
     using Fields;
+    using Interafaces;
 
     internal class Potion : Item, IHeal
     {

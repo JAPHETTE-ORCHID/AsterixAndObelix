@@ -4,9 +4,9 @@
     using System.Collections;
     using System.Collections.Generic;
     using System.Text;
-
-    using Interafaces;
+    
     using Enumerations;
+    using Interafaces;
     using Items;
     using Items.AttackItems;
     using Items.DefenseItems;
@@ -35,6 +35,7 @@
             {
                 Console.WriteLine("{0}. {1}", i + 1, this.itemTypes[i]);
             }
+
             Console.WriteLine();
             this.operation = Operation.ChoosingItemType;
         }

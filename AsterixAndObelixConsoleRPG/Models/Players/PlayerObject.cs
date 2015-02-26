@@ -1,7 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     using Interafaces;
-    using Fields;
 
     public abstract class PlayerObject : IAttack, IDefence, IUnit
     {

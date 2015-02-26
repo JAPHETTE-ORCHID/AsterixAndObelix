@@ -2,8 +2,8 @@
 {
     using System.Text;
 
+    using Enumerations;
     using Interafaces;
-    using Enumerations;    
 
     public abstract class DefenseItem : Item, IDefence
     {

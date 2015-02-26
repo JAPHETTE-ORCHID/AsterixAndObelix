@@ -6,11 +6,30 @@
     using CustomExceptions;
     using Enumerations;
     using Models.Fields;
-    using Models.Players;
     using Models.Helper;
+    using Models.Players;
 
     public class Engine
     {
+        public static void ExitGame(ExitGameReason reason)
+        {
+            switch (reason)
+            {
+                case ExitGameReason.ExitCommand:
+                    Console.WriteLine("Good Bye.");
+                    break;
+                case ExitGameReason.PlayerDie:
+                    Console.WriteLine("You Die. Game Over!");
+                    break;
+                case ExitGameReason.PlayerWinTheGame:
+                    Console.WriteLine("Congratulations! You Win.");
+                    break;
+            }
+
+            Thread.Sleep(500);
+            Game.IsGameRunning = false;
+        }
+
         public void CommandHandler(string line)
         {
             string[] lineSplit = line.Split(' ');
@@ -187,24 +206,6 @@
             {
                 BattleField.Enemies.Add(EnemyFactory.Enemy(EnemyType.Caesar));
             }
-        }
-
-        public static void ExitGame(ExitGameReason reason)
-        {
-            switch (reason)
-            {
-                case ExitGameReason.ExitCommand:
-                    Console.WriteLine("Good Bye.");
-                    break;
-                case  ExitGameReason.PlayerDie:
-                    Console.WriteLine("You Die. Game Over!");
-                    break;
-                case ExitGameReason.PlayerWinTheGame:
-                    Console.WriteLine("Congratulations! You Win.");
-                    break;
-            }
-            Thread.Sleep(500);
-            Game.IsGameRunning = false;
         }
     }
 }
