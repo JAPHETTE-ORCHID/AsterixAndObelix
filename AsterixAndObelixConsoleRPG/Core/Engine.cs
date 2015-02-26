@@ -6,8 +6,8 @@ namespace AsterixAndObelixConsoleRPG.Core
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
-<<<<<<< .mine    using Interafaces;
-=======>>>>>>> .theirs    using CustomExceptions;
+    using Interafaces;
+    using CustomExceptions;
     using Enumerations;
     using Models.Fields;
     using Models.Players;
