@@ -169,9 +169,7 @@
 
                      Console.WriteLine(Field.Hero.GetType().Name + " successfully kill " + BattleField.TargetEnemy.EnemyType);
 
-                     if (this.Health < 50)
-
-                     if (Field.Hero.Health < 51)
+                     if (this.Health < 51)
 
                      {
                          WatchOut = Warning;
