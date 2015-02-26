@@ -92,7 +92,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Fields
                 }
                 else
                 {
-                    Hero.Inventory.AddItem(this.items[index]);
+                    Hero.AddItem(this.items[index]);
                     Console.WriteLine("Item was added to your inventory.");
                 }
             }

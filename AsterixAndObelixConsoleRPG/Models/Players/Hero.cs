@@ -51,7 +51,7 @@
         {
             get
             {
-                return this.gold;
+                return 1000;// this.gold;
             }
 
             set
@@ -119,6 +119,11 @@
             {
                 this.Attack -= ((AttackItem)item).Attack;
             }
+            else if (item is DefenceAttack)
+            {
+                this.Attack -= ((DefenceAttack)item).Attack;
+                this.Defence -= ((DefenceAttack)item).Defence;
+            }
         }
 
         public void AttackEnemy(string type)
@@ -144,9 +149,9 @@
 
             while (isAlive)
             {
-                enemyHealth -= Field.Hero.GetAttackDemage();
+                enemyHealth -= this.GetAttackDemage();
                 heroHealth -= BattleField.TargetEnemy.GetAttackDemage();
-                Field.Hero.Health -= BattleField.TargetEnemy.GetAttackDemage();              
+                this.Health -= BattleField.TargetEnemy.GetAttackDemage();              
 
                 if (heroHealth <= 0)
                 {
@@ -171,7 +176,7 @@
                         }                            
 
                         IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
-                        Field.Hero.Inventory.AddItem(droppedItem);
+                        this.AddItem(droppedItem);
                     }
 
                     Console.WriteLine(Field.Hero.GetType().Name + " successfully kill " + BattleField.TargetEnemy.EnemyType);
@@ -200,6 +205,37 @@
             }
 
             return damage;
+        }
+
+        public void AddItem(IItem item)
+        {
+            Validator.CheckForNullItem(item);
+            int sameTypeIndex = this.Inventory.SameTypeIndex(item);
+            if (sameTypeIndex == -1)
+            {
+                this.AddPowerFromItem(item);
+            }
+            else
+            {
+                this.ReplaceItem(sameTypeIndex, item);
+            }
+
+            this.Inventory.Items.Add(item);
+        }
+
+        public void RemoveItem(IItem item)
+        {
+            Validator.CheckForNullItem(item);
+            this.RemovePowerFromItem(item);
+            this.Inventory.Items.Remove(item);
+        }
+
+        public void ReplaceItem(int position, IItem item)
+        {
+            IItem oldItem = this.Inventory.Items[position];
+            this.RemovePowerFromItem(oldItem);
+            this.Inventory.Items.Remove(oldItem);
+            this.AddPowerFromItem(item);
         }
 
         public override string ToString()
