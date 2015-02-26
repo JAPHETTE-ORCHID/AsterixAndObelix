@@ -6,6 +6,7 @@
         public const int PlayerDefaultHealth = 100;
 
         // Commands
+        public const string HelpCommand = "help";
         public const string AddComand = "add";
         public const string BattleFieldCommand = "battle";
         public const string AttackCommand = "attack";

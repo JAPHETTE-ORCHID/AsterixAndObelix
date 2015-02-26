@@ -2,7 +2,7 @@
 {
     using System.Text;
 
-    using Contracts;
+    using Interafaces;
     using Enumerations;    
 
     public abstract class DefenseItem : Item, IDefence

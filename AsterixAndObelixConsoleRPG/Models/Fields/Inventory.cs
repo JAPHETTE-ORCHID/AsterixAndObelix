@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using Contracts;
+    using Interafaces;
 
     public class Inventory
     {

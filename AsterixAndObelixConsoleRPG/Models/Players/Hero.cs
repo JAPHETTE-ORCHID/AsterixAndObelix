@@ -1,7 +1,7 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     using System.Text;
-    using Contracts;
+    using Interafaces;
     using Fields;
     using Items.AttackItems;
     using Items.DefenseItems;

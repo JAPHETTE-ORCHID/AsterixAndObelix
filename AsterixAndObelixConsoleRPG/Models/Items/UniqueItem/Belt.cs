@@ -1,6 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items.AttackItems
 {
-    using AsterixAndObelixConsoleRPG.Contracts;
+    using AsterixAndObelixConsoleRPG.Interafaces;
     using AsterixAndObelixConsoleRPG.Models.Items.UniqueItem;
     using Enumerations;
 

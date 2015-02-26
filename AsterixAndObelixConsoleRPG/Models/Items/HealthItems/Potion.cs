@@ -1,6 +1,6 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Items.HealthItems
 {
-    using Contracts;
+    using Interafaces;
     using Enumerations;
     using Fields;
 

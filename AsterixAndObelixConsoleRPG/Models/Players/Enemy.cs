@@ -2,7 +2,7 @@
 {
     using System;
 
-    using Contracts;
+    using Interafaces;
     using Enumerations;
     using Fields;
     using Items.AttackItems;

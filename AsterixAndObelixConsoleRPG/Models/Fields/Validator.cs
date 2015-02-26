@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using Contracts;
+    using Interafaces;
     using CustomExceptions;
     using Players;
 

@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.Text;
 
-    using Contracts;
+    using Interafaces;
     using Enumerations;
     using Items;
     using Items.AttackItems;
