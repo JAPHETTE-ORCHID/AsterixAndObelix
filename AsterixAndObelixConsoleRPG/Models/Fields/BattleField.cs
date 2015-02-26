@@ -65,10 +65,16 @@
             printBattleField.AppendLine("-------------------------------------------------------------------------------");
             printBattleField.AppendLine("For attack emeny enter command \"attack\" + \"enemy name\" ");
             printBattleField.AppendLine("-------------------------------------------------------------------------------");
-            printBattleField.AppendLine("Enemies: ");
 
             if (BattleField.Enemies != null && BattleField.Enemies.Count > 0)
             {
+                const int MaxCellSize = 13;
+                printBattleField.Append("Type".PadRight(MaxCellSize, ' '));
+                printBattleField.Append("Gold".PadRight(MaxCellSize, ' '));
+                printBattleField.Append("Attack".PadRight(MaxCellSize, ' '));
+                printBattleField.Append("Defence".PadRight(MaxCellSize, ' '));
+                printBattleField.Append("Health".PadRight(MaxCellSize, ' '));
+                printBattleField.AppendLine("Left".PadRight(MaxCellSize));
                 foreach (var enemy in BattleField.Enemies)
                 {
                     printBattleField.AppendLine(enemy.ToString());

@@ -8,7 +8,7 @@
         private int defence;
         private int health;
 
-        public PlayerObject(int attack, int defence, int health)
+        protected PlayerObject(int attack, int defence, int health)
         {
             this.Attack = attack;
             this.Defence = defence;

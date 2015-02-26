@@ -12,11 +12,6 @@
     {
         private const int DropExpirience = 100;
 
-        public Enemy()            
-            : base(0, 0, 0)
-        {
-        }
-
         public Enemy(int attack, int defence, int health, EnemyType enemyType, int gold)
             : base(attack, defence, health)
         {
@@ -203,30 +198,24 @@
             var enemiestLeft = 3 - BattleField.AttackedEnemies[this.EnemyType];
 
             string outputEnemyType = this.EnemyType.ToString();
-            string outputGold = "Gold: " + this.Gold;
-            string outputAttack = "Attack: " + this.Attack;
-            string outputDefence = "Defence: " + this.Defence;
-            string outputHealth = "Health: " + this.Health;
+            string outputGold = this.Gold.ToString();
+            string outputAttack = this.Attack.ToString();
+            string outputDefence = this.Defence.ToString();
+            string outputHealth = this.Health.ToString();
             string outputEnemiesLeft = string.Empty;
 
             if (this.EnemyType != EnemyType.Caesar)
             {
-                outputEnemiesLeft = "Left: " + enemiestLeft;
+                outputEnemiesLeft = enemiestLeft.ToString();
             }
 
-            string enemyTypePadding = new string(' ', MaxCellSize - outputEnemyType.Length);
-            string goldPadding = new string(' ', MaxCellSize - outputGold.Length);
-            string attackPadding = new string(' ', MaxCellSize - outputAttack.Length);
-            string defencePadding = new string(' ', MaxCellSize - outputDefence.Length);
-            string healthPadding = new string(' ', MaxCellSize - outputHealth.Length);
-
             return string.Format(
-                "{0} {1} {2} {3} {4} {5}",
-                outputEnemyType + enemyTypePadding,
-                outputGold + goldPadding,
-                outputAttack + attackPadding,
-                outputDefence + defencePadding,
-                outputHealth + healthPadding,
+                "{0}{1}{2}{3}{4}{5}",
+                outputEnemyType.PadRight(MaxCellSize, ' '),
+                outputGold.PadRight(MaxCellSize, ' '),
+                outputAttack.PadRight(MaxCellSize, ' '),
+                outputDefence.PadRight(MaxCellSize, ' '),
+                outputHealth.PadRight(MaxCellSize, ' '),
                 outputEnemiesLeft);
         }
     }
