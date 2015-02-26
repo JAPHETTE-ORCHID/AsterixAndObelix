@@ -4,9 +4,7 @@ namespace AsterixAndObelixConsoleRPG.Core
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading;
-    using Contracts;
     using CustomExceptions;
     using Enumerations;
     using Models.Fields;
