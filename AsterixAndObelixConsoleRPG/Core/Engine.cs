@@ -19,7 +19,7 @@
 
             switch (comand)
             {
-                case "add":
+                case Constants.AddComand:
                     if (lineSplit.Length < 2 || lineSplit[1] == string.Empty)
                     {
                         throw new InputException("You must add hero.");
@@ -29,7 +29,7 @@
 
                     switch (type)
                     {
-                        case "hero":
+                        case Constants.HeroCommand:
                             if (lineSplit.Length < 3 || lineSplit[2] == string.Empty)
                             {
                                 throw new InputException("You have to choise between asterix and obelix.");
@@ -44,11 +44,11 @@
                     }
 
                     break;
-                case "battle":
+                case Constants.BattleFieldCommand:
                     this.GenerateEnemies();
                     Console.WriteLine(BattleField.PrintBattleField());
                     break;
-                case "attack":
+                case Constants.AttackCommand:
                     if (lineSplit.Length < 2 || lineSplit[1] == string.Empty)
                     {
                         throw new InputException("Cannot attack the air.");
@@ -58,22 +58,22 @@
 
                     switch (target)
                     {
-                        case "cadet":                          
+                        case Constants.CadetCommand:                          
                             this.AttackEnemy(lineSplit[1]);
                             break;
-                        case "manipularius":             
+                        case Constants.ManipulariusCommand:             
                             this.AttackEnemy(lineSplit[1]);
                             break;
-                        case "tribune":                           
+                        case Constants.TribuneCommand:                           
                             this.AttackEnemy(lineSplit[1]);
                             break;
-                        case "centurion":                            
+                        case Constants.CenturionCommand:                            
                             this.AttackEnemy(lineSplit[1]);
                             break;
-                        case "ordinatus":                            
+                        case Constants.OrdinatusCommand:                            
                             this.AttackEnemy(lineSplit[1]);
                             break;
-                        case "caesar":
+                        case Constants.CaesarCommand:
                             this.AttackEnemy(lineSplit[1]);
                             break;
                         default:
@@ -82,28 +82,27 @@
                     }
 
                     break;                
-                case "info":
+                case Constants.InfoCommand:
                     Console.WriteLine(Field.PrintHero());
                     break;
-                case "market":
+                case Constants.MarketFieldCommand:
                     MarketField market = new MarketField();
                     market.PrintAllItemTypes();
                     market.ReadCommand();
                     break;
-                case "iamnakov":
+                case Constants.CheatCommand:
                     Field.Hero.Health += 100000;
                     Field.Hero.Defence += 100000;
                     Field.Hero.Attack += 100000;
                     break;
-                case "clear":
+                case Constants.ClearCommand:
                     Console.Clear();
                     break;
-                case "exit":
+                case Constants.ExitCommand:
                     this.ExitGame();
                     break;
                 default:
                     throw new InputException("Invalid command.");
-                    break;
             }
         }
 
