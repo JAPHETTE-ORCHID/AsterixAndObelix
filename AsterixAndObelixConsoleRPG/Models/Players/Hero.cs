@@ -194,14 +194,21 @@
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
-
+            result.AppendLine("-------------------------------------------------------------------------------");
             result.Append("Hero: ").AppendLine(this.GetType().Name);
+            result.AppendLine("-------------------------------------------------------------------------------");
             result.Append("Level: ").AppendLine(this.Level.ToString());
+            result.AppendLine("-------------------------------------------------------------------------------");
             result.Append("Experience: ").AppendLine(this.Experience.ToString());
+            result.AppendLine("-------------------------------------------------------------------------------");
             result.Append("Gold: ").AppendLine(this.Gold.ToString());
+            result.AppendLine("-------------------------------------------------------------------------------");
             result.Append("Attack: ").AppendLine(this.Attack.ToString());
+            result.AppendLine("-------------------------------------------------------------------------------");
             result.Append("Defence: ").AppendLine(this.Defence.ToString());
+            result.AppendLine("-------------------------------------------------------------------------------");
             result.Append("Health: ").AppendLine(this.Health.ToString());
+            result.AppendLine("-------------------------------------------------------------------------------");
             result.Append("Inventory: ");
             if (this.Inventory.Items.Count > 0)
             {

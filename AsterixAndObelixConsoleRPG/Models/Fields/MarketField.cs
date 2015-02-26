@@ -28,11 +28,14 @@
         public void PrintAllItemTypes()
         {
             Validator.CheckIfHeroExist(Field.Hero);
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine("Select the number of the type item you want to buy.");
+            Console.WriteLine("-------------------------------------------------------------------------------");
             for (int i = 0; i < this.itemTypes.Count; i++)
             {
                 Console.WriteLine("{0}. {1}", i + 1, this.itemTypes[i]);
             }
-
+            Console.WriteLine();
             this.operation = Operation.ChoosingItemType;
         }
 
@@ -99,6 +102,9 @@
                 return;
             }
 
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine("Enter Id number of item you want to buy.");
+            Console.WriteLine("-------------------------------------------------------------------------------");
             Console.WriteLine("{0} items: ", this.itemType);
             int itemCount = 0;
             const int CellWidth = 10;
