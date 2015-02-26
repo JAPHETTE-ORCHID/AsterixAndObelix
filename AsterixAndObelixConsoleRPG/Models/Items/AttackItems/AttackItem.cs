@@ -17,7 +17,7 @@
             StringBuilder result = new StringBuilder();
 
             result.Append(base.ToString());
-            result.Append("Attack: ").Append(this.Attack.ToString());
+            result.Append("  Attack: ").Append(this.Attack.ToString());
 
             return result.ToString();
         }
