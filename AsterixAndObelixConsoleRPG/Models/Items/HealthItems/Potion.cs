@@ -9,36 +9,34 @@
         public Potion(ItemType itemType)
             : base(itemType)
         {
+            switch (itemType)
+            {
+                case ItemType.Common:
+                    this.Health = 20;
+                    break;
+                case ItemType.Uncommon:
+                    this.Health = 40;
+                    break;
+                case ItemType.Rare:
+                    this.Health = 60;
+                    break;
+                case ItemType.Magic:
+                    this.Health = 80;
+                    break;
+                case ItemType.Legendary:
+                    this.Health = 100;
+                    break;
+            }
         }
 
         public int Health { get; set; }
 
         public void Heal()
         {
-            if (this.ItemType.Equals(ItemType.Common))
+            Field.Hero.Health += this.Health;
+            if (Field.Hero.Health > 100)
             {
-                BattleField.Hero.Health += 20;
-                this.Health = 20;
-            }
-            else if (this.ItemType.Equals(ItemType.Uncommon))
-            {
-                BattleField.Hero.Health += 40;
-                this.Health = 40;
-            }
-            else if (this.ItemType.Equals(ItemType.Rare))
-            {
-                BattleField.Hero.Health += 60;
-                this.Health = 60;
-            }
-            else if (this.ItemType.Equals(ItemType.Magic))
-            {
-                BattleField.Hero.Health += 80;
-                this.Health = 80;
-            }
-            else if (this.ItemType.Equals(ItemType.Legendary))
-            {
-                BattleField.Hero.Health += 100;
-                this.Health = 100;
+                Field.Hero.Health = 100;
             }
         }
     }
