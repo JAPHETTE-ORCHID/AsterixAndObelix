@@ -1,12 +1,16 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
     using System.Text;
-
     using Contracts;
     using Fields;
     using Items.AttackItems;
     using Items.DefenseItems;
     using Items.UniqueItem;
+    using AsterixAndObelixConsoleRPG.Enumerations;
+    using System;
+    using System.Linq;
+    using AsterixAndObelixConsoleRPG.CustomExceptions;
+    using AsterixAndObelixConsoleRPG.Core;
 
     public abstract class Hero : PlayerObject
     {
@@ -104,7 +108,67 @@
             }
         }
 
-        public override int MakeAttack()
+        public void AttackEnemy(string type)
+        {
+            Validator.CheckIfHeroExist(Field.Hero);
+            Validator.CheckIfEnemiesExist(BattleField.Enemies);
+            string typeForCast = type.Substring(0, 1).ToUpper() + type.Substring(1);
+            EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
+            if (BattleField.AttackedEnemies[enemyType] >= 3)
+            {
+                throw new InvalidEnemyException("This enemies are dead.");
+            }
+
+            BattleField.TargetEnemy = BattleField.Enemies.Single(enemy => enemy.EnemyType == enemyType);
+            if (BattleField.AttackedEnemies.ContainsKey(enemyType))
+            {
+                BattleField.AttackedEnemies[enemyType]++;
+            }
+
+            int enemyHealth = BattleField.TargetEnemy.Health;
+            int heroHealth = Field.Hero.Health;
+            bool isAlive = true;
+
+            while (isAlive)
+            {
+                enemyHealth -= Field.Hero.GetAttackDemage();
+                heroHealth -= BattleField.TargetEnemy.GetAttackDemage();
+                Field.Hero.Health -= BattleField.TargetEnemy.GetAttackDemage();
+
+                if (heroHealth <= 0)
+                {
+                    Console.WriteLine(Field.Hero.GetType().Name + " die");
+                    isAlive = false;
+                    Engine.ExitGame();
+                }
+                else if (enemyHealth <= 0)
+                {
+                    if (BattleField.TargetEnemy.EnemyType != EnemyType.Caesar)
+                    {
+                        Field.Hero.Gold += BattleField.TargetEnemy.Gold;
+                        Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
+                        if (Field.Hero.Experience % 300 == 0)
+                        {
+                            Field.Hero.Level++;
+                        }
+
+                        IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
+                        Field.Hero.Inventory.AddItem(droppedItem);
+                    }
+
+                    Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
+                    isAlive = false;
+
+                    if (BattleField.TargetEnemy.EnemyType == EnemyType.Caesar)
+                    {
+                        Console.WriteLine("You Win The Game.");
+                        Engine.ExitGame();
+                    }
+                }
+            }
+        }
+
+        public override int GetAttackDemage()
         {
             int damage = this.Attack - BattleField.TargetEnemy.Defence;
             if (damage <= 0)

@@ -7,6 +7,6 @@
             get;
         }
 
-        int MakeAttack();
+        int GetAttackDemage();
     }
 }

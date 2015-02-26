@@ -40,7 +40,6 @@
                             break;
                         default:
                             throw new InputException("Critical error when adding hero.");
-                            break;
                     }
 
                     break;
@@ -59,26 +58,25 @@
                     switch (target)
                     {
                         case Constants.CadetCommand:                          
-                            this.AttackEnemy(lineSplit[1]);
+                            BattleField.Hero.AttackEnemy(lineSplit[1]);
                             break;
-                        case Constants.ManipulariusCommand:             
-                            this.AttackEnemy(lineSplit[1]);
+                        case Constants.ManipulariusCommand:
+                            BattleField.Hero.AttackEnemy(lineSplit[1]);
                             break;
-                        case Constants.TribuneCommand:                           
-                            this.AttackEnemy(lineSplit[1]);
+                        case Constants.TribuneCommand:
+                            BattleField.Hero.AttackEnemy(lineSplit[1]);
                             break;
-                        case Constants.CenturionCommand:                            
-                            this.AttackEnemy(lineSplit[1]);
+                        case Constants.CenturionCommand:
+                            BattleField.Hero.AttackEnemy(lineSplit[1]);
                             break;
-                        case Constants.OrdinatusCommand:                            
-                            this.AttackEnemy(lineSplit[1]);
+                        case Constants.OrdinatusCommand:
+                            BattleField.Hero.AttackEnemy(lineSplit[1]);
                             break;
                         case Constants.CaesarCommand:
-                            this.AttackEnemy(lineSplit[1]);
+                            BattleField.Hero.AttackEnemy(lineSplit[1]);
                             break;
                         default:
                             throw new InvalidEnemyException("Cannot find requested enemy.");
-                            break;
                     }
 
                     break;                
@@ -99,7 +97,7 @@
                     Console.Clear();
                     break;
                 case Constants.ExitCommand:
-                    this.ExitGame();
+                    Engine.ExitGame();
                     break;
                 default:
                     throw new InputException("Invalid command.");
@@ -175,67 +173,7 @@
             }
         }
 
-        protected void AttackEnemy(string type)
-        {
-            Validator.CheckIfHeroExist(Field.Hero);
-            Validator.CheckIfEnemiesExist(BattleField.Enemies);
-            string typeForCast = type.Substring(0, 1).ToUpper() + type.Substring(1);
-            EnemyType enemyType = (EnemyType)Enum.Parse(typeof(EnemyType), typeForCast);
-            if (BattleField.AttackedEnemies[enemyType] >= 3)
-            {
-                throw new InvalidEnemyException("This enemies are dead.");
-            }
-
-            BattleField.TargetEnemy = BattleField.Enemies.Single(enemy => enemy.EnemyType == enemyType);
-            if (BattleField.AttackedEnemies.ContainsKey(enemyType))
-            {
-                BattleField.AttackedEnemies[enemyType]++;
-            }
-
-            int enemyHealth = BattleField.TargetEnemy.Health;
-            int heroHealth = Field.Hero.Health;
-            bool isAlive = true;
-
-            while (isAlive)
-            {
-                enemyHealth -= Field.Hero.MakeAttack();               
-                heroHealth -= BattleField.TargetEnemy.MakeAttack();
-                Field.Hero.Health -= BattleField.TargetEnemy.MakeAttack();
-
-                if (heroHealth <= 0)
-                {
-                    Console.WriteLine(Field.Hero.GetType().Name + " die");
-                    isAlive = false;
-                    this.ExitGame();
-                }
-                else if (enemyHealth <= 0)
-                {
-                    if (BattleField.TargetEnemy.EnemyType != EnemyType.Caesar)
-                    {
-                        Field.Hero.Gold += BattleField.TargetEnemy.Gold;
-                        Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
-                        if (Field.Hero.Experience % 300 == 0)
-                        {
-                            Field.Hero.Level++;
-                        }
-
-                        IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
-                        Field.Hero.Inventory.AddItem(droppedItem);
-                    }
-
-                    Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
-                    isAlive = false;
-
-                    if (BattleField.TargetEnemy.EnemyType == EnemyType.Caesar)
-                    {
-                        Console.WriteLine("You Win The Game.");
-                        this.ExitGame();
-                    }
-                }
-            }
-        }
-
-        private void ExitGame()
+        public static void ExitGame()
         {
             Console.WriteLine("Game Over!");
             Thread.Sleep(1000);

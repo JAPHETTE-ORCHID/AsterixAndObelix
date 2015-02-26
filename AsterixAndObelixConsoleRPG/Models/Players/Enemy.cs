@@ -186,7 +186,7 @@
             return itemForDrop;
         }
 
-        public override int MakeAttack()
+        public override int GetAttackDemage()
         {
             int damage = this.Attack - Field.Hero.Defence;
             if (damage < 0)

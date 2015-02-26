@@ -76,6 +76,6 @@
             }
         }
 
-        public abstract int MakeAttack();
+        public abstract int GetAttackDemage();
     }
 }

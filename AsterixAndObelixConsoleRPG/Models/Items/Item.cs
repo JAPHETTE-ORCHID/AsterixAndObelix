@@ -28,15 +28,10 @@
                 switch (this.ItemType)
                 {
                     case ItemType.Common: return Item.CommonPrice;
-                        break;
                     case ItemType.Uncommon: return Item.UncommonPrice;
-                        break;
                     case ItemType.Rare: return Item.RarePrice;
-                        break;
                     case ItemType.Magic: return Item.MagicPrice;
-                        break;
                     case ItemType.Legendary: return Item.LegendaryPrice;
-                        break;
                     default: return Item.CommonPrice;
                 }
             }
