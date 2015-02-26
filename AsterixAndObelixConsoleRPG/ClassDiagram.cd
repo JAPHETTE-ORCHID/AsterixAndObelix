@@ -24,7 +24,7 @@
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.Field" Collapsed="true">
     <Position X="1.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>Models\Fields\Field.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -36,9 +36,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.Validator" Collapsed="true">
-    <Position X="17" Y="2.5" Width="1.5" />
+    <Position X="17" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAgAAAAAAAAAEAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAgAAIAAAAAAEAAAAAAAAAAAAAACAACAAAAA=</HashCode>
       <FileName>Models\Fields\Validator.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -118,7 +118,7 @@
   <Class Name="AsterixAndObelixConsoleRPG.Models.Items.UniqueItem.DefenceAttack" Collapsed="true">
     <Position X="9" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAIAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Models\Items\UniqueItem\DefenceAttack.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -166,20 +166,6 @@
       <FileName>Core\Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AsterixAndObelixConsoleRPG.Core.Game" Collapsed="true">
-    <Position X="20.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gAAAAAAAACAAAAEAAAAAAAAAAAAAAAAAIAAAAAQAAAI=</HashCode>
-      <FileName>Core\Game.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="AsterixAndObelixConsoleRPG.CustomException.InvalidEnemyException" Collapsed="true">
-    <Position X="17" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
-      <FileName>CustomException\InvalidEnemyException.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="AsterixAndObelixConsoleRPG.Models.Fields.Inventory" Collapsed="true">
     <Position X="18.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
@@ -187,6 +173,13 @@
       <FileName>Models\Fields\Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Struct Name="AsterixAndObelixConsoleRPG.Core.Game" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAACAAAAEAAAAAAAAAAAAAAAAAIAAAAAQAAAI=</HashCode>
+      <FileName>Core\Game.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
   <Interface Name="AsterixAndObelixConsoleRPG.Contracts.IAttack" Collapsed="true">
     <Position X="17" Y="3.75" Width="1.5" />
     <TypeIdentifier>

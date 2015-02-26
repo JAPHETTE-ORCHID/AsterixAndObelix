@@ -5,7 +5,7 @@
 
     using CustomExceptions;
 
-    internal class Game
+    struct Game
     {
         public static bool IsGameRunning = true;
         private Thread thread;
