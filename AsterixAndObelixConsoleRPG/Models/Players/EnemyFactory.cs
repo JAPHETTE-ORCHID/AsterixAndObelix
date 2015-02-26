@@ -22,7 +22,7 @@ namespace AsterixAndObelixConsoleRPG.Models.Players
                 case EnemyType.Ordinatus:
                     return new Enemy(870, 830, 100, EnemyType.Ordinatus, 4000);
                 case EnemyType.Caesar:
-                    return new Enemy(100000, 100000, 200, EnemyType.Caesar, 10000);
+                    return new Enemy(100000, 100000, 1000, EnemyType.Caesar, 10000);
                 default:
                     throw new InputException("Invalid enemy type");
             }
