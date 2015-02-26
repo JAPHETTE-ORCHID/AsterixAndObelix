@@ -1,26 +1,26 @@
 ﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
-    using System;
-    using System.Linq;
     using System.Text;
-
-    using Core;
-    using CustomExceptions;
-    using Enumerations; 
-    using Fields;
     using Interafaces;
+    using Fields;
     using Items.AttackItems;
     using Items.DefenseItems;
-    using Items.UniqueItem;      
+    using Items.UniqueItem;
+    using Enumerations;
+    using System;
+    using System.Linq;
+    using CustomExceptions;
+    using Core;
 
     public delegate void EventHandler();
 
     public abstract class Hero : PlayerObject
     {
+        public static event EventHandler watchOut;
+
         private int experience;
-        private int kills;
         private int gold;
-        private Inventory inventory;      
+        private Inventory inventory;
 
         protected Hero(int attack, int defence, int health)
             : base(attack, defence, health)
@@ -28,8 +28,6 @@
             this.inventory = new Inventory();
             this.Level = 1;
         }
-
-        public static event EventHandler WatchOut;
 
         public int Experience
         {
@@ -45,13 +43,11 @@
             }
         }
 
-        public int Kills { get; private set; }
-
         public int Gold
         {
             get
             {
-                return 1000;// this.gold;
+                return this.gold;
             }
 
             set
@@ -75,11 +71,6 @@
                 Validator.CheckForNullInventory(value);
                 this.inventory = value;
             }
-        }
-
-        public static void Warning()
-        {
-            Console.WriteLine("Watch out! You almost die!");
         }
 
         public string ShowItems()
@@ -119,11 +110,11 @@
             {
                 this.Attack -= ((AttackItem)item).Attack;
             }
-            else if (item is DefenceAttack)
-            {
-                this.Attack -= ((DefenceAttack)item).Attack;
-                this.Defence -= ((DefenceAttack)item).Defence;
-            }
+        }
+
+        public static void Warning()
+        {
+            Console.WriteLine("Watch out! You almost die!");
         }
 
         public void AttackEnemy(string type)
@@ -149,9 +140,9 @@
 
             while (isAlive)
             {
-                enemyHealth -= this.GetAttackDemage();
+                enemyHealth -= Field.Hero.GetAttackDemage();
                 heroHealth -= BattleField.TargetEnemy.GetAttackDemage();
-                this.Health -= BattleField.TargetEnemy.GetAttackDemage();              
+                Field.Hero.Health -= BattleField.TargetEnemy.GetAttackDemage();              
 
                 if (heroHealth <= 0)
                 {
@@ -164,28 +155,21 @@
                     {
                         Field.Hero.Gold += BattleField.TargetEnemy.Gold;
                         Field.Hero.Experience += BattleField.TargetEnemy.Expirience;
-                        Field.Hero.Kills++;
-                        if (Field.Hero.Kills == 1 || Field.Hero.Kills == 2)
-                        {
-                            Field.Hero.Experience -= BattleField.TargetEnemy.Expirience / 2;             
-                        }
-
                         if (Field.Hero.Experience % 300 == 0)
                         {
                             Field.Hero.Level++;
-                        }                            
+                        }
 
                         IItem droppedItem = BattleField.TargetEnemy.DropRandomItem();
-                        this.AddItem(droppedItem);
+                        Field.Hero.Inventory.AddItem(droppedItem);
                     }
-
-                    Console.WriteLine(Field.Hero.GetType().Name + " successfully kill " + BattleField.TargetEnemy.EnemyType);
+                  
+                    Console.WriteLine(Field.Hero.GetType().Name + " slain " + BattleField.TargetEnemy.EnemyType);
                     if (Field.Hero.Health < 50)
                     {
-                        WatchOut = Warning;
-                        WatchOut.Invoke();
+                        watchOut = Warning;
+                        watchOut.Invoke();
                     }
-
                     isAlive = false;
 
                     if (BattleField.TargetEnemy.EnemyType == EnemyType.Caesar)
@@ -205,37 +189,6 @@
             }
 
             return damage;
-        }
-
-        public void AddItem(IItem item)
-        {
-            Validator.CheckForNullItem(item);
-            int sameTypeIndex = this.Inventory.SameTypeIndex(item);
-            if (sameTypeIndex == -1)
-            {
-                this.AddPowerFromItem(item);
-            }
-            else
-            {
-                this.ReplaceItem(sameTypeIndex, item);
-            }
-
-            this.Inventory.Items.Add(item);
-        }
-
-        public void RemoveItem(IItem item)
-        {
-            Validator.CheckForNullItem(item);
-            this.RemovePowerFromItem(item);
-            this.Inventory.Items.Remove(item);
-        }
-
-        public void ReplaceItem(int position, IItem item)
-        {
-            IItem oldItem = this.Inventory.Items[position];
-            this.RemovePowerFromItem(oldItem);
-            this.Inventory.Items.Remove(oldItem);
-            this.AddPowerFromItem(item);
         }
 
         public override string ToString()
