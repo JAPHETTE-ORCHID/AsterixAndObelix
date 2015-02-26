@@ -6,11 +6,11 @@
     using Items.AttackItems;
     using Items.DefenseItems;
     using Items.UniqueItem;
-    using AsterixAndObelixConsoleRPG.Enumerations;
+    using Enumerations;
     using System;
     using System.Linq;
-    using AsterixAndObelixConsoleRPG.CustomExceptions;
-    using AsterixAndObelixConsoleRPG.Core;
+    using CustomExceptions;
+    using Core;
 
     public abstract class Hero : PlayerObject
     {
