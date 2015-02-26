@@ -43,7 +43,7 @@
                         Console.WriteLine("-------------------------------------------------------------------------------");
                         Console.WriteLine("2.For creating a hero you must type add hero.");
                         Console.WriteLine("-------------------------------------------------------------------------------");
-                        Console.WriteLine("3.After that you must choice which type of hero you whan to play.");
+                        Console.WriteLine("3.After that you must choice which type of hero you want to play.");
                         Console.WriteLine("-------------------------------------------------------------------------------");
                         Console.WriteLine("4.The two type of hero are: Asterix and Obelix.");
                         Console.WriteLine("-------------------------------------------------------------------------------");
