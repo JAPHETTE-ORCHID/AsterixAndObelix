@@ -94,7 +94,7 @@
                     }
 
                     break;
-                case EnemyType.Centurion:
+                case EnemyType.Tribune:
                     switch (itemNumber)
                     {
                         case 1:
@@ -121,7 +121,7 @@
                     }
 
                     break;
-                case EnemyType.Tribune:
+                case EnemyType.Centurion:
                     switch (itemNumber)
                     {
                         case 1:
