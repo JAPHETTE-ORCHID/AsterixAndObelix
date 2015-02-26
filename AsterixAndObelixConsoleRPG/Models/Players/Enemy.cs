@@ -208,6 +208,10 @@
             {
                 outputEnemiesLeft = enemiestLeft.ToString();
             }
+            else
+            {
+                outputEnemiesLeft = "1";
+            }
 
             return string.Format(
                 "{0}{1}{2}{3}{4}{5}",
