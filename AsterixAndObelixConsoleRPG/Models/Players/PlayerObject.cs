@@ -25,8 +25,14 @@
 
             set
             {
-                Validator.CheckForNegativeNumber(value);
-                this.attack = value;
+                if (value < 0)
+                {
+                    this.attack = 0;
+                }
+                else
+                {
+                    this.attack = value;
+                }
             }
         }
 
@@ -39,8 +45,14 @@
 
             set
             {
-                Validator.CheckForNegativeNumber(value);
-                this.defence = value;
+                if (value < 0)
+                {
+                    this.defence = 0;
+                }
+                else
+                {
+                    this.defence = value;
+                }
             }
         }
 
@@ -53,8 +65,14 @@
 
             set
             {
-                Validator.CheckForNegativeNumber(value);
-                this.health = value;
+                if (value < 0)
+                {
+                    this.health = 0;
+                }
+                else
+                {
+                    this.health = value;
+                }
             }
         }
 
