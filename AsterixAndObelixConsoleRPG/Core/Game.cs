@@ -57,7 +57,7 @@
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Critical error\n" + e.Message);
+                    Console.WriteLine(e.Message);
                 }
             }
         }

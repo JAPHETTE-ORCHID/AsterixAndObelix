@@ -150,7 +150,7 @@
             this.operation = Operation.ChoosingItem;
             this.ReadCommand();
         }
-
+        
         public void LoadAllItems()
         {
             this.items = new List<Item>()
