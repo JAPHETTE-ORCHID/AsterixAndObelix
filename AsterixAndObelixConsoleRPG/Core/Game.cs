@@ -33,7 +33,8 @@
             int tick = 0;
             while (IsGameRunning)
             {
-                
+                try
+                {
                     if (tick == 0)
                     {
                         Console.WriteLine(
@@ -58,6 +59,31 @@
 
                     this.engine.CommandHandler(Console.ReadLine());
                 }
+                catch (InputException e)
+                {
+                    Console.Error.WriteLine(e.Message);
+                }
+                catch (InvalidEnemyException e)
+                {
+                    Console.Error.WriteLine(e.Message);
+                }
+                catch (ApplicationException e)
+                {
+                    Console.Error.WriteLine(e.Message);
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    Console.Error.WriteLine(e.Message);
+                }
+                catch (ArgumentNullException e)
+                {
+                    Console.Error.WriteLine(e.Message);
+                }
+                catch (Exception e)
+                {
+                    Console.Error.WriteLine(e.Message);
+                }
+            }
         }
     }
 }
