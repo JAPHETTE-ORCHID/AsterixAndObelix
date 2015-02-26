@@ -76,8 +76,19 @@
                 }
 
                 Hero.Gold -= this.items[index].Price;
-                Hero.Inventory.AddItem(this.items[index]);
-                Console.WriteLine("Item was added to your inventory.");
+                
+                Potion potion = this.items[index] as Potion;
+                if (potion != null)
+                {
+                    potion.Heal();
+                    Console.WriteLine("+"+potion.Health+" health.");
+                }
+                else
+                {
+                    Hero.Inventory.AddItem(this.items[index]);
+                    Console.WriteLine("Item was added to your inventory.");
+                }
+                
             }
         }
 

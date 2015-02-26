@@ -78,6 +78,7 @@
     <Compile Include="Models\Players\Asterix.cs" />
     <Compile Include="Models\Players\Enemy.cs" />
     <Compile Include="Enumerations\EnemyType.cs" />
+    <Compile Include="Models\Players\EnemyFactory.cs" />
     <Compile Include="Models\Players\Hero.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Models\Players\Obelix.cs" />

@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
-
     using Contracts;
     using CustomExceptions;
     using Enumerations;
@@ -141,37 +140,37 @@
 
             if (BattleField.AttackedEnemies[EnemyType.Cadet] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(140, 80, 50, EnemyType.Cadet, 150));
+                BattleField.Enemies.Add(EnemyFactory.Enemy(EnemyType.Cadet));
                 isAllEnemiesAreKilled = false;
             }
 
             if (BattleField.AttackedEnemies[EnemyType.Manipularius] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(430, 400, 60, EnemyType.Manipularius, 350));
+                BattleField.Enemies.Add(EnemyFactory.Enemy(EnemyType.Manipularius));
                 isAllEnemiesAreKilled = false;
             }
 
             if (BattleField.AttackedEnemies[EnemyType.Tribune] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(800, 750, 75, EnemyType.Tribune, 650));
+                BattleField.Enemies.Add(EnemyFactory.Enemy(EnemyType.Tribune));
                 isAllEnemiesAreKilled = false;
             }
 
             if (BattleField.AttackedEnemies[EnemyType.Centurion] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(1400, 1300, 85, EnemyType.Centurion, 1000));
+                BattleField.Enemies.Add(EnemyFactory.Enemy(EnemyType.Centurion));
                 isAllEnemiesAreKilled = false;
             }
 
             if (BattleField.AttackedEnemies[EnemyType.Ordinatus] < 3)
             {
-                BattleField.Enemies.Add(new Enemy(2050, 2050, 100, EnemyType.Ordinatus, 1500));
+                BattleField.Enemies.Add(EnemyFactory.Enemy(EnemyType.Ordinatus));
                 isAllEnemiesAreKilled = false;
             }
 
             if (isAllEnemiesAreKilled)
             {
-                BattleField.Enemies.Add(new Enemy(3500, 3500, 1000, EnemyType.Caesar, 1000));
+                BattleField.Enemies.Add(EnemyFactory.Enemy(EnemyType.Caesar));
             }
         }
 
