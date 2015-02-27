@@ -144,9 +144,9 @@
                 Console.WriteLine(new string(Constants.LineSeparator, 79));
                 Console.WriteLine("You have create new hero Obelix.");
                 Console.WriteLine(new string(Constants.LineSeparator, 79));
-                Console.WriteLine("1.For continue playing please enter command \"help\" to show you all command.");
+                Console.WriteLine("1.To continue playing please enter command \"help\" to show you all command.");
                 Console.WriteLine(new string(Constants.LineSeparator, 79));
-                Console.WriteLine("2.For exit the game enter command \"exit\".");
+                Console.WriteLine("2.To exit the game enter command \"exit\".");
                 Console.WriteLine();
             }
             else if (type.Equals(asterix))
@@ -156,9 +156,9 @@
                 Console.WriteLine(new string(Constants.LineSeparator, 79));
                 Console.WriteLine("You have create new hero Asterix.");
                 Console.WriteLine(new string(Constants.LineSeparator, 79));
-                Console.WriteLine("1.For continue playing please enter command \"help\" to show you all command.");
+                Console.WriteLine("1.To continue playing please enter command \"help\" to show you all command.");
                 Console.WriteLine(new string(Constants.LineSeparator, 79));
-                Console.WriteLine("2.For exit the game enter command \"exit\".");
+                Console.WriteLine("2.To exit the game enter command \"exit\".");
                 Console.WriteLine();
             }
             else
