@@ -1,9 +1,7 @@
-﻿using AsterixAndObelixConsoleRPG.CustomExceptions;
-
-namespace AsterixAndObelixConsoleRPG.Models.Players
+﻿namespace AsterixAndObelixConsoleRPG.Models.Players
 {
-    using System;
-    using AsterixAndObelixConsoleRPG.Enumerations;
+    using CustomExceptions;
+    using Enumerations;
 
     public static class EnemyFactory
     {

@@ -1,12 +1,11 @@
-﻿using AsterixAndObelixConsoleRPG.CustomExceptions;
-
-namespace AsterixAndObelixConsoleRPG.Models.Fields
+﻿namespace AsterixAndObelixConsoleRPG.Models.Fields
 {
     using System;
     using System.Collections.Generic;    
     using System.Linq;
     using System.Text;
-    
+
+    using CustomExceptions;
     using Enumerations;
     using Interafaces;
     using Items;
