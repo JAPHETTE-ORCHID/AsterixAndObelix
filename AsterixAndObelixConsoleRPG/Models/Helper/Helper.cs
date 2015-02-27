@@ -18,13 +18,13 @@
 
         public static void DrawAllCommands()
         {
-            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine(new string(Constants.LineSeparator, 79));
             Console.WriteLine("All command: ");
-            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine(new string(Constants.LineSeparator, 79));
             foreach (string key in Helper.commands.Keys)
             {
                 Console.WriteLine(key + ": " + Helper.commands[key]);
-                Console.WriteLine("-------------------------------------------------------------------------------");
+                Console.WriteLine(new string(Constants.LineSeparator, 79));
             }
         }
     }

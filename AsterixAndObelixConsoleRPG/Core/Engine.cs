@@ -141,11 +141,11 @@
             {
                 Field.Hero = new Obelix();
                 Console.WriteLine();
-                Console.WriteLine("-------------------------------------------------------------------------------");
+                Console.WriteLine(new string(Constants.LineSeparator, 79));
                 Console.WriteLine("You have create new hero Obelix.");
-                Console.WriteLine("-------------------------------------------------------------------------------");
+                Console.WriteLine(new string(Constants.LineSeparator, 79));
                 Console.WriteLine("1.For continue playing please enter command \"help\" to show you all command.");
-                Console.WriteLine("-------------------------------------------------------------------------------");
+                Console.WriteLine(new string(Constants.LineSeparator, 79));
                 Console.WriteLine("2.For exit the game enter command \"exit\".");
                 Console.WriteLine();
             }
@@ -153,11 +153,11 @@
             {
                 Field.Hero = new Asterix();
                 Console.WriteLine();
-                Console.WriteLine("-------------------------------------------------------------------------------");
+                Console.WriteLine(new string(Constants.LineSeparator, 79));
                 Console.WriteLine("You have create new hero Asterix.");
-                Console.WriteLine("-------------------------------------------------------------------------------");
+                Console.WriteLine(new string(Constants.LineSeparator, 79));
                 Console.WriteLine("1.For continue playing please enter command \"help\" to show you all command.");
-                Console.WriteLine("-------------------------------------------------------------------------------");
+                Console.WriteLine(new string(Constants.LineSeparator, 79));
                 Console.WriteLine("2.For exit the game enter command \"exit\".");
                 Console.WriteLine();
             }

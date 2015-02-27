@@ -30,9 +30,9 @@
         {
             this.LoadAllItemTypes();
             Validator.CheckIfHeroExist(Field.Hero);
-            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine(new string(Constants.LineSeparator, 79));
             Console.WriteLine("Select the number of the type item you want to buy.");
-            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine(new string(Constants.LineSeparator, 79));
             for (int i = 0; i < this.itemTypes.Count; i++)
             {
                 Console.WriteLine("{0}. {1}", i + 1, this.itemTypes[i]);
@@ -105,9 +105,9 @@
                 return;
             }
 
-            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine(new string(Constants.LineSeparator, 79));
             Console.WriteLine("Enter Id number of item you want to buy.");
-            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine(new string(Constants.LineSeparator, 79));
             Console.WriteLine("{0} items: ", this.itemType);
             int itemCount = 0;
             const int CellWidth = 10;

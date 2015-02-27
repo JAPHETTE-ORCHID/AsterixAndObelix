@@ -4,6 +4,7 @@
     {
         public const int ExpPerLevel = 100;
         public const int PlayerDefaultHealth = 100;
+        public const char LineSeparator = '-';
 
         // Commands
         public const string HelpCommand = "help";
